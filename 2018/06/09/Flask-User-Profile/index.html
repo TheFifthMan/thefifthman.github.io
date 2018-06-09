@@ -18,17 +18,17 @@
   
   
   <title>Flask - User Profile | Hexo</title>
-  <meta name="description" content="概述 如何用flask实现用户个人中心和头像  个人中心 使用名字做为url的一部分来分辨个人中心。注意点（url_for, first_or_404） 12345678910111213141516@app.route(&amp;apos;/user/&amp;lt;username&amp;gt;&amp;apos;)def user():    user = User.query.filter_by(username=us">
+  <meta name="description" content="概述  如何用flask实现用户个人中心和头像   个人中心  使用名字做为url的一部分来分辨个人中心。注意点（url_for, first_or_404）  12345678910111213141516@app.route(&amp;apos;/user/&amp;lt;username&amp;gt;&amp;apos;)def user():    user = User.query.filter_by(userna">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flask - User Profile">
 <meta property="og:url" content="http://yoursite.com/2018/06/09/Flask-User-Profile/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概述 如何用flask实现用户个人中心和头像  个人中心 使用名字做为url的一部分来分辨个人中心。注意点（url_for, first_or_404） 12345678910111213141516@app.route(&amp;apos;/user/&amp;lt;username&amp;gt;&amp;apos;)def user():    user = User.query.filter_by(username=us">
+<meta property="og:description" content="概述  如何用flask实现用户个人中心和头像   个人中心  使用名字做为url的一部分来分辨个人中心。注意点（url_for, first_or_404）  12345678910111213141516@app.route(&amp;apos;/user/&amp;lt;username&amp;gt;&amp;apos;)def user():    user = User.query.filter_by(userna">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-06-09T13:21:40.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask - User Profile">
-<meta name="twitter:description" content="概述 如何用flask实现用户个人中心和头像  个人中心 使用名字做为url的一部分来分辨个人中心。注意点（url_for, first_or_404） 12345678910111213141516@app.route(&amp;apos;/user/&amp;lt;username&amp;gt;&amp;apos;)def user():    user = User.query.filter_by(username=us">
+<meta name="twitter:description" content="概述  如何用flask实现用户个人中心和头像   个人中心  使用名字做为url的一部分来分辨个人中心。注意点（url_for, first_or_404）  12345678910111213141516@app.route(&amp;apos;/user/&amp;lt;username&amp;gt;&amp;apos;)def user():    user = User.query.filter_by(userna">
   <!-- Canonical links -->
   <link rel="canonical" href="http://yoursite.com/2018/06/09/Flask-User-Profile/index.html">
   
@@ -376,32 +376,36 @@
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+        <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<blockquote>
 <p>如何用flask实现用户个人中心和头像</p>
 </blockquote>
-<h1 id="个人中心"><a href="#个人中心" class="headerlink" title="个人中心"></a>个人中心</h1><ol>
-<li><p>使用名字做为url的一部分来分辨个人中心。注意点（url_for, first_or_404）</p>
+<h1 id="个人中心"><a class="markdownIt-Anchor" href="#个人中心"></a> 个人中心</h1>
+<ol>
+<li>使用名字做为url的一部分来分辨个人中心。注意点（url_for, first_or_404）</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/user/&lt;username&gt;&apos;)</span><br><span class="line">def user():</span><br><span class="line">    user = User.query.filter_by(username=username).first_or_404()</span><br><span class="line">    posts = [</span><br><span class="line">        &#123;&apos;author&apos;:user,&apos;body&apos;:&apos;Test Post #1&apos;&#125;,</span><br><span class="line">        &#123;&apos;author&apos;:user,&apos;body&apos;:&apos;Test Post #2&apos;&#125;,</span><br><span class="line">    ]</span><br><span class="line">    return render_template(&apos;user.html&apos;,user=user,posts=posts)</span><br><span class="line">    </span><br><span class="line">#使用&lt;username&gt;做为url的变量来区别用户。还有其他几种方式</span><br><span class="line">&lt;string:username&gt;</span><br><span class="line">&lt;int:user_id&gt;</span><br><span class="line">&lt;any(a,b):page_name&gt; 不是 a 就是 b</span><br><span class="line"></span><br><span class="line">* 注意： 当使用url_for 引用这个地址的时候，要把参数加进去</span><br><span class="line">url_for(&apos;user&apos;,username=username)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如何生成头像，并展示和应用于每个用户</p>
+<ol start="2">
+<li>如何生成头像，并展示和应用于每个用户</li>
+</ol>
 <blockquote>
 <p>通过请求 <a href="https://www.gravatar.com/avatar/" target="_blank" rel="noopener">https://www.gravatar.com/avatar/</a><hash> 就可以请求到一张图片，其中这个hash可以是email或者任意值</hash></p>
 </blockquote>
-</li>
-</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class User(UserMixin,db.Model):</span><br><span class="line">    ...</span><br><span class="line">    def set_avatars(self,size):</span><br><span class="line">        url = &quot;https://www.gravatar.com/avatar/&#123;&#125;?d=identicon&amp;s=&#123;&#125;&quot;.format(md5(self.username.lower().encode(&apos;utf-8&apos;)).hexdigest(),size)</span><br><span class="line">        return url</span><br><span class="line">        </span><br><span class="line"># 在HTML模板里面展示</span><br><span class="line">&lt;img src=&apos;&#123;&#123; current_user.set_avatars(128)&#125;&#125;&apos;&gt;</span><br></pre></td></tr></table></figure>
 <ol start="3">
-<li><p>对于重复的部分，使用jinja2的子模板</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 对于发表文章这一部分，可能其他的地方也会用到，比如首页。因此我们将这部分独立出来</span><br><span class="line"></span><br><span class="line">_posts.html</span><br><span class="line"></span><br><span class="line"># 使用include，可以实现把子模板包含进来</span><br><span class="line">&#123;% include &quot;_posts.html&quot; %&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>增加两个值，一个最后登录的时间，一个是个性签名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class User(UserMixin,db.Model):</span><br><span class="line">    ...</span><br><span class="line">    # 增加两个字段</span><br><span class="line">    last_seen = db.Column(db.DateTime,default=datetime.now)</span><br><span class="line">    about_me = db.Column(db.String(140))</span><br><span class="line"></span><br><span class="line"># 如何使用last_seen这个参数？</span><br><span class="line">我们每次用户发送请求过来的时候，我们都去更新这个值</span><br><span class="line"></span><br><span class="line"># 在每个请求之前，需要执行的操作。</span><br><span class="line"># 为什么不用db.session.add ， 是因为  current_user 是flask-login从db里面query出来的。本来就已经在db.session里面了。 </span><br><span class="line">@app.before_request</span><br><span class="line">def before_request():</span><br><span class="line">    if current_user.is_authenticated:</span><br><span class="line">        current_user.last_seen = datetime.now()</span><br><span class="line">        db.session.commit()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>edit user profile</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/edit_profile&apos;,methods=[&apos;GET&apos;,&apos;POST&apos;])</span><br><span class="line">@login_required</span><br><span class="line">def edit_profile():</span><br><span class="line">    form = EditProfileForm()</span><br><span class="line">    if form.validate_on_submit():</span><br><span class="line">        current_user.username = form.username.data</span><br><span class="line">        current_user.about_me = form.about_me.data</span><br><span class="line">        db.session.commit()</span><br><span class="line">        flash(&apos;Your change have saved.&apos;)</span><br><span class="line">        return redirect(url_for(&apos;user&apos;,username=current_user.username))</span><br><span class="line">    </span><br><span class="line">    form.username.data = current_user.username</span><br><span class="line">    form.about_me.data = current_user.about_me</span><br><span class="line">    return render_template(&apos;profile.html&apos;,form=form)</span><br></pre></td></tr></table></figure>
-</li>
+<li>对于重复的部分，使用jinja2的子模板</li>
 </ol>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 对于发表文章这一部分，可能其他的地方也会用到，比如首页。因此我们将这部分独立出来</span><br><span class="line"></span><br><span class="line">_posts.html</span><br><span class="line"></span><br><span class="line"># 使用include，可以实现把子模板包含进来</span><br><span class="line">&#123;% include &quot;_posts.html&quot; %&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>增加两个值，一个最后登录的时间，一个是个性签名</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class User(UserMixin,db.Model):</span><br><span class="line">    ...</span><br><span class="line">    # 增加两个字段</span><br><span class="line">    last_seen = db.Column(db.DateTime,default=datetime.now)</span><br><span class="line">    about_me = db.Column(db.String(140))</span><br><span class="line"></span><br><span class="line"># 如何使用last_seen这个参数？</span><br><span class="line">我们每次用户发送请求过来的时候，我们都去更新这个值</span><br><span class="line"></span><br><span class="line"># 在每个请求之前，需要执行的操作。</span><br><span class="line"># 为什么不用db.session.add ， 是因为  current_user 是flask-login从db里面query出来的。本来就已经在db.session里面了。 </span><br><span class="line">@app.before_request</span><br><span class="line">def before_request():</span><br><span class="line">    if current_user.is_authenticated:</span><br><span class="line">        current_user.last_seen = datetime.now()</span><br><span class="line">        db.session.commit()</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>edit user profile</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/edit_profile&apos;,methods=[&apos;GET&apos;,&apos;POST&apos;])</span><br><span class="line">@login_required</span><br><span class="line">def edit_profile():</span><br><span class="line">    form = EditProfileForm()</span><br><span class="line">    if form.validate_on_submit():</span><br><span class="line">        current_user.username = form.username.data</span><br><span class="line">        current_user.about_me = form.about_me.data</span><br><span class="line">        db.session.commit()</span><br><span class="line">        flash(&apos;Your change have saved.&apos;)</span><br><span class="line">        return redirect(url_for(&apos;user&apos;,username=current_user.username))</span><br><span class="line">    </span><br><span class="line">    form.username.data = current_user.username</span><br><span class="line">    form.about_me.data = current_user.about_me</span><br><span class="line">    return render_template(&apos;profile.html&apos;,form=form)</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
+<blockquote>
 <p>主要遇到的问题，就是flask-migrate 的时候，如果你已经downgrade一次了，一定要把version下面的版本文件给删除，否则会出现版本不是最新的状况。</p>
 </blockquote>
 
