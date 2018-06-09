@@ -17,20 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Hello World | Hexo</title>
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <title>Flask - User login  | Hexo</title>
+  <meta name="description" content="概述 使用flask 实现登录的功能  用户登录 用户密码安全 123456789101112131415161718192021# 用户密码的安全我们使用werkzeug.sercurity来做,增加两个函数class User(db.Model):    ...        def set_password_hash(self,password):        return self.pa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/06/09/hello-world/index.html">
+<meta property="og:title" content="Flask - User login ">
+<meta property="og:url" content="http://yoursite.com/2018/06/09/Flask-User-login/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="概述 使用flask 实现登录的功能  用户登录 用户密码安全 123456789101112131415161718192021# 用户密码的安全我们使用werkzeug.sercurity来做,增加两个函数class User(db.Model):    ...        def set_password_hash(self,password):        return self.pa">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-09T13:15:20.126Z">
+<meta property="og:updated_time" content="2018-06-09T13:21:06.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Flask - User login ">
+<meta name="twitter:description" content="概述 使用flask 实现登录的功能  用户登录 用户密码安全 123456789101112131415161718192021# 用户密码的安全我们使用werkzeug.sercurity来做,增加两个函数class User(db.Model):    ...        def set_password_hash(self,password):        return self.pa">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2018/06/09/hello-world/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/06/09/Flask-User-login/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -341,14 +341,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-hello-world" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Flask-User-login" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Flask - User login 
     </h1>
   
 
@@ -356,35 +356,55 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/06/09/hello-world/" class="article-date">
-	  <time datetime="2018-06-09T06:58:25.169Z" itemprop="datePublished">2018-06-09</time>
+	<a href="/2018/06/09/Flask-User-login/" class="article-date">
+	  <time datetime="2018-06-09T13:20:49.000Z" itemprop="datePublished">2018-06-09</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/test/">test</a>
+    <a class="article-category-link" href="/categories/python/">python</a>►<a class="article-category-link" href="/categories/python/flask/">flask</a>
   </span>
 
         
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/09/hello-world/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/09/Flask-User-login/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>使用flask 实现登录的功能</p>
+</blockquote>
+<h1 id="用户登录"><a href="#用户登录" class="headerlink" title="用户登录"></a>用户登录</h1><ol>
+<li><p>用户密码安全</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 用户密码的安全我们使用werkzeug.sercurity来做,增加两个函数</span><br><span class="line">class User(db.Model):</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    def set_password_hash(self,password):</span><br><span class="line">        return self.password_hash = generate_password_hash(password)</span><br><span class="line">    </span><br><span class="line">    def check_password_hash(self,password):</span><br><span class="line">        return check_password_hash(self.password_hash,password)</span><br><span class="line">        </span><br><span class="line"># 用户的密码安全存储</span><br><span class="line">a. 用户密码原始值 + 随机字符</span><br><span class="line">b. hash256</span><br><span class="line">c. hash值 + 随机字符</span><br><span class="line">d. 存入数据库</span><br><span class="line"></span><br><span class="line"># 校验用户密码安全</span><br><span class="line">a. 取出hash值,截取随机字符</span><br><span class="line">b. 接受用户输入的密码 + 截取的随机字符</span><br><span class="line">c. 使用相同的hash函数进行hash</span><br><span class="line">d. 将得到的hash值与数据库的hash值进行比较</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装flask-login</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-login</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>flask-login 介绍</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># flask-login 是flask的插件，用于登录用户，管理用户session，登出用户等等。</span><br><span class="line"></span><br><span class="line"># 一共有四种属性</span><br><span class="line">is_authenticated： 如果用户已经认证了</span><br><span class="line">is_active： 如果用户是已经激活的状态，也可以认为是认证了</span><br><span class="line">is_anonymous： 未登录的状态</span><br><span class="line">get_id()：将用户id做为一个字符返回</span><br><span class="line"></span><br><span class="line"># 使用步骤</span><br><span class="line">a. 在app/__init__.py 中初始化flask-login 并且指定哪个view 函数来做为登录处理函数</span><br><span class="line"></span><br><span class="line">##### 引入登录管理函数</span><br><span class="line">login_manager = LoginManager(app)</span><br><span class="line">login_manager.session_protection = &quot;strong&quot;</span><br><span class="line">##### 如果登录函数是在蓝图中的话，可以使用例如 main.login 这样的方式</span><br><span class="line">login_manager.login_view = &apos;login&apos;</span><br><span class="line"></span><br><span class="line">b. 在 models.py 里面指定哪个为用户的数据库表对象，然后通过user_id 来管理和追踪用户的session</span><br><span class="line"></span><br><span class="line">from flask_login import UserMixin</span><br><span class="line">class User(UserMixin,db.Model):</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">c. 通过user id来管理会话</span><br><span class="line">@login_manager.user_loader</span><br><span class="line">def load_user(id):</span><br><span class="line">    #### 经过flask-login处理 id 已经是字符了，所以要加int，类型转换</span><br><span class="line">    return User.query.get(int(id))</span><br><span class="line"></span><br><span class="line">d. 通过login_user 来登录用户</span><br><span class="line">e. 通过logout_user 来注销用户</span><br><span class="line">f. 通过 @login_required 包装函数来保护登录的链接</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用户登录逻辑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 结合上面陈述，代码如下</span><br><span class="line">@app.route(&apos;/login&apos;,methods=[&apos;GET&apos;,&quot;POST&quot;])</span><br><span class="line">def login():</span><br><span class="line">    if current_user.is_authenticated:</span><br><span class="line">        return redirect(url_for(&apos;index&apos;))</span><br><span class="line"></span><br><span class="line">    form = LoginForm()</span><br><span class="line">    # 处理表单验证的逻辑</span><br><span class="line">    if form.validate_on_submit():</span><br><span class="line">        # 存储提示信息，可以使用get_flashed_messages 来获取</span><br><span class="line">        # flash(&apos;Login Request from user: &#123;&#125; and remember me: &#123;&#125;&apos;.format(form.username.data,form.remember_me.data))</span><br><span class="line">        user = User.query.filter_by(username=form.username.data).first()</span><br><span class="line">        if user is None and user.check_password(form.password.data):</span><br><span class="line">            flash(&quot;Your password or username was wrong.&quot;)</span><br><span class="line">            return redirect(url_for(&apos;login&apos;))</span><br><span class="line">        </span><br><span class="line">        login_user(user,form.remember_me.data)</span><br><span class="line">        return redirect(url_for(&apos;index&apos;))</span><br><span class="line">    </span><br><span class="line">    return render_template(&apos;login.html&apos;,form=form,title=&apos;login&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何显示登录错误的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">可以再script里面显示</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    &#123;% with messages = get_flashed_messages() %&#125;</span><br><span class="line">        &#123;% if messages %&#125;</span><br><span class="line">           &#123;% for message in messages %&#125;</span><br><span class="line">               alert(&quot;&#123;&#123; message &#125;&#125;&quot;)</span><br><span class="line">            &#123;% endfor %&#125;</span><br><span class="line">        &#123;% endif %&#125;        </span><br><span class="line">    &#123;% endwith %&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问受保护的链接重定向网址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 在flask中，如果你访问受保护的链接的时候，会重定向到登录的网址，后面加上?next_page=xxxx 从哪里来的</span><br><span class="line"></span><br><span class="line">例如：</span><br><span class="line">http://127.0.0.1:5000/login?next=%2Fprofile </span><br><span class="line"></span><br><span class="line">返回默认的flash信息：</span><br><span class="line">&quot;please login to access this page&quot;</span><br><span class="line"></span><br><span class="line"># 不是很好，待改正</span><br><span class="line">next_page = request.args.get(&apos;next&apos;)</span><br><span class="line">if not next_page or url_parse(next_page).netloc != &apos;&apos;:</span><br><span class="line">    next = url_for(index)</span><br><span class="line">return redirect(next_page)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注册</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/register&apos;,methods=[&apos;GET&apos;,&apos;POST&apos;])</span><br><span class="line">def register():</span><br><span class="line">    form = RegisterForm()</span><br><span class="line">    if form.validate_on_submit():</span><br><span class="line">        u = User(username=form.username.data,email=form.email.data)</span><br><span class="line">        u.set_password_hash(form.password.data)</span><br><span class="line">        db.session.add(u)</span><br><span class="line">        db.session.commit()</span><br><span class="line">        flash(&apos;Congratulations, You have registered the user! &apos;)</span><br><span class="line">        return redirect(url_for(&apos;login&apos;))</span><br><span class="line">    return render_template(&apos;register.html&apos;,form=form)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>注意的点<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class RegisterForm(FlaskForm):</span><br><span class="line">    username = StringField(&apos;Username&apos;,validators=[DataRequired()])</span><br><span class="line">    password = PasswordField(&apos;Password&apos;,validators=[DataRequired()])</span><br><span class="line">    password2 = PasswordField(&apos;Re-enter Password&apos;,validators=[DataRequired(),EqualTo(&apos;password&apos;)])</span><br><span class="line">    email = StringField(&apos;Email&apos;,validators=[DataRequired(),Email()])</span><br><span class="line">    submit = SubmitField(&apos;Submit&apos;)</span><br><span class="line"></span><br><span class="line">    # 在这里增加validate_&lt;field&gt; 函数，等到校验的时候，也会一并执行</span><br><span class="line">    def validate_username(self,username):</span><br><span class="line">        user = User.query.filter_by(username=username.data).first()</span><br><span class="line">        if user is not None:</span><br><span class="line">            raise ValidationError(&apos;The user has exists.&apos;)</span><br><span class="line"></span><br><span class="line">    def validate_email(self,email):</span><br><span class="line">        user = User.query.filter_by(email=email.data).first()</span><br><span class="line">        if user is not None:</span><br><span class="line">            raise ValidationError(&apos;The email has exists&apos;)</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -410,9 +430,13 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2018/06/09/Flask - Hello World/" title="Flask - Hello World"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+      <a href="/2018/06/09/Flask-User-Profile/" title="Flask - User Profile"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
     </li>
     
+    
+    <li class="next">
+      <a href="/2018/06/09/Flask-Database/" title="Flask - Database"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
     
     
   </ul>
