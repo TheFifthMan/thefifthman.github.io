@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-09T13:22:37.485Z</updated>
+  <updated>2018-06-13T00:32:54.984Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python模块-subprocess</title>
+    <link href="http://yoursite.com/2018/06/13/python%E6%A8%A1%E5%9D%97-subprocess/"/>
+    <id>http://yoursite.com/2018/06/13/python模块-subprocess/</id>
+    <published>2018-06-13T00:31:54.000Z</published>
+    <updated>2018-06-13T00:32:54.984Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><blockquote><p>subprocess 允许你启动一个新的进程，连接到这个进程的输入，输出，错误的管道中，取得返回的值。用于执行一些系统的命令</p></blockquote><h1 id="代码结构及其实例"><a class="markdownIt-Anchor" href="#代码结构及其实例"></a> 代码结构及其实例</h1><h2 id="run"><a class="markdownIt-Anchor" href="#run"></a> run</h2><blockquote><p>官方推荐其使用 run  方法。这是一个封装好的subprocess方法, 返回一个CompleteProcess 实例</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subprocess.run(args, *, stdin=None, input=None, stdout=None, stderr=None, shell=False, cwd=None, timeout=None, check=False, encoding=None, errors=None)</span><br></pre></td></tr></table></figure><h3 id="代码1"><a class="markdownIt-Anchor" href="#代码1"></a> 代码1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line"># 运行后不会有输出</span><br><span class="line">a = subprocess.run(&apos;ls -al&apos;,shell=True,stdout=subprocess.PIPE)</span><br><span class="line"># 输出</span><br><span class="line">a.stdout</span><br></pre></td></tr></table></figure><h3 id="代码2"><a class="markdownIt-Anchor" href="#代码2"></a> 代码2：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">b = subprocess.run([&apos;ls&apos;,&apos;-al&apos;],stdout=subprocess.PIPE)</span><br><span class="line">b.stdout</span><br><span class="line">CompleteProcess对象有以下参数：</span><br><span class="line">args: 用于执行的命令，比如 ls -al, [&apos;ls&apos;,&apos;-al&apos;]</span><br><span class="line">returnCode: 退出进程后，返回值</span><br><span class="line">stdout: 命令输出</span><br><span class="line">stderr: 命令错误时输出</span><br></pre></td></tr></table></figure><h1 id="subprocess构造函数"><a class="markdownIt-Anchor" href="#subprocess构造函数"></a> subprocess构造函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class subprocess.Popen(args, bufsize=-1, executable=None, stdin=None, stdout=None, stderr=None, preexec_fn=None, close_fds=True, shell=False, cwd=None, env=None, universal_newlines=False, startupinfo=None, creationflags=0, restore_signals=True, start_new_session=False, pass_fds=(), *, encoding=None, errors=None)</span><br></pre></td></tr></table></figure><h2 id="常见代码1"><a class="markdownIt-Anchor" href="#常见代码1"></a> 常见代码1：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test = subprocess.Popen([&apos;ls&apos;,&apos;-al&apos;],stdout=subprocess.PIPE)</span><br><span class="line"># test.stdout 返回一个&lt;_io.BufferedReader name=3&gt;</span><br><span class="line">test.stdiyt.read()   # 读取输出</span><br><span class="line"></span><br><span class="line">注： 必须要有 stdout=subprocess.PIPE 否则不会有输出。</span><br></pre></td></tr></table></figure><h1 id="与命令交互"><a class="markdownIt-Anchor" href="#与命令交互"></a> 与命令交互：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Popen.communicate(input=None,timeout=None) # (stdout_data,stderr_data)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;subprocess 允许你启动一个新的进程，连接到这个进程的输入，输出，错误的管道中，取得返回的值。用于执行一些系统
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="modules" scheme="http://yoursite.com/categories/python/modules/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python模块 - re</title>
+    <link href="http://yoursite.com/2018/06/13/python%E6%A8%A1%E5%9D%97-re/"/>
+    <id>http://yoursite.com/2018/06/13/python模块-re/</id>
+    <published>2018-06-13T00:30:57.000Z</published>
+    <updated>2018-06-13T00:32:35.724Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><blockquote><p>正则表达式是处理字符串的强大的工具，检索字符串，替换，匹配验证等等。</p></blockquote><h1 id="常用的匹配规则"><a class="markdownIt-Anchor" href="#常用的匹配规则"></a> 常用的匹配规则</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\w 匹配字母，数字和下划线</span><br><span class="line">\d 匹配数字</span><br><span class="line">\s 匹配任何空白字符</span><br><span class="line">\z 匹配字符串结尾，如果有换行符，一起匹配</span><br><span class="line">\n 匹配换行</span><br><span class="line">\t 匹配制表符</span><br><span class="line">^  匹配开头</span><br><span class="line">$  匹配结尾</span><br><span class="line">.  匹配任何字符，除了换行符，除非指定re.DOTALL</span><br></pre></td></tr></table></figure><h1 id="python的re模块"><a class="markdownIt-Anchor" href="#python的re模块"></a> python的re模块</h1><blockquote><p>注： .*? 遇到换行符就不管用了，除非加上re.S</p></blockquote><h2 id="match"><a class="markdownIt-Anchor" href="#match"></a> match</h2><blockquote><p>match 尝试从字符串开头开始匹配正则表达式，如果成功就返回，如果没有就返回一二None</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import re</span><br><span class="line">&gt;&gt;&gt; a = &quot;Hello World&quot;</span><br><span class="line">&gt;&gt;&gt; b = re.match(&apos;\w+\s&apos;,a,re.S)</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">&lt;_sre.SRE_Match object; span=(0, 6), match=&apos;Hello &apos;&gt;</span><br><span class="line">&gt;&gt;&gt; b.span()</span><br><span class="line">(0, 6)</span><br><span class="line">&gt;&gt;&gt; b.group()</span><br><span class="line">&apos;Hello &apos;</span><br><span class="line">&gt;&gt;&gt; b.group(0)</span><br><span class="line">&apos;Hello &apos;</span><br><span class="line"></span><br><span class="line">None 是false</span><br></pre></td></tr></table></figure><h2 id="search"><a class="markdownIt-Anchor" href="#search"></a> search</h2><blockquote><p>扫描整个字符串，如果符合就返回，否则返回none</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import re</span><br><span class="line">&gt;&gt;&gt; a = &quot;Hello World&quot;</span><br><span class="line">&gt;&gt;&gt; c = re.search(&apos;\s\w+&apos;,a)</span><br><span class="line">&gt;&gt;&gt; c</span><br><span class="line">&lt;_sre.SRE_Match object; span=(5, 11), match=&apos; World&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; c.group()</span><br><span class="line">&apos; World&apos;</span><br></pre></td></tr></table></figure><h1 id="findall"><a class="markdownIt-Anchor" href="#findall"></a> findall</h1><blockquote><p>当需要提取全部匹配的内容，需要使用findall，使用search只能取回第一个。如果在匹配的时候用括号指定了，那么返回中的列表就会包含元祖</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d = re.findall(r&apos;He(l)l(o)&apos;,a)</span><br><span class="line">&gt;&gt;&gt; d</span><br><span class="line">[(&apos;l&apos;, &apos;o&apos;)]</span><br></pre></td></tr></table></figure><h1 id="sub"><a class="markdownIt-Anchor" href="#sub"></a> sub</h1><blockquote><p>替换文本,返回替换好的字符串</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re.sub(&apos;\s\w+&apos;,&apos;johnw&apos;,a)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;正则表达式是处理字符串的强大的工具，检索字符串，替换，匹配验证等等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="modules" scheme="http://yoursite.com/categories/python/modules/"/>
+    
+      <category term="爬虫" scheme="http://yoursite.com/categories/python/modules/%E7%88%AC%E8%99%AB/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Linux - Nginx</title>

@@ -4,6 +4,51 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/06/13/python%E6%A8%A1%E5%9D%97-subprocess/</loc>
+    <lastmod>2018-06-13T00:32:54.984Z</lastmod>
+    <data>
+        <display>
+        <title>python模块-subprocess</title>
+        <pubTime>2018-06-13T00:31:54.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+             
+              <breadCrumb title="modules" url="http://yoursite.com/categories/python/modules/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/13/python%E6%A8%A1%E5%9D%97-re/</loc>
+    <lastmod>2018-06-13T00:32:35.724Z</lastmod>
+    <data>
+        <display>
+        <title>python模块 - re</title>
+        <pubTime>2018-06-13T00:30:57.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+             
+              <breadCrumb title="modules" url="http://yoursite.com/categories/python/modules/"/>
+          
+             
+              <breadCrumb title="爬虫" url="http://yoursite.com/categories/python/modules/%E7%88%AC%E8%99%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/06/09/Linux-Nginx/</loc>
     <lastmod>2018-06-09T13:22:37.485Z</lastmod>
     <data>
