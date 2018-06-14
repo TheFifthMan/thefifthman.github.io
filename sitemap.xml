@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/06/14/XSS%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/</loc>
+    
+    <lastmod>2018-06-14T12:20:42.583Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/06/13/python%E6%A8%A1%E5%9D%97-subprocess/</loc>
     
     <lastmod>2018-06-13T00:32:54.984Z</lastmod>
