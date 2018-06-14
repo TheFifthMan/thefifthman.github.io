@@ -4,8 +4,33 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/06/14/CSRF%E6%94%BB%E5%87%BB%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2018-06-14T15:31:03.050Z</lastmod>
+    <data>
+        <display>
+        <title>CSRF攻击学习</title>
+        <pubTime>2018-06-14T15:26:27.000Z</pubTime>
+        
+        <tag>security</tag>
+         
+        <tag>CSRF</tag>
+         
+         
+           
+             
+              <breadCrumb title="scurity" url="http://yoursite.com/categories/scurity/"/>
+          
+             
+              <breadCrumb title="CSRF" url="http://yoursite.com/categories/scurity/CSRF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/06/09/Linux-Nginx/</loc>
-    <lastmod>2018-06-14T15:23:05.745Z</lastmod>
+    <lastmod>2018-06-14T15:27:09.267Z</lastmod>
     <data>
         <display>
         <title>Linux - Nginx</title>
@@ -25,13 +50,44 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/06/14/XSS%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2018-06-14T15:27:07.816Z</lastmod>
+    <data>
+        <display>
+        <title>XSS平台的搭建</title>
+        <pubTime>2018-06-14T12:20:09.000Z</pubTime>
+        
+        <tag>security</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>xss</tag>
+         
+         
+           
+             
+              <breadCrumb title="security" url="http://yoursite.com/categories/security/"/>
+          
+             
+              <breadCrumb title="xss" url="http://yoursite.com/categories/security/xss/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/06/14/xss%E6%94%BB%E5%87%BB%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2018-06-14T15:22:00.632Z</lastmod>
+    <lastmod>2018-06-14T15:27:06.713Z</lastmod>
     <data>
         <display>
         <title>xss攻击学习</title>
         <pubTime>2018-06-14T15:12:45.000Z</pubTime>
         
+        <tag>security</tag>
+         
+        <tag>xss</tag>
+         
          
            
              
@@ -60,30 +116,6 @@
           
              
               <breadCrumb title="modules" url="http://yoursite.com/categories/python/modules/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/14/XSS%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2018-06-14T12:20:42.583Z</lastmod>
-    <data>
-        <display>
-        <title>XSS平台的搭建</title>
-        <pubTime>2018-06-14T12:20:09.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="security" url="http://yoursite.com/categories/security/"/>
-          
-             
-              <breadCrumb title="Linux" url="http://yoursite.com/categories/security/Linux/"/>
-          
-             
-              <breadCrumb title="xss" url="http://yoursite.com/categories/security/Linux/xss/"/>
           
         </display>
     </data>
