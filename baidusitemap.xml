@@ -4,29 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/06/14/xss%E6%94%BB%E5%87%BB%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2018-06-14T15:19:25.447Z</lastmod>
-    <data>
-        <display>
-        <title>xss攻击学习</title>
-        <pubTime>2018-06-14T15:12:45.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="security" url="http://yoursite.com/categories/security/"/>
-          
-             
-              <breadCrumb title="xss" url="http://yoursite.com/categories/security/xss/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/06/09/Linux-Nginx/</loc>
-    <lastmod>2018-06-14T15:08:07.923Z</lastmod>
+    <lastmod>2018-06-14T15:23:05.745Z</lastmod>
     <data>
         <display>
         <title>Linux - Nginx</title>
@@ -39,6 +18,27 @@
           
              
               <breadCrumb title="Nginx" url="http://yoursite.com/categories/Linux/Nginx/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/14/xss%E6%94%BB%E5%87%BB%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2018-06-14T15:22:00.632Z</lastmod>
+    <data>
+        <display>
+        <title>xss攻击学习</title>
+        <pubTime>2018-06-14T15:12:45.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="security" url="http://yoursite.com/categories/security/"/>
+          
+             
+              <breadCrumb title="xss" url="http://yoursite.com/categories/security/xss/"/>
           
         </display>
     </data>
