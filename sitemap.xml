@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/06/14/xss%E6%94%BB%E5%87%BB%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2018-06-14T15:14:51.874Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/06/09/Linux-Nginx/</loc>
+    
+    <lastmod>2018-06-14T15:08:07.923Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/06/14/python%E6%A8%A1%E5%9D%97-os-path/</loc>
+    
+    <lastmod>2018-06-14T14:03:26.984Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/06/14/XSS%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/</loc>
     
     <lastmod>2018-06-14T12:20:42.583Z</lastmod>
@@ -19,13 +40,6 @@
     <loc>http://yoursite.com/2018/06/13/python%E6%A8%A1%E5%9D%97-re/</loc>
     
     <lastmod>2018-06-13T00:32:35.724Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/06/09/Linux-Nginx/</loc>
-    
-    <lastmod>2018-06-09T13:22:37.485Z</lastmod>
     
   </url>
   

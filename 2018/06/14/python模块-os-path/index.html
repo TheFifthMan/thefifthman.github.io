@@ -17,20 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>python模块-subprocess | Hexo</title>
-  <meta name="description" content="概述  subprocess 允许你启动一个新的进程，连接到这个进程的输入，输出，错误的管道中，取得返回的值。用于执行一些系统的命令   代码结构及其实例  run  官方推荐其使用 run  方法。这是一个封装好的subprocess方法, 返回一个CompleteProcess 实例  1subprocess.run(args, *, stdin=None, input=None, stdo">
+  <title>python模块-os.path | Hexo</title>
+  <meta name="description" content="概述  涉及到文件和文件夹的操作的一般有三个模块   os os.path shutil   os.path  os.path 模块，顾名思义就是针对于系统的文件路径啊，判断是否为文件啊等等行为做出处理的模块。   os.path.abspath(path)   返回当前绝对路径+path参数的字符  123456&amp;gt;&amp;gt;&amp;gt; os.path.abspath(&amp;apos;.&amp;apos">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python模块-subprocess">
-<meta property="og:url" content="http://yoursite.com/2018/06/13/python模块-subprocess/index.html">
+<meta property="og:title" content="python模块-os.path">
+<meta property="og:url" content="http://yoursite.com/2018/06/14/python模块-os-path/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概述  subprocess 允许你启动一个新的进程，连接到这个进程的输入，输出，错误的管道中，取得返回的值。用于执行一些系统的命令   代码结构及其实例  run  官方推荐其使用 run  方法。这是一个封装好的subprocess方法, 返回一个CompleteProcess 实例  1subprocess.run(args, *, stdin=None, input=None, stdo">
+<meta property="og:description" content="概述  涉及到文件和文件夹的操作的一般有三个模块   os os.path shutil   os.path  os.path 模块，顾名思义就是针对于系统的文件路径啊，判断是否为文件啊等等行为做出处理的模块。   os.path.abspath(path)   返回当前绝对路径+path参数的字符  123456&amp;gt;&amp;gt;&amp;gt; os.path.abspath(&amp;apos;.&amp;apos">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-13T00:32:54.984Z">
+<meta property="og:updated_time" content="2018-06-14T14:03:26.984Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python模块-subprocess">
-<meta name="twitter:description" content="概述  subprocess 允许你启动一个新的进程，连接到这个进程的输入，输出，错误的管道中，取得返回的值。用于执行一些系统的命令   代码结构及其实例  run  官方推荐其使用 run  方法。这是一个封装好的subprocess方法, 返回一个CompleteProcess 实例  1subprocess.run(args, *, stdin=None, input=None, stdo">
+<meta name="twitter:title" content="python模块-os.path">
+<meta name="twitter:description" content="概述  涉及到文件和文件夹的操作的一般有三个模块   os os.path shutil   os.path  os.path 模块，顾名思义就是针对于系统的文件路径啊，判断是否为文件啊等等行为做出处理的模块。   os.path.abspath(path)   返回当前绝对路径+path参数的字符  123456&amp;gt;&amp;gt;&amp;gt; os.path.abspath(&amp;apos;.&amp;apos">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2018/06/13/python模块-subprocess/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/06/14/python模块-os-path/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -341,14 +341,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-python模块-subprocess" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-python模块-os-path" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      python模块-subprocess
+      python模块-os.path
     </h1>
   
 
@@ -356,8 +356,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/06/13/python模块-subprocess/" class="article-date">
-	  <time datetime="2018-06-13T00:31:54.000Z" itemprop="datePublished">2018-06-13</time>
+	<a href="/2018/06/14/python模块-os-path/" class="article-date">
+	  <time datetime="2018-06-14T14:02:49.000Z" itemprop="datePublished">2018-06-14</time>
 	</a>
 </span>
         
@@ -370,7 +370,7 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/13/python模块-subprocess/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/14/python模块-os-path/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
@@ -378,24 +378,160 @@
       
         <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
 <blockquote>
-<p>subprocess 允许你启动一个新的进程，连接到这个进程的输入，输出，错误的管道中，取得返回的值。用于执行一些系统的命令</p>
+<p>涉及到文件和文件夹的操作的一般有三个模块</p>
 </blockquote>
-<h1 id="代码结构及其实例"><a class="markdownIt-Anchor" href="#代码结构及其实例"></a> 代码结构及其实例</h1>
-<h2 id="run"><a class="markdownIt-Anchor" href="#run"></a> run</h2>
+<ol>
+<li>os</li>
+<li>os.path</li>
+<li>shutil</li>
+</ol>
+<h1 id="ospath"><a class="markdownIt-Anchor" href="#ospath"></a> os.path</h1>
 <blockquote>
-<p>官方推荐其使用 run  方法。这是一个封装好的subprocess方法, 返回一个CompleteProcess 实例</p>
+<p>os.path 模块，顾名思义就是针对于系统的文件路径啊，判断是否为文件啊等等行为做出处理的模块。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subprocess.run(args, *, stdin=None, input=None, stdout=None, stderr=None, shell=False, cwd=None, timeout=None, check=False, encoding=None, errors=None)</span><br></pre></td></tr></table></figure>
-<h3 id="代码1"><a class="markdownIt-Anchor" href="#代码1"></a> 代码1：</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line"># 运行后不会有输出</span><br><span class="line">a = subprocess.run(&apos;ls -al&apos;,shell=True,stdout=subprocess.PIPE)</span><br><span class="line"># 输出</span><br><span class="line">a.stdout</span><br></pre></td></tr></table></figure>
-<h3 id="代码2"><a class="markdownIt-Anchor" href="#代码2"></a> 代码2：</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">b = subprocess.run([&apos;ls&apos;,&apos;-al&apos;],stdout=subprocess.PIPE)</span><br><span class="line">b.stdout</span><br><span class="line">CompleteProcess对象有以下参数：</span><br><span class="line">args: 用于执行的命令，比如 ls -al, [&apos;ls&apos;,&apos;-al&apos;]</span><br><span class="line">returnCode: 退出进程后，返回值</span><br><span class="line">stdout: 命令输出</span><br><span class="line">stderr: 命令错误时输出</span><br></pre></td></tr></table></figure>
-<h1 id="subprocess构造函数"><a class="markdownIt-Anchor" href="#subprocess构造函数"></a> subprocess构造函数</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class subprocess.Popen(args, bufsize=-1, executable=None, stdin=None, stdout=None, stderr=None, preexec_fn=None, close_fds=True, shell=False, cwd=None, env=None, universal_newlines=False, startupinfo=None, creationflags=0, restore_signals=True, start_new_session=False, pass_fds=(), *, encoding=None, errors=None)</span><br></pre></td></tr></table></figure>
-<h2 id="常见代码1"><a class="markdownIt-Anchor" href="#常见代码1"></a> 常见代码1：</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test = subprocess.Popen([&apos;ls&apos;,&apos;-al&apos;],stdout=subprocess.PIPE)</span><br><span class="line"># test.stdout 返回一个&lt;_io.BufferedReader name=3&gt;</span><br><span class="line">test.stdiyt.read()   # 读取输出</span><br><span class="line"></span><br><span class="line">注： 必须要有 stdout=subprocess.PIPE 否则不会有输出。</span><br></pre></td></tr></table></figure>
-<h1 id="与命令交互"><a class="markdownIt-Anchor" href="#与命令交互"></a> 与命令交互：</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Popen.communicate(input=None,timeout=None) # (stdout_data,stderr_data)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>os.path.abspath(path)</li>
+</ol>
+<blockquote>
+<p>返回<mark>当前绝对路径+path参数</mark>的字符</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.abspath(&apos;.&apos;)</span><br><span class="line">&apos;/Users/xxxx&apos;</span><br><span class="line">&gt;&gt;&gt; os.path.abspath(&apos;~&apos;)</span><br><span class="line">&apos;/Users/xxxx/~&apos;</span><br><span class="line">&gt;&gt;&gt; os.path.abspath(&apos;logs&apos;)</span><br><span class="line">&apos;/Users/xxxx/logs&apos;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>os.path.basename(path)</li>
+</ol>
+<blockquote>
+<p>返回路径下面的文件名的字符串。(这个文件路径可能不存在)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.basename(&apos;/user/johnw/test.txt&apos;)</span><br><span class="line"># &apos;test.txt&apos;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>os.path.commonpath([path1,path2])</li>
+</ol>
+<blockquote>
+<p>接受一个序列，得到两个字符串中相同的文件路径（一定要是路径字符串）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.commonpath([&apos;/user/johnw/log.txt&apos;,&apos;/user/johnw/logs/test.txt&apos;])</span><br><span class="line">&apos;/user/johnw&apos;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>os.path.commonprefix([path1,path2])</li>
+</ol>
+<blockquote>
+<p>顾名思义，接受路径字符的序列，比较前缀</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.commonprefix([&apos;/usr/lib&apos;, &apos;/usr/local/lib&apos;])</span><br><span class="line">&apos;/usr/l&apos;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; os.path.commonpath([&apos;/usr/lib&apos;, &apos;/usr/local/lib&apos;])</span><br><span class="line">&apos;/usr&apos;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>os.path.dirname(path)</li>
+</ol>
+<blockquote>
+<p>返回路径字符串中的关于文件夹的路径</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.dirname(&apos;/usr/local/src/&apos;)</span><br><span class="line">&apos;/usr/local/src&apos;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; os.path.dirname(&apos;/usr/local/src/test.txt&apos;)</span><br><span class="line">&apos;/usr/local/src&apos;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>os.path.exists(path)</li>
+</ol>
+<blockquote>
+<p>判断文件路径是否真实存在</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.exists(&apos;/usr/local/src&apos;)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; os.path.exists(&apos;/usr/local&apos;)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; os.path.exists(&apos;/usr/local/sbin&apos;)</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>os.path.expanduser(path)</li>
+</ol>
+<blockquote>
+<p>把path中包含的&quot;<sub>&quot;和&quot;</sub>user&quot;转换成用户目录</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.expanduser(&apos;~&apos;)</span><br><span class="line">&apos;/Users/xxx&apos;</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>os.path.expandvars(path)</li>
+</ol>
+<blockquote>
+<p>根据环境变量，替换路径存在的$name 和 ${name} 的值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.expandvars(&apos;$PYENV_ROOT&apos;)</span><br><span class="line">&apos;/Users/xxx/.pyenv&apos;</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>os.path.getatime(path)</li>
+<li>os.path.getmtime(path)</li>
+<li>os.path.getctime(path)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">文件的 Access time，atime 是在读取文件或者执行文件时更改的任何对inode的访问都会使此处改变。</span><br><span class="line"></span><br><span class="line">文件的Modified time，mtime 是在写入文件时随文件内容的更改而更改的。</span><br><span class="line"></span><br><span class="line">文件的 Change time，ctime 是在写入文件、更改所有者、权限或链接设置时随 Inode 的内容更改而更改的。只要stat出来的内容发生改变就会发生改变。mtime的改变必然导致ctime的改变。</span><br><span class="line"></span><br><span class="line">文件夹的 Access time，atime 是在读取文件或者执行文件时更改的（我们只cd进入一个目录然后cd ..不会引起atime的改变，但ls一下就不同了）。</span><br><span class="line"></span><br><span class="line">文件夹的 Modified time，mtime 是在文件夹中有文件的新建、删除才会改变</span><br><span class="line"></span><br><span class="line">文件夹的 Change time，ctime 基本同文件的ctime，其体现的是inode的change time。</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; os.path.getatime(&apos;/Users/xxxx/demo.py&apos;)</span><br><span class="line">1524670536.2193816</span><br></pre></td></tr></table></figure>
+<ol start="12">
+<li>os.path.getsize(path)</li>
+</ol>
+<blockquote>
+<p>得到文件的大小。 以bytes为单位。如果不存在或者路径错误，返回OSError</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[21:31:34] xxx ➜ ~» ls -hl demo.py </span><br><span class="line">-rw-r--r--  1 xxxx  staff    21B Apr 25 23:35 demo.py</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; os.path.getsize(&apos;/Users/wenzhongwei/demo.py&apos;)</span><br><span class="line">21</span><br></pre></td></tr></table></figure>
+<ol start="13">
+<li>os.path.isabs(path)</li>
+</ol>
+<blockquote>
+<p>如果是绝对路径，返回True</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.isabs(&apos;/user&apos;)</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+<ol start="14">
+<li>os.path.isfile(path)</li>
+<li>os.path.isdir(path)</li>
+<li>os.path.islink(path)</li>
+<li>os.path.ismount(path)</li>
+</ol>
+<blockquote>
+<p>顾名思义，判断语句.会先判断这个路径字符是否真实存在，如果不存在，返回False</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.isfile(&apos;/user/text.txt&apos;)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; os.path.isfile(&apos;/Users/xxx/demo.py&apos;)</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+<ol start="18">
+<li>os.path.join(path)</li>
+</ol>
+<blockquote>
+<p>将字符拼接成合适的字符路径</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.join(&apos;usr&apos;,&apos;src&apos;)</span><br><span class="line">&apos;usr/src&apos;</span><br><span class="line">&gt;&gt;&gt; os.path.join(&apos;/usr&apos;,&apos;src&apos;)</span><br><span class="line">&apos;/usr/src&apos;</span><br><span class="line">&gt;&gt;&gt; os.path.join(&apos;C:&apos;,&apos;src&apos;)</span><br><span class="line">&apos;C:/src&apos;</span><br><span class="line">&gt;&gt;&gt; os.path.join(&apos;c:&apos;,&apos;src&apos;)</span><br><span class="line">&apos;c:/src&apos;</span><br><span class="line">&gt;&gt;&gt; os.path.join(&apos;test&apos;,&apos;.src&apos;)</span><br><span class="line">&apos;test/.src&apos;</span><br></pre></td></tr></table></figure>
+<ol start="19">
+<li>os.path.normcase(path)</li>
+<li>os.path.normpath(path)</li>
+</ol>
+<blockquote>
+<p>格式化字符路径，使之符合当前系统格式</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.normcase(&apos;/User/local&apos;)</span><br><span class="line">&apos;/User/local&apos;</span><br></pre></td></tr></table></figure>
+<ol start="21">
+<li>os.path.realpath(path)</li>
+</ol>
+<blockquote>
+<p>返回字符路径的真实路径</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.realpath(&apos;.&apos;)</span><br><span class="line">&apos;/Users/xxx&apos;</span><br></pre></td></tr></table></figure>
+<ol start="22">
+<li>os.path.relpath(path)</li>
+</ol>
+<blockquote>
+<p>返回相对路径</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.relpath(&apos;/Users/xxx&apos;)</span><br><span class="line">&apos;.&apos;</span><br></pre></td></tr></table></figure>
+<ol start="23">
+<li>os.path.samefile(path1,path2)</li>
+</ol>
+<blockquote>
+<p>如果两个文件名都是指向同一个文件的话，返回True，this is determined by the device number and i-node number</p>
+</blockquote>
+<ol start="24">
+<li>
+<p>os.path.sameopenfile(fp1,fp2)</p>
+</li>
+<li>
+<p>os.path.split(path)</p>
+</li>
+</ol>
+<blockquote>
+<p>切割成 路径 ， 文件名</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.split(&apos;/usr/local/test.txt&apos;)</span><br><span class="line">(&apos;/usr/local&apos;, &apos;test.txt&apos;)</span><br></pre></td></tr></table></figure>
+<ol start="26">
+<li>os.path.splitext(path)</li>
+</ol>
+<blockquote>
+<p>切割成路径 ， 后缀名</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; os.path.splitext(&apos;/usr/local/test.txt&apos;)</span><br><span class="line">(&apos;/usr/local/test&apos;, &apos;.txt&apos;)</span><br></pre></td></tr></table></figure>
+<ol start="27">
+<li>os.path.supports_unicode_filename</li>
+</ol>
 
       
     </div>
@@ -421,12 +557,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2018/06/14/XSS平台的搭建/" title="XSS平台的搭建"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+      <a href="/2018/06/14/xss攻击学习/" title="xss攻击学习"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2018/06/13/python模块-re/" title="python模块 - re"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/06/14/XSS平台的搭建/" title="XSS平台的搭建"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
