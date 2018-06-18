@@ -17,20 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Flask - Web Form | 第五人格</title>
-  <meta name="description" content="概述  简述了如何在flask中实现表单应用   Flask-WTF  安装  1pip install flask_wtf  配置文件  123456789101112# 配置文件应该单独出来# 表单需要用到secret key 做为CSRF的防护import os class Configure(object):    SECRET_KEY = os.environ.get(&amp;apos;SE">
+  <title>Flask02 - Templates | 第五人格</title>
+  <meta name="description" content="概述  这一章主要讲了一下flask中的模板的概念   什么是模板  创建模板文件夹  1mkdir microblogapp/templates  render_template 函数  123456789101112131415161718192021222324@app.route(&amp;apos;/&amp;apos;)@app.route(&amp;apos;/index&amp;apos;)def index(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flask - Web Form">
-<meta property="og:url" content="http://yoursite.com/2018/06/09/Flask-Web-Form/index.html">
+<meta property="og:title" content="Flask02 - Templates">
+<meta property="og:url" content="http://yoursite.com/2018/06/09/Flask02-Templates/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概述  简述了如何在flask中实现表单应用   Flask-WTF  安装  1pip install flask_wtf  配置文件  123456789101112# 配置文件应该单独出来# 表单需要用到secret key 做为CSRF的防护import os class Configure(object):    SECRET_KEY = os.environ.get(&amp;apos;SE">
+<meta property="og:description" content="概述  这一章主要讲了一下flask中的模板的概念   什么是模板  创建模板文件夹  1mkdir microblogapp/templates  render_template 函数  123456789101112131415161718192021222324@app.route(&amp;apos;/&amp;apos;)@app.route(&amp;apos;/index&amp;apos;)def index(">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-09T13:19:08.985Z">
+<meta property="og:updated_time" content="2018-06-18T16:10:46.180Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flask - Web Form">
-<meta name="twitter:description" content="概述  简述了如何在flask中实现表单应用   Flask-WTF  安装  1pip install flask_wtf  配置文件  123456789101112# 配置文件应该单独出来# 表单需要用到secret key 做为CSRF的防护import os class Configure(object):    SECRET_KEY = os.environ.get(&amp;apos;SE">
+<meta name="twitter:title" content="Flask02 - Templates">
+<meta name="twitter:description" content="概述  这一章主要讲了一下flask中的模板的概念   什么是模板  创建模板文件夹  1mkdir microblogapp/templates  render_template 函数  123456789101112131415161718192021222324@app.route(&amp;apos;/&amp;apos;)@app.route(&amp;apos;/index&amp;apos;)def index(">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2018/06/09/Flask-Web-Form/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/06/09/Flask02-Templates/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -186,22 +186,7 @@
         </li>
         
       </ul>
-      
-	
-    <ul class="social-links">
-    	
-        <li><a href="https://github.com/thefifthman" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-        <li><a href="https://www.weibo.com" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
-        
-        <li><a href="https://www.twitter.com" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
-        
-        <li><a href="https://www.behance.com" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
-        
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
-        
-    </ul>
-
+     
     </nav>
   </div>
 </header>
@@ -226,7 +211,7 @@
   <div class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Nginx/">Nginx</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/flask/">flask</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/modules/">modules</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/modules/爬虫/">爬虫</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/security/CSRF/">CSRF</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/xss/">xss</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/企业安全建设/">企业安全建设</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Nginx/">Nginx</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/flask/">flask</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/modules/">modules</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/modules/爬虫/">爬虫</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/security/CSRF/">CSRF</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/xss/">xss</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/企业安全建设/">企业安全建设</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -255,7 +240,7 @@
   <div class="widget">
     <h3 class="widget-title">Archive</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">19</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">21</span></li></ul>
     </div>
   </div>
 
@@ -271,10 +256,40 @@
             
             <div class="item-inner">
               <p class="item-category">
+                <a class="category-link" href="/categories/python/">python</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/python/flask/">flask</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/19/Flask08-unittest/" class="title">Flask08 - unittest</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-18T16:08:54.000Z" itemprop="datePublished">2018-06-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/python/">python</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/python/flask/">flask</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/19/Flask07-数据库多对多关系/" class="title">Flask07 - 数据库多对多关系</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-18T16:08:05.000Z" itemprop="datePublished">2018-06-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
                 <a class="category-link" href="/categories/security/">security</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/security/企业安全建设/">企业安全建设</a>
               </p>
               <p class="item-title">
-                <a href="/2018/06/18/4-DDoS了解/" class="title">5-DDoS了解</a>
+                <a href="/2018/06/18/4-DDoS了解/" class="title">4-DDoS了解</a>
               </p>
               <p class="item-date">
                 <time datetime="2018-06-18T12:19:53.000Z" itemprop="datePublished">2018-06-18</time>
@@ -289,7 +304,7 @@
                 <a class="category-link" href="/categories/security/">security</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/security/企业安全建设/">企业安全建设</a>
               </p>
               <p class="item-title">
-                <a href="/2018/06/18/5-RASP安装/" class="title">4-RASP安装</a>
+                <a href="/2018/06/18/5-RASP安装/" class="title">5-RASP安装</a>
               </p>
               <p class="item-date">
                 <time datetime="2018-06-18T12:19:39.000Z" itemprop="datePublished">2018-06-18</time>
@@ -312,36 +327,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/security/">security</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/security/企业安全建设/">企业安全建设</a>
-              </p>
-              <p class="item-title">
-                <a href="/2018/06/18/2-常见防御体系/" class="title">2-常见防御体系</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2018-06-18T12:19:01.000Z" itemprop="datePublished">2018-06-18</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/security/">security</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/security/企业安全建设/">企业安全建设</a>
-              </p>
-              <p class="item-title">
-                <a href="/2018/06/18/1-企业安全建设入门/" class="title">1-企业安全建设入门</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2018-06-18T12:18:46.000Z" itemprop="datePublished">2018-06-18</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -355,14 +340,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Flask-Web-Form" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Flask02-Templates" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Flask - Web Form
+      Flask02 - Templates
     </h1>
   
 
@@ -370,8 +355,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/06/09/Flask-Web-Form/" class="article-date">
-	  <time datetime="2018-06-09T13:18:48.000Z" itemprop="datePublished">2018-06-09</time>
+	<a href="/2018/06/09/Flask02-Templates/" class="article-date">
+	  <time datetime="2018-06-09T13:18:00.000Z" itemprop="datePublished">2018-06-09</time>
 	</a>
 </span>
         
@@ -384,7 +369,7 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/09/Flask-Web-Form/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/09/Flask02-Templates/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
@@ -392,47 +377,29 @@
       
         <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
 <blockquote>
-<p>简述了如何在flask中实现表单应用</p>
+<p>这一章主要讲了一下flask中的模板的概念</p>
 </blockquote>
-<h1 id="flask-wtf"><a class="markdownIt-Anchor" href="#flask-wtf"></a> Flask-WTF</h1>
+<h1 id="什么是模板"><a class="markdownIt-Anchor" href="#什么是模板"></a> 什么是模板</h1>
 <ol>
-<li>安装</li>
+<li>创建模板文件夹</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask_wtf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir microblogapp/templates</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>配置文件</li>
+<li>render_template 函数</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 配置文件应该单独出来</span><br><span class="line"># 表单需要用到secret key 做为CSRF的防护</span><br><span class="line"></span><br><span class="line">import os </span><br><span class="line">class Configure(object):</span><br><span class="line">    SECRET_KEY = os.environ.get(&apos;SECRET_KEY&apos;) or &quot;You-never-guess&quot;</span><br><span class="line"></span><br><span class="line">#最后要在application初始化文件里面</span><br><span class="line"># 引入这个配置</span><br><span class="line"></span><br><span class="line">#__init__.py</span><br><span class="line">app.config.from_object(Configure)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">@app.route(&apos;/index&apos;)</span><br><span class="line">def index():</span><br><span class="line">    user = &#123;</span><br><span class="line">        &quot;username&quot;:&quot;jacky&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    posts = [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;author&quot;:&#123;</span><br><span class="line">                &quot;username&quot;:&quot;johnw&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;body&quot;:&quot;Hello World!!!&quot;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;author&quot;:&#123;</span><br><span class="line">                &quot;username&quot;:&quot;Michael&quot;,</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;body&quot;:&quot;Beeeeeautiful Wrold. &quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">    #顾名思义，就是渲染模板的函数。第一个参数是要渲染的html。</span><br><span class="line">    #在templates文件夹里面，接下来的一系列函数都可以在html里面用&#123;&#123;&#125;&#125;进行引用</span><br><span class="line">    return render_template(&apos;index.html&apos;,user=user,posts=posts)</span><br></pre></td></tr></table></figure>
 <ol start="3">
-<li>csrf</li>
+<li>条件语句</li>
 </ol>
-<blockquote>
-<p>介绍： <a href="https://zh.wikipedia.org/zh/%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0" target="_blank" rel="noopener">https://zh.wikipedia.org/zh/跨站请求伪造</a></p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if title %&#125;</span><br><span class="line">    &lt;title&gt;&#123;&#123; title &#125;&#125; - microblog &lt;/title&gt;</span><br><span class="line">&#123;% else %&#125;</span><br><span class="line">    &lt;title&gt;Hello - microblog &lt;/title&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 <ol start="4">
-<li>配置文件的敏感数据</li>
+<li>循环语句</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将配置文件中的敏感数据做为系统变量，这样可以避免敏感数据的泄露，将开发和运维分离。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for post in posts %&#125;</span><br><span class="line">    &lt;div&gt;&lt;p&gt;&#123;&#123; post.author.username &#125;&#125; says: &#123;&#123; post.body &#125;&#125;&lt;/p&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
 <ol start="5">
-<li>创建登录表单</li>
+<li>模板继承</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 主要的功能导入</span><br><span class="line">from flask_wtf import FlaskForm</span><br><span class="line"># 引入字段</span><br><span class="line">from wtforms import StringField,PasswordField,SubmitField,BooleanField</span><br><span class="line"># 引入验证</span><br><span class="line">from wtforms.validators import DataRequired</span><br><span class="line"></span><br><span class="line">class LoginForm(FlaskForm):</span><br><span class="line">    username = StringField(&apos;Username&apos;,validators=[DataRequired()])</span><br><span class="line">    password = PasswordField(&apos;Password&apos;,validators=[DataRequired()])</span><br><span class="line">    remember_me = BooleanField(&apos;Remember Me&apos;)</span><br><span class="line">    submit = SubmitField(&apos;Submit&apos;)</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>html中的表单</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; form.hidden_tag() &#125;&#125;: 藏着crsf token</span><br><span class="line">&#123;&#123; form.username(class_=&apos;username&apos;) &#125;&#125;: 括号里面可以设置class name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 代码：</span><br><span class="line">&lt;form action=&apos;&apos; method=&apos;POST&apos;&gt;</span><br><span class="line">    &#123;&#123; form.hidden_tag() &#125;&#125;</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">        &#123;&#123; form.username.label() &#125;&#125;</span><br><span class="line">        &#123;&#123; form.username(class_=&apos;username&apos;)&#125;&#125;</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">        &#123;&#123; form.password.label() &#125;&#125;</span><br><span class="line">        &#123;&#123; form.password(class_=&apos;password&apos;)&#125;&#125;</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">        &#123;&#123; form.remember_me(class_=&apos;remember_me&apos;)&#125;&#125;&#123;&#123; form.remember_me.label() &#125;&#125;</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123; form.submit() &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>处理表单的路由事件</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from microblogapp.forms import LoginForm</span><br><span class="line">@app.route(&apos;/login&apos;)</span><br><span class="line">def login():</span><br><span class="line">    form = LoginForm()</span><br><span class="line">    if form.validate_on_submit():</span><br><span class="line">        flash(&apos;Login Request from user: &#123;&#125; and remember me: &#123;&#125;&apos;.format(form.username.data,form.remember_me.data))</span><br><span class="line">        return redirect(&apos;/index&apos;)</span><br><span class="line">    </span><br><span class="line">    return render_template(&apos;login.html&apos;,form=form,title=&apos;login&apos;)</span><br></pre></td></tr></table></figure>
-<ol start="8">
-<li>flash的内容</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 使用with 声明一个变量来接受函数的返回值 --&gt;</span><br><span class="line">&#123;% with messages = get_flashed_messages() %&#125;</span><br><span class="line">&lt;!-- 返回了一个列表 --&gt;</span><br><span class="line">    &#123;% if messages %&#125;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &#123;% for message in messages %&#125;</span><br><span class="line">                &lt;li&gt;&#123;&#123; message &#125;&#125;&lt;/li&gt;</span><br><span class="line">            &#123;% endfor %&#125;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &#123;% endif %&#125;        </span><br><span class="line">&#123;% endwith %&#125;</span><br></pre></td></tr></table></figure>
-<ol start="9">
-<li>错误内容</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for error in form.username.errors %&#125;</span><br><span class="line">&lt;span style=&apos;color:red;&apos;&gt;&#123;&#123; error&#125;&#125;&lt;/span&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &quot;basic.html&quot; %&#125;</span><br><span class="line">&#123;% block main %&#125;</span><br><span class="line">    ...</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -458,12 +425,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2018/06/09/Flask-Database/" title="Flask - Database"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+      <a href="/2018/06/09/Flask03-Web-Form/" title="Flask03 - Web Form"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2018/06/09/Flask-Templates/" title="Flask - Templates"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/06/09/Flask01-Hello World/" title="Flask01 - Hello World"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
