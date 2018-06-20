@@ -4,125 +4,24 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/06/19/Flask08-unittest/</loc>
-    <lastmod>2018-06-18T16:12:04.947Z</lastmod>
+    <loc>http://yoursite.com/2018/06/20/%E5%9C%A8ubuntu18%E4%B8%8B%E9%85%8D%E7%BD%AEphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
+    <lastmod>2018-06-20T11:30:52.845Z</lastmod>
     <data>
         <display>
-        <title>Flask08 - unittest</title>
-        <pubTime>2018-06-18T16:08:54.000Z</pubTime>
+        <title>在ubuntu18下配置php开发环境</title>
+        <pubTime>2018-06-20T11:30:22.000Z</pubTime>
         
+        <tag>php</tag>
+         
+        <tag>linux</tag>
+         
          
            
              
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
           
              
-              <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/19/Flask07-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BB/</loc>
-    <lastmod>2018-06-18T16:11:25.205Z</lastmod>
-    <data>
-        <display>
-        <title>Flask07 - 数据库多对多关系</title>
-        <pubTime>2018-06-18T16:08:05.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-             
-              <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/09/Flask06-User-Profile/</loc>
-    <lastmod>2018-06-18T16:11:18.642Z</lastmod>
-    <data>
-        <display>
-        <title>Flask06 - User Profile</title>
-        <pubTime>2018-06-09T13:21:27.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-             
-              <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/09/Flask05-User-login/</loc>
-    <lastmod>2018-06-18T16:11:14.650Z</lastmod>
-    <data>
-        <display>
-        <title>Flask05 - User login</title>
-        <pubTime>2018-06-09T13:20:49.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-             
-              <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/09/Flask04-Database/</loc>
-    <lastmod>2018-06-18T16:11:02.644Z</lastmod>
-    <data>
-        <display>
-        <title>Flask04 - Database</title>
-        <pubTime>2018-06-09T13:19:29.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-             
-              <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/09/Flask03-Web-Form/</loc>
-    <lastmod>2018-06-18T16:10:57.446Z</lastmod>
-    <data>
-        <display>
-        <title>Flask03 - Web Form</title>
-        <pubTime>2018-06-09T13:18:48.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-             
-              <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
+              <breadCrumb title="php" url="http://yoursite.com/categories/linux/php/"/>
           
         </display>
     </data>
@@ -131,12 +30,14 @@
     
   <url>
     <loc>http://yoursite.com/2018/06/09/Flask01-Hello%20World/</loc>
-    <lastmod>2018-06-18T16:10:51.914Z</lastmod>
+    <lastmod>2018-06-18T16:20:22.731Z</lastmod>
     <data>
         <display>
         <title>Flask01 - Hello World</title>
         <pubTime>2018-06-09T12:46:52.333Z</pubTime>
         
+        <tag>Flask</tag>
+         
          
            
              
@@ -152,12 +53,14 @@
     
   <url>
     <loc>http://yoursite.com/2018/06/09/Flask02-Templates/</loc>
-    <lastmod>2018-06-18T16:10:46.180Z</lastmod>
+    <lastmod>2018-06-18T16:20:19.192Z</lastmod>
     <data>
         <display>
         <title>Flask02 - Templates</title>
         <pubTime>2018-06-09T13:18:00.000Z</pubTime>
         
+        <tag>Flask</tag>
+         
          
            
              
@@ -165,6 +68,213 @@
           
              
               <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/09/Flask03-Web-Form/</loc>
+    <lastmod>2018-06-18T16:20:11.413Z</lastmod>
+    <data>
+        <display>
+        <title>Flask03 - Web Form</title>
+        <pubTime>2018-06-09T13:18:48.000Z</pubTime>
+        
+        <tag>Flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+             
+              <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/09/Flask04-Database/</loc>
+    <lastmod>2018-06-18T16:20:07.858Z</lastmod>
+    <data>
+        <display>
+        <title>Flask04 - Database</title>
+        <pubTime>2018-06-09T13:19:29.000Z</pubTime>
+        
+        <tag>Flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+             
+              <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/09/Flask05-User-login/</loc>
+    <lastmod>2018-06-18T16:20:02.411Z</lastmod>
+    <data>
+        <display>
+        <title>Flask05 - User login</title>
+        <pubTime>2018-06-09T13:20:49.000Z</pubTime>
+        
+        <tag>Flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+             
+              <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/09/Flask06-User-Profile/</loc>
+    <lastmod>2018-06-18T16:19:58.837Z</lastmod>
+    <data>
+        <display>
+        <title>Flask06 - User Profile</title>
+        <pubTime>2018-06-09T13:21:27.000Z</pubTime>
+        
+        <tag>Flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+             
+              <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/19/Flask07-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BB/</loc>
+    <lastmod>2018-06-18T16:19:55.338Z</lastmod>
+    <data>
+        <display>
+        <title>Flask07 - 数据库多对多关系</title>
+        <pubTime>2018-06-18T16:08:05.000Z</pubTime>
+        
+        <tag>Flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+             
+              <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/19/Flask08-unittest/</loc>
+    <lastmod>2018-06-18T16:19:48.740Z</lastmod>
+    <data>
+        <display>
+        <title>Flask08 - unittest</title>
+        <pubTime>2018-06-18T16:08:54.000Z</pubTime>
+        
+        <tag>Flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+             
+              <breadCrumb title="flask" url="http://yoursite.com/categories/python/flask/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/14/python%E6%A8%A1%E5%9D%97-os-path/</loc>
+    <lastmod>2018-06-18T16:19:36.053Z</lastmod>
+    <data>
+        <display>
+        <title>python模块-os.path</title>
+        <pubTime>2018-06-14T14:02:49.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+             
+              <breadCrumb title="modules" url="http://yoursite.com/categories/python/modules/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/13/python%E6%A8%A1%E5%9D%97-subprocess/</loc>
+    <lastmod>2018-06-18T16:19:30.072Z</lastmod>
+    <data>
+        <display>
+        <title>python模块-subprocess</title>
+        <pubTime>2018-06-13T00:31:54.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+             
+              <breadCrumb title="modules" url="http://yoursite.com/categories/python/modules/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/13/python%E6%A8%A1%E5%9D%97-re/</loc>
+    <lastmod>2018-06-18T16:19:08.558Z</lastmod>
+    <data>
+        <display>
+        <title>python模块 - re</title>
+        <pubTime>2018-06-13T00:30:57.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+             
+              <breadCrumb title="modules" url="http://yoursite.com/categories/python/modules/"/>
           
         </display>
     </data>
@@ -322,27 +432,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/06/14/python%E6%A8%A1%E5%9D%97-os-path/</loc>
-    <lastmod>2018-06-14T15:44:42.726Z</lastmod>
-    <data>
-        <display>
-        <title>python模块-os.path</title>
-        <pubTime>2018-06-14T14:02:49.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-             
-              <breadCrumb title="modules" url="http://yoursite.com/categories/python/modules/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/06/09/Linux-Nginx/</loc>
     <lastmod>2018-06-14T15:27:09.267Z</lastmod>
     <data>
@@ -409,51 +498,6 @@
           
              
               <breadCrumb title="xss" url="http://yoursite.com/categories/security/xss/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/13/python%E6%A8%A1%E5%9D%97-subprocess/</loc>
-    <lastmod>2018-06-13T00:32:54.984Z</lastmod>
-    <data>
-        <display>
-        <title>python模块-subprocess</title>
-        <pubTime>2018-06-13T00:31:54.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-             
-              <breadCrumb title="modules" url="http://yoursite.com/categories/python/modules/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/13/python%E6%A8%A1%E5%9D%97-re/</loc>
-    <lastmod>2018-06-13T00:32:35.724Z</lastmod>
-    <data>
-        <display>
-        <title>python模块 - re</title>
-        <pubTime>2018-06-13T00:30:57.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-             
-              <breadCrumb title="modules" url="http://yoursite.com/categories/python/modules/"/>
-          
-             
-              <breadCrumb title="爬虫" url="http://yoursite.com/categories/python/modules/%E7%88%AC%E8%99%AB/"/>
           
         </display>
     </data>

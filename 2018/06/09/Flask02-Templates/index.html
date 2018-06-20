@@ -19,13 +19,14 @@
   
   <title>Flask02 - Templates | 第五人格</title>
   <meta name="description" content="概述  这一章主要讲了一下flask中的模板的概念   什么是模板  创建模板文件夹  1mkdir microblogapp/templates  render_template 函数  123456789101112131415161718192021222324@app.route(&amp;apos;/&amp;apos;)@app.route(&amp;apos;/index&amp;apos;)def index(">
+<meta name="keywords" content="Flask">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flask02 - Templates">
 <meta property="og:url" content="http://yoursite.com/2018/06/09/Flask02-Templates/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="概述  这一章主要讲了一下flask中的模板的概念   什么是模板  创建模板文件夹  1mkdir microblogapp/templates  render_template 函数  123456789101112131415161718192021222324@app.route(&amp;apos;/&amp;apos;)@app.route(&amp;apos;/index&amp;apos;)def index(">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-18T16:10:46.180Z">
+<meta property="og:updated_time" content="2018-06-18T16:20:19.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask02 - Templates">
 <meta name="twitter:description" content="概述  这一章主要讲了一下flask中的模板的概念   什么是模板  创建模板文件夹  1mkdir microblogapp/templates  render_template 函数  123456789101112131415161718192021222324@app.route(&amp;apos;/&amp;apos;)@app.route(&amp;apos;/index&amp;apos;)def index(">
@@ -211,7 +212,7 @@
   <div class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Nginx/">Nginx</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/flask/">flask</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/modules/">modules</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/modules/爬虫/">爬虫</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/security/CSRF/">CSRF</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/xss/">xss</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/企业安全建设/">企业安全建设</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Nginx/">Nginx</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/php/">php</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/flask/">flask</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/modules/">modules</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/security/CSRF/">CSRF</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/xss/">xss</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/企业安全建设/">企业安全建设</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -221,7 +222,7 @@
   <div class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-body">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSRF/">CSRF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xss/">xss</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/企业安全建设/">企业安全建设</a><span class="tag-list-count">5</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSRF/">CSRF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xss/">xss</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/企业安全建设/">企业安全建设</a><span class="tag-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -231,7 +232,7 @@
   <div class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/CSRF/" style="font-size: 13px;">CSRF</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/security/" style="font-size: 14px;">security</a> <a href="/tags/xss/" style="font-size: 13.33px;">xss</a> <a href="/tags/企业安全建设/" style="font-size: 13.67px;">企业安全建设</a>
+      <a href="/tags/CSRF/" style="font-size: 13px;">CSRF</a> <a href="/tags/Flask/" style="font-size: 14px;">Flask</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/Python/" style="font-size: 13.5px;">Python</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/php/" style="font-size: 13px;">php</a> <a href="/tags/security/" style="font-size: 14px;">security</a> <a href="/tags/xss/" style="font-size: 13.25px;">xss</a> <a href="/tags/企业安全建设/" style="font-size: 13.75px;">企业安全建设</a>
     </div>
   </div>
 
@@ -240,7 +241,7 @@
   <div class="widget">
     <h3 class="widget-title">Archive</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">21</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">22</span></li></ul>
     </div>
   </div>
 
@@ -252,6 +253,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/linux/">linux</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/linux/php/">php</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/20/在ubuntu18下配置php开发环境/" class="title">在ubuntu18下配置php开发环境</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-20T11:30:22.000Z" itemprop="datePublished">2018-06-20</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -312,21 +328,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/security/">security</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/security/企业安全建设/">企业安全建设</a>
-              </p>
-              <p class="item-title">
-                <a href="/2018/06/18/3-搭建WAF环境/" class="title">3-搭建WAF环境</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2018-06-18T12:19:26.000Z" itemprop="datePublished">2018-06-18</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -366,6 +367,11 @@
   </span>
 
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Flask/">Flask</a>
+  </span>
+
 
         
 
