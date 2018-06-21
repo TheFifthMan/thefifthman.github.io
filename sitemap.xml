@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/06/21/python%E6%A8%A1%E5%9D%97-shutil/</loc>
+    
+    <lastmod>2018-06-21T13:52:51.734Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/06/14/python%E6%A8%A1%E5%9D%97-os-path/</loc>
     
     <lastmod>2018-06-20T15:53:54.855Z</lastmod>
@@ -191,14 +198,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/repository/index.html</loc>
+    <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2018-06-09T12:41:47.799Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>http://yoursite.com/repository/index.html</loc>
     
     <lastmod>2018-06-09T12:41:47.799Z</lastmod>
     
