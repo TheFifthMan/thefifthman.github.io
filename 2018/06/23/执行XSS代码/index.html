@@ -17,21 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>在ubuntu18下配置php开发环境 | 第五人格</title>
-  <meta name="description" content="更新源 1234567891011121314sudo gedit /etc/apt/source.listdeb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted">
-<meta name="keywords" content="php,linux">
+  <title>执行XSS代码 | 第五人格</title>
+  <meta name="description" content="概述 前面简单的总结了一下xss的常见的攻击，搭建了xss平台。也算一个了解了，但对于xss执行，并没有总结一下有哪些方式，恰逢假日，又看到一篇文章，遂，总结如下。  概念  反射型xss 存储型xss DOM型xss UXSS MXSS   UXSS：  一种针对浏览器的xss，比起普通的xss，其危害在于，它危害的是浏览器本身，譬如根据浏览器本身功能的缺陷，或者根据浏览器拓展的功能缺陷，生成">
+<meta name="keywords" content="security,xss">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在ubuntu18下配置php开发环境">
-<meta property="og:url" content="http://yoursite.com/2018/06/20/在ubuntu18下配置php开发环境/index.html">
+<meta property="og:title" content="执行XSS代码">
+<meta property="og:url" content="http://yoursite.com/2018/06/23/执行XSS代码/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="更新源 1234567891011121314sudo gedit /etc/apt/source.listdeb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted">
+<meta property="og:description" content="概述 前面简单的总结了一下xss的常见的攻击，搭建了xss平台。也算一个了解了，但对于xss执行，并没有总结一下有哪些方式，恰逢假日，又看到一篇文章，遂，总结如下。  概念  反射型xss 存储型xss DOM型xss UXSS MXSS   UXSS：  一种针对浏览器的xss，比起普通的xss，其危害在于，它危害的是浏览器本身，譬如根据浏览器本身功能的缺陷，或者根据浏览器拓展的功能缺陷，生成">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-20T11:30:52.845Z">
+<meta property="og:image" content="http://yoursite.com/images/mxss.jpg">
+<meta property="og:updated_time" content="2018-06-23T07:50:36.796Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在ubuntu18下配置php开发环境">
-<meta name="twitter:description" content="更新源 1234567891011121314sudo gedit /etc/apt/source.listdeb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted">
+<meta name="twitter:title" content="执行XSS代码">
+<meta name="twitter:description" content="概述 前面简单的总结了一下xss的常见的攻击，搭建了xss平台。也算一个了解了，但对于xss执行，并没有总结一下有哪些方式，恰逢假日，又看到一篇文章，遂，总结如下。  概念  反射型xss 存储型xss DOM型xss UXSS MXSS   UXSS：  一种针对浏览器的xss，比起普通的xss，其危害在于，它危害的是浏览器本身，譬如根据浏览器本身功能的缺陷，或者根据浏览器拓展的功能缺陷，生成">
+<meta name="twitter:image" content="http://yoursite.com/images/mxss.jpg">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2018/06/20/在ubuntu18下配置php开发环境/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/06/23/执行XSS代码/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -341,14 +343,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-在ubuntu18下配置php开发环境" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-执行XSS代码" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      在ubuntu18下配置php开发环境
+      执行XSS代码
     </h1>
   
 
@@ -356,46 +358,78 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/06/20/在ubuntu18下配置php开发环境/" class="article-date">
-	  <time datetime="2018-06-20T11:30:22.000Z" itemprop="datePublished">2018-06-20</time>
+	<a href="/2018/06/23/执行XSS代码/" class="article-date">
+	  <time datetime="2018-06-23T07:50:19.000Z" itemprop="datePublished">2018-06-23</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/php/">php</a>
+    <a class="article-category-link" href="/categories/security/">security</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/linux/">linux</a>, <a class="article-tag-link" href="/tags/php/">php</a>
+	<a class="article-tag-link" href="/tags/security/">security</a>, <a class="article-tag-link" href="/tags/xss/">xss</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/20/在ubuntu18下配置php开发环境/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/23/执行XSS代码/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h1 id="更新源"><a class="markdownIt-Anchor" href="#更新源"></a> 更新源</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/apt/source.list</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">sudo apt-get update -y</span><br></pre></td></tr></table></figure>
-<h1 id="安装apache"><a class="markdownIt-Anchor" href="#安装apache"></a> 安装apache</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install apache2</span><br><span class="line">service apache2 status</span><br><span class="line">service apache2 restrat</span><br></pre></td></tr></table></figure>
-<h1 id="安装php7"><a class="markdownIt-Anchor" href="#安装php7"></a> 安装php7</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install php7.0</span><br><span class="line">php -v</span><br></pre></td></tr></table></figure>
-<h1 id="安装mysql57"><a class="markdownIt-Anchor" href="#安装mysql57"></a> 安装mysql5.7</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server </span><br><span class="line"># 更改密码</span><br><span class="line">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line">---加上</span><br><span class="line">...</span><br><span class="line">skip-grant-tables </span><br><span class="line">...</span><br><span class="line">-----</span><br><span class="line"></span><br><span class="line">sudo service mysql restart </span><br><span class="line"></span><br><span class="line">mysql -u root</span><br><span class="line">use msyql;</span><br><span class="line">UPDATE user set plugin=&apos;mysql_native_password&apos; where user=&apos;root&apos;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">update user set authentication_string = password(&apos;qwe123&apos;), password_expired = &apos;N&apos;, password_last_changed = now() where user = &apos;root&apos;;</span><br><span class="line"></span><br><span class="line">flush privileges;</span><br><span class="line"></span><br><span class="line">select user, host, plugin from user where user=&apos;root&apos;;</span><br><span class="line"></span><br><span class="line"># 改回来配置+重启</span><br><span class="line"></span><br><span class="line">mysql -u root -p qwe123</span><br></pre></td></tr></table></figure>
-<h1 id="安装php-admin"><a class="markdownIt-Anchor" href="#安装php-admin"></a> 安装php-admin</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install phpmyadmin php-mbstring php-gettext，安装的过程中选择apache2。</span><br><span class="line"></span><br><span class="line">sudo phpenmod mcrypt</span><br><span class="line">sudo phpenmod mbstring</span><br><span class="line">修改完成之后sudo systemctl restart apache2重启apache2服务器。</span><br></pre></td></tr></table></figure>
-<h1 id="测试"><a class="markdownIt-Anchor" href="#测试"></a> 测试</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">打开浏览器</span><br><span class="line"></span><br><span class="line">http://localhost/phpmyadmin</span><br></pre></td></tr></table></figure>
-<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
-<p><a href="https://segmentfault.com/a/1190000005786808" target="_blank" rel="noopener">https://segmentfault.com/a/1190000005786808</a></p>
-<p><a href="https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost" target="_blank" rel="noopener">https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost</a></p>
+        <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<p>前面简单的总结了一下xss的常见的攻击，搭建了xss平台。也算一个了解了，但对于xss执行，并没有总结一下有哪些方式，恰逢假日，又看到一篇文章，遂，总结如下。</p>
+<h1 id="概念"><a class="markdownIt-Anchor" href="#概念"></a> 概念</h1>
+<ol>
+<li>反射型xss</li>
+<li>存储型xss</li>
+<li>DOM型xss</li>
+<li>UXSS</li>
+<li>MXSS</li>
+</ol>
+<h3 id="uxss"><a class="markdownIt-Anchor" href="#uxss"></a> UXSS：</h3>
+<blockquote>
+<p>一种针对浏览器的xss，比起普通的xss，其危害在于，它危害的是浏览器本身，譬如根据浏览器本身功能的缺陷，或者根据浏览器拓展的功能缺陷，生成并执行代码</p>
+</blockquote>
+<blockquote>
+<p>Unlike the common XSS attacks, UXSS is a type of attack that exploits client-side vulnerabilities in the browser or browser extensions in order to generate an XSS condition, and execute malicious code.</p>
+</blockquote>
+<h3 id="mxss"><a class="markdownIt-Anchor" href="#mxss"></a> MXSS</h3>
+<blockquote>
+<p>指的是一些本来看起来没有危害的html/js代码，经过浏览器渲染，形成了有危害的xss代码，其英文全称为：<strong>Mutation-based Cross-Site-Scripting</strong> 突变性xss<br>
+<img src="/images/mxss.jpg" alt="mxss"></p>
+</blockquote>
+<h1 id="html-xss"><a class="markdownIt-Anchor" href="#html-xss"></a> html xss</h1>
+<blockquote>
+<p>顾名思义，就是在html里面构造的xss。 一般就是闭合尖括号，然后植入脚本</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;!-- &#123;&#123; user input &#125;&#125; --&gt;</span><br><span class="line">    &lt;div&gt;&lt;/div&gt;&lt;svg onload=alert(1)&gt;&lt;div&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;&lt;/div&gt;&lt;iframe onload=alert(1)&gt;&lt;div&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;&lt;/div&gt;&lt;script src=&apos;xx.js&apos;&gt;&lt;/script&gt;&lt;div&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="属性-xss"><a class="markdownIt-Anchor" href="#属性-xss"></a> 属性 xss</h1>
+<blockquote>
+<p>在html标签里面的属性，存在用户输入，从而造成的xss，可分为三种，双引号，单引号，无引号</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;!-- &#123;&#123; user input &#125;&#125; --&gt;</span><br><span class="line">    &lt;input value=&quot;&quot; autofocus onfocus=&quot;alert(1)&quot;&gt;</span><br><span class="line">    &lt;input value=&apos;&apos; onmouseover=&quot;alert(1)&quot;</span><br><span class="line">    &lt;input value=&apos;&apos; autofocus onblur=&quot;alert(1)&quot;&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br><span class="line">onfocus 将焦点放在input里面</span><br><span class="line">onmouseover 鼠标移入事件</span><br><span class="line">onblur 鼠标移出事件</span><br></pre></td></tr></table></figure>
+<h1 id="url-xss"><a class="markdownIt-Anchor" href="#url-xss"></a> URL xss</h1>
+<blockquote>
+<p>这种xss 一般存在与a 标签里面</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;&#123;&#123;userinput&#125;&#125;&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;a href=&quot;&#123;&#123;userinput&#125;&#125;&quot;&gt;Click&lt;/a&gt;</span><br><span class="line">&lt;iframe src=&quot;&#123;&#123;userinput&#125;&#125;&quot; /&gt;</span><br><span class="line">&lt;base href=&quot;&#123;&#123;userinput&#125;&#125;&quot;&gt;</span><br><span class="line">&lt;form action=&#123;&#123;userinput&#125;&#125;&gt;</span><br><span class="line">&lt;frameset&gt;&lt;frame src=&quot;&#123;&#123;userinput&#125;&#125;&quot;&gt;&lt;/frameset&gt;</span><br><span class="line"></span><br><span class="line">javascript:alert(/xss/)</span><br></pre></td></tr></table></figure>
+<h1 id="javascript-xss"><a class="markdownIt-Anchor" href="#javascript-xss"></a> Javascript xss</h1>
+<blockquote>
+<p>根据不同的js代码，进行构造，一般闭合大括号，引号等等。</p>
+</blockquote>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
+<p>XSS也算很老的漏洞的了，但总是有人可以把它玩出花来。</p>
+<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> reference</h1>
+<p><a href="https://www.acunetix.com/blog/articles/universal-cross-site-scripting-uxss/" target="_blank" rel="noopener">https://www.acunetix.com/blog/articles/universal-cross-site-scripting-uxss/</a></p>
+<p><a href="http://imweb.io/topic/55e3c132771670e207a16bcf" target="_blank" rel="noopener">http://imweb.io/topic/55e3c132771670e207a16bcf</a></p>
+<p><a href="https://www.anquanke.com/post/id/148357" target="_blank" rel="noopener">https://www.anquanke.com/post/id/148357</a></p>
 
       
     </div>
@@ -421,12 +455,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2018/06/20/python模块-os/" title="python模块-os"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+      <a href="/2018/06/24/在kali中配置metasploit/" title="在kali中配置metasploit"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2018/06/19/Flask08-unittest/" title="Flask08 - unittest"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/06/21/python模块-shutil/" title="python模块-shutil"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
