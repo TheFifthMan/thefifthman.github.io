@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-25T16:09:33.629Z</updated>
+  <updated>2018-06-27T15:26:17.616Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>kali下使用Tor网络</title>
+    <link href="http://yoursite.com/2018/06/27/kali%E4%B8%8B%E4%BD%BF%E7%94%A8Tor%E7%BD%91%E7%BB%9C/"/>
+    <id>http://yoursite.com/2018/06/27/kali下使用Tor网络/</id>
+    <published>2018-06-27T15:22:42.000Z</published>
+    <updated>2018-06-27T15:26:17.616Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><blockquote><p>记录一下如何在命令行下面使用tor网络</p></blockquote><h1 id="kali下安装tor"><a class="markdownIt-Anchor" href="#kali下安装tor"></a> Kali下安装tor</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install tor</span><br></pre></td></tr></table></figure><h1 id="架梯子"><a class="markdownIt-Anchor" href="#架梯子"></a> 架梯子</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup sslocal -c ss.json</span><br></pre></td></tr></table></figure><h1 id="编辑tor配置添加"><a class="markdownIt-Anchor" href="#编辑tor配置添加"></a> 编辑tor配置,添加</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/tor/torrc /etc/tor/torrc.backup</span><br><span class="line">vim /etc/tor/torrc</span><br><span class="line"></span><br><span class="line">在里面添加</span><br><span class="line">...</span><br><span class="line">RunAsDaemon 1</span><br><span class="line">Socks5Proxy 127.0.0.1:1080</span><br><span class="line"># 重点，每隔n时间进行ip更换，时间单位为秒</span><br><span class="line">MaxCircuitDirtiness 900</span><br><span class="line">...</span><br></pre></td></tr></table></figure><h1 id="启动"><a class="markdownIt-Anchor" href="#启动"></a> 启动</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service tor@default start</span><br></pre></td></tr></table></figure><h1 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1、创建一个用户，运行tor；</span><br><span class="line"></span><br><span class="line">2、编辑“start-tor-browser”文件，找到下面语句，删除或注释掉即可运行：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#if [ “`id -u`” -eq 0 ]; then</span><br><span class="line"></span><br><span class="line"># complain “The Tor Browser Bundle should not be run as root. Exiting.”</span><br><span class="line"></span><br><span class="line"># exit 1</span><br><span class="line"></span><br><span class="line">#fi</span><br></pre></td></tr></table></figure><h1 id="关闭"><a class="markdownIt-Anchor" href="#关闭"></a> 关闭</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service tor@default stop</span><br></pre></td></tr></table></figure><h1 id="配置全局代理"><a class="markdownIt-Anchor" href="#配置全局代理"></a> 配置全局代理</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:9050</span><br></pre></td></tr></table></figure><h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1><blockquote><p>完成这一切的前提，是你有一个梯子…</p></blockquote><h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1><p><a href="https://evi1cg.me/archives/Tor_Fronting.html" target="_blank" rel="noopener">https://evi1cg.me/archives/Tor_Fronting.html</a></p><p><a href="http://www.cnblogs.com/iamstudy/articles/tor_usage_in_pentest.html" target="_blank" rel="noopener">http://www.cnblogs.com/iamstudy/articles/tor_usage_in_pentest.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;记录一下如何在命令行下面使用tor网络&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;kali下安装tor&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="Linux_security" scheme="http://yoursite.com/categories/Linux-security/"/>
+    
+    
+      <category term="kali" scheme="http://yoursite.com/tags/kali/"/>
+    
+  </entry>
   
   <entry>
     <title>文件上传漏洞-理论</title>
@@ -46,10 +75,10 @@
   
   <entry>
     <title>Kali下配置ss服务</title>
-    <link href="http://yoursite.com/2018/06/25/Kali%E4%B8%8B%E9%85%8D%E7%BD%AEss%E6%9C%8D%E5%8A%A1/"/>
-    <id>http://yoursite.com/2018/06/25/Kali下配置ss服务/</id>
+    <link href="http://yoursite.com/2018/06/25/kali%E4%B8%8B%E9%85%8D%E7%BD%AEss%E6%9C%8D%E5%8A%A1/"/>
+    <id>http://yoursite.com/2018/06/25/kali下配置ss服务/</id>
     <published>2018-06-25T14:17:29.000Z</published>
-    <updated>2018-06-25T14:18:18.948Z</updated>
+    <updated>2018-06-27T15:25:54.105Z</updated>
     
     <content type="html"><![CDATA[<h1 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h1><ol><li>首先你必须要有一个ss服务器</li><li>安装shadowsocks</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure><ol start="3"><li>修改python包错误</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py</span><br><span class="line"></span><br><span class="line">将第52行libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</span><br><span class="line">改为libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)</span><br><span class="line"></span><br><span class="line">再次搜索cleanup（全文件共2处，此处位于111行），将libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)</span><br><span class="line">改为libcrypto.EVP_CIPHER_CTX_reset(self._ctx)</span><br><span class="line"></span><br><span class="line">save and restart shadowsocks service</span><br></pre></td></tr></table></figure><ol start="4"><li>增加ss服务器配置</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">    &quot;server&quot;:&quot;服务器地址&quot;,</span><br><span class="line">    &quot;server_port&quot;:服务器端口号, &quot;local_address&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">    &quot;local_port&quot;:1080, </span><br><span class="line">    password&quot;:&quot;密码&quot;, </span><br><span class="line">    &quot;timeout&quot;:300, </span><br><span class="line">    &quot;method&quot;:&quot;加密方式&quot;, </span><br><span class="line">    &quot;fast_open&quot;: true,</span><br><span class="line">    &quot;workers&quot;: 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="5"><li>启动服务</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sslocal -c /etc/shadowsocks.json</span><br></pre></td></tr></table></figure><ol start="6"><li>配置 /etc/proxychains.conf</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">socks5 127.0.0.1 1080</span><br></pre></td></tr></table></figure><ol start="7"><li>使用proxychains启动应用程序</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">proxychains firefox www.google.com</span><br><span class="line">proxychains msfconsole</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -96,9 +125,9 @@
       <category term="Linux_security" scheme="http://yoursite.com/categories/Linux-security/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="security" scheme="http://yoursite.com/tags/security/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -127,9 +156,9 @@
       <category term="Linux_security" scheme="http://yoursite.com/categories/Linux-security/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="security" scheme="http://yoursite.com/tags/security/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -158,9 +187,9 @@
       <category term="Linux_security" scheme="http://yoursite.com/categories/Linux-security/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="security" scheme="http://yoursite.com/tags/security/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -189,9 +218,9 @@
       <category term="Linux_security" scheme="http://yoursite.com/categories/Linux-security/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="security" scheme="http://yoursite.com/tags/security/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -226,10 +255,10 @@
   
   <entry>
     <title>在kali中配置metasploit</title>
-    <link href="http://yoursite.com/2018/06/24/%E5%9C%A8kali%E4%B8%AD%E9%85%8D%E7%BD%AEmetasploit/"/>
-    <id>http://yoursite.com/2018/06/24/在kali中配置metasploit/</id>
+    <link href="http://yoursite.com/2018/06/24/kali%E4%B8%8B%E9%85%8D%E7%BD%AEmetasploit/"/>
+    <id>http://yoursite.com/2018/06/24/kali下配置metasploit/</id>
     <published>2018-06-24T01:54:59.000Z</published>
-    <updated>2018-06-24T04:39:46.656Z</updated>
+    <updated>2018-06-27T15:25:46.554Z</updated>
     
     <content type="html"><![CDATA[<h1 id="安装kali系统"><a class="markdownIt-Anchor" href="#安装kali系统"></a> 安装Kali系统</h1><p>推荐使用虚拟机，太简单不赘述。</p><h1 id="配置数据库"><a class="markdownIt-Anchor" href="#配置数据库"></a> 配置数据库</h1><h3 id="开启开机启动"><a class="markdownIt-Anchor" href="#开启开机启动"></a> 开启开机启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.local 添加</span><br><span class="line">/etc/init.d/postgresql start</span><br></pre></td></tr></table></figure><h3 id="启动数据库"><a class="markdownIt-Anchor" href="#启动数据库"></a> 启动数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service postgresql start </span><br><span class="line">systemctl restart postgresql</span><br></pre></td></tr></table></figure><h3 id="创建新用户"><a class="markdownIt-Anchor" href="#创建新用户"></a> 创建新用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; su postgres</span><br><span class="line">&gt;&gt; pssql</span><br><span class="line">&gt;&gt; create user &quot;msfuser&quot; with password &apos;msfpassword&apos; nocreatedb;</span><br><span class="line">&gt;&gt; create database &quot;msfdb&quot; with owner=&quot;msfuser&quot;;</span><br></pre></td></tr></table></figure><h3 id="编辑databaseyml文件"><a class="markdownIt-Anchor" href="#编辑databaseyml文件"></a> 编辑database.yml文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;cd /usr/share/metasploit-framework/config</span><br><span class="line">&gt;&gt; cp database.yml.example database.yml</span><br><span class="line">&gt;&gt; vim database.yml</span><br><span class="line">...</span><br><span class="line">database: msfdb</span><br><span class="line">username: msfuser</span><br><span class="line">password:msfpassword</span><br><span class="line">...</span><br></pre></td></tr></table></figure><h3 id="编辑postgresql本地启动"><a class="markdownIt-Anchor" href="#编辑postgresql本地启动"></a> 编辑postgresql，本地启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; cd /etc/postgresql/10/main</span><br><span class="line">&gt;&gt; cp pg_hba.conf pg_hba.conf.backup</span><br><span class="line">&gt;&gt; vim pg_hba.conf</span><br><span class="line">...</span><br><span class="line"># TYPE  DATABASE        USER            ADDRESS                 METHOD</span><br><span class="line"></span><br><span class="line"># &quot;local&quot; is for Unix domain socket connections only</span><br><span class="line">local   all             all                                     trust</span><br><span class="line"># IPv4 local connections:</span><br><span class="line">host    all             all             127.0.0.1/32            trust</span><br><span class="line"># IPv6 local connections:</span><br><span class="line">host    all             all             ::1/128                 trust</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure><h3 id="启动msf查看状态"><a class="markdownIt-Anchor" href="#启动msf查看状态"></a> 启动msf,查看状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; msfconsole</span><br><span class="line">&gt;&gt; db_status</span><br></pre></td></tr></table></figure><h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1><p><a href="https://www.secpulse.com/archives/33281.html" target="_blank" rel="noopener">https://www.secpulse.com/archives/33281.html</a></p><p><a href="https://www.jianshu.com/p/9c82ccb2aaf7" target="_blank" rel="noopener">https://www.jianshu.com/p/9c82ccb2aaf7</a></p><p><a href="https://blog.csdn.net/sanbingyutuoniao123/article/details/52209653" target="_blank" rel="noopener">https://blog.csdn.net/sanbingyutuoniao123/article/details/52209653</a></p><p><a href="https://docs.kali.org/general-use/starting-metasploit-framework-in-kali" target="_blank" rel="noopener">https://docs.kali.org/general-use/starting-metasploit-framework-in-kali</a></p>]]></content>
     
@@ -553,35 +582,6 @@
         &lt;h1 id=&quot;名词解释&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#名词解释&quot;&gt;&lt;/a&gt; 名词解释&lt;/h1&gt;
 &lt;h3 id=&quot;ids&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#ids&quot;&gt;&lt;/a&gt; IDS：&lt;/h3&gt;
 
-      
-    
-    </summary>
-    
-      <category term="企业安全建设" scheme="http://yoursite.com/categories/%E4%BC%81%E4%B8%9A%E5%AE%89%E5%85%A8%E5%BB%BA%E8%AE%BE/"/>
-    
-    
-      <category term="security" scheme="http://yoursite.com/tags/security/"/>
-    
-      <category term="企业安全建设" scheme="http://yoursite.com/tags/%E4%BC%81%E4%B8%9A%E5%AE%89%E5%85%A8%E5%BB%BA%E8%AE%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1-企业安全建设入门</title>
-    <link href="http://yoursite.com/2018/06/18/1-%E4%BC%81%E4%B8%9A%E5%AE%89%E5%85%A8%E5%BB%BA%E8%AE%BE%E5%85%A5%E9%97%A8/"/>
-    <id>http://yoursite.com/2018/06/18/1-企业安全建设入门/</id>
-    <published>2018-06-18T12:18:46.000Z</published>
-    <updated>2018-06-20T15:51:18.450Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="两个概念"><a class="markdownIt-Anchor" href="#两个概念"></a> 两个概念</h1><p>PDR：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">protection（保护）：</span><br><span class="line">加密，认证，访问控制，防火墙，杀毒软件等等</span><br><span class="line"></span><br><span class="line">detection（检测）：</span><br><span class="line">入侵检测，漏洞扫描等</span><br><span class="line"></span><br><span class="line">response（应急响应）：</span><br><span class="line">建立应急响应机制，形成对安全的及时响应能力等</span><br></pre></td></tr></table></figure><p>P2DR</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">protection</span><br><span class="line">Detection</span><br><span class="line">Response</span><br><span class="line">Police</span><br><span class="line"></span><br><span class="line">建立在PDR的基础上，多了一个Police（根据风险分析产生的安全策略），其中Police是模型的核心。</span><br><span class="line"></span><br><span class="line">着重于描述：</span><br><span class="line">系统中哪些资源需要保护？</span><br><span class="line">如何实现对它们的保护？</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;两个概念&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#两个概念&quot;&gt;&lt;/a&gt; 两个概念&lt;/h1&gt;
-&lt;p&gt;PDR：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
       
     
     </summary>
