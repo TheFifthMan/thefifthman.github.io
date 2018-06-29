@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>2-本地文件系统安全 | 打工</title>
-  <meta name="description" content="概述  [x] 使用chmod命令改变文件权限 [x] 使用访问控制列表 [ ] 在Ubuntu上安装一个LDAP   chmod命令  除了以下的方式外，还可以使用八进制的方式来做权限控制，暂且不表。   命令参数 12345678u 代表文件或者目录的所有者 usersg 代表文件或者目录所属的组 groupso 代表文件或者目录外的其他 othersa 代表以上所有">
-<meta name="keywords" content="security,Linux">
+  <title>Flask10-分页 | 打工</title>
+  <meta name="description" content="概述  首先分页使用的数据库里面的Pagination对象，下面我们将对用法做一些剖析   分页对象 12345678910111213141516171819202122page = request.args.get(&amp;apos;page&amp;apos;,1,type=int)posts = current_user.followed_posts().paginate(page, app.conf">
+<meta name="keywords" content="Flask">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2-本地文件系统安全">
-<meta property="og:url" content="http://yoursite.com/2018/06/24/2-本地文件系统安全/index.html">
+<meta property="og:title" content="Flask10-分页">
+<meta property="og:url" content="http://yoursite.com/2018/06/29/Flask10-分页/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概述  [x] 使用chmod命令改变文件权限 [x] 使用访问控制列表 [ ] 在Ubuntu上安装一个LDAP   chmod命令  除了以下的方式外，还可以使用八进制的方式来做权限控制，暂且不表。   命令参数 12345678u 代表文件或者目录的所有者 usersg 代表文件或者目录所属的组 groupso 代表文件或者目录外的其他 othersa 代表以上所有">
+<meta property="og:description" content="概述  首先分页使用的数据库里面的Pagination对象，下面我们将对用法做一些剖析   分页对象 12345678910111213141516171819202122page = request.args.get(&amp;apos;page&amp;apos;,1,type=int)posts = current_user.followed_posts().paginate(page, app.conf">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-24T04:39:13.889Z">
+<meta property="og:updated_time" content="2018-06-29T14:59:30.551Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2-本地文件系统安全">
-<meta name="twitter:description" content="概述  [x] 使用chmod命令改变文件权限 [x] 使用访问控制列表 [ ] 在Ubuntu上安装一个LDAP   chmod命令  除了以下的方式外，还可以使用八进制的方式来做权限控制，暂且不表。   命令参数 12345678u 代表文件或者目录的所有者 usersg 代表文件或者目录所属的组 groupso 代表文件或者目录外的其他 othersa 代表以上所有">
+<meta name="twitter:title" content="Flask10-分页">
+<meta name="twitter:description" content="概述  首先分页使用的数据库里面的Pagination对象，下面我们将对用法做一些剖析   分页对象 12345678910111213141516171819202122page = request.args.get(&amp;apos;page&amp;apos;,1,type=int)posts = current_user.followed_posts().paginate(page, app.conf">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2018/06/24/2-本地文件系统安全/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/06/29/Flask10-分页/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -341,14 +341,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-2-本地文件系统安全" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Flask10-分页" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      2-本地文件系统安全
+      Flask10-分页
     </h1>
   
 
@@ -356,63 +356,44 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/06/24/2-本地文件系统安全/" class="article-date">
-	  <time datetime="2018-06-24T04:33:17.000Z" itemprop="datePublished">2018-06-24</time>
+	<a href="/2018/06/29/Flask10-分页/" class="article-date">
+	  <time datetime="2018-06-29T14:59:07.000Z" itemprop="datePublished">2018-06-29</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Linux-security/">Linux_security</a>
+    <a class="article-category-link" href="/categories/Flask/">Flask</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Linux/">Linux</a>, <a class="article-tag-link" href="/tags/security/">security</a>
+	<a class="article-tag-link" href="/tags/Flask/">Flask</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/24/2-本地文件系统安全/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/29/Flask10-分页/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
         <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
-<ul>
-<li>[x] 使用chmod命令改变文件权限</li>
-<li>[x] 使用访问控制列表</li>
-<li>[ ] 在Ubuntu上安装一个LDAP</li>
-</ul>
-<h1 id="chmod命令"><a class="markdownIt-Anchor" href="#chmod命令"></a> chmod命令</h1>
 <blockquote>
-<p>除了以下的方式外，还可以使用八进制的方式来做权限控制，暂且不表。</p>
+<p>首先分页使用的数据库里面的Pagination对象，下面我们将对用法做一些剖析</p>
 </blockquote>
-<h3 id="命令参数"><a class="markdownIt-Anchor" href="#命令参数"></a> 命令参数</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">u 代表文件或者目录的所有者 users</span><br><span class="line">g 代表文件或者目录所属的组 groups</span><br><span class="line">o 代表文件或者目录外的其他 others</span><br><span class="line">a 代表以上所有             all</span><br><span class="line"></span><br><span class="line">r 代表 读</span><br><span class="line">x 代表 执行</span><br><span class="line">w 代表 写</span><br></pre></td></tr></table></figure>
-<h3 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 新建文件</span><br><span class="line">&gt;&gt; touch test.txt</span><br><span class="line"># 赋予执行的权限</span><br><span class="line">&gt;&gt; chmod u+x test.txt</span><br><span class="line"># 赋予组成员执行权限</span><br><span class="line">&gt;&gt; chmod g+x u+x test.txt</span><br><span class="line"># 收回权限</span><br><span class="line">&gt;&gt; chmod u-x test.txt</span><br><span class="line"># 将某个文件的权限复制给另一个文件</span><br><span class="line">&gt;&gt; chmod --reference=file1 file2</span><br><span class="line"># 递归添加权限</span><br><span class="line">&gt;&gt; chmod o+x -R /example</span><br></pre></td></tr></table></figure>
-<h1 id="使用访问控制列表"><a class="markdownIt-Anchor" href="#使用访问控制列表"></a> 使用访问控制列表</h1>
-<h3 id="获取权限控制信息"><a class="markdownIt-Anchor" href="#获取权限控制信息"></a> 获取权限控制信息</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">linux@linux:~$ getfacl /usr</span><br><span class="line">getfacl: Removing leading &apos;/&apos; from absolute path names</span><br><span class="line"># file: usr</span><br><span class="line"># owner: root</span><br><span class="line"># group: root</span><br><span class="line">user::rwx</span><br><span class="line">group::r-x</span><br><span class="line">other::r-x</span><br></pre></td></tr></table></figure>
-<h3 id="操作指南"><a class="markdownIt-Anchor" href="#操作指南"></a> 操作指南</h3>
-<h5 id="添加用户组"><a class="markdownIt-Anchor" href="#添加用户组"></a> 添加用户+组</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">useradd user1</span><br><span class="line">useradd user2</span><br><span class="line">useradd user3</span><br><span class="line">passwd -d user1</span><br><span class="line">passwd -d user2</span><br><span class="line">passwd -d user3</span><br><span class="line"></span><br><span class="line">addgroup group1</span><br><span class="line"></span><br><span class="line">usermod -G group1 user1</span><br><span class="line">usermod -G group1 user2</span><br><span class="line">usermod -G group1 user3</span><br></pre></td></tr></table></figure>
-<h5 id="user1-想把文件夹user1-分享给user2但是不给user3"><a class="markdownIt-Anchor" href="#user1-想把文件夹user1-分享给user2但是不给user3"></a> user1 想把文件夹user1 分享给user2，但是不给user3</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir accounts</span><br><span class="line">chown user1 accounts</span><br><span class="line"></span><br><span class="line">su user1</span><br><span class="line">setfacl -m u:user1:rxw accounts</span><br><span class="line">setfacl -m u:user2:rwx accounts</span><br><span class="line">setfacl -m other:--- accounts</span><br></pre></td></tr></table></figure>
-<h5 id="实验验证"><a class="markdownIt-Anchor" href="#实验验证"></a> 实验验证</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@linux:~# su user3</span><br><span class="line">$ cd /example</span><br><span class="line">$ ls</span><br><span class="line">accounts</span><br><span class="line">$ cd accounts</span><br><span class="line">sh: 3: cd: can&apos;t cd to accounts</span><br></pre></td></tr></table></figure>
-<h5 id="对权限控制做备份"><a class="markdownIt-Anchor" href="#对权限控制做备份"></a> 对权限控制做备份</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ getfacl -R accounts &gt; accounts/permissions.acl                   </span><br><span class="line">$ cd accounts</span><br><span class="line">$ ls</span><br><span class="line">permissions.acl</span><br></pre></td></tr></table></figure>
-<h5 id="恢复备份"><a class="markdownIt-Anchor" href="#恢复备份"></a> 恢复备份</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setfacl -- restore=permission.acl</span><br></pre></td></tr></table></figure>
+<h1 id="分页对象"><a class="markdownIt-Anchor" href="#分页对象"></a> 分页对象</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">page = request.args.get(&apos;page&apos;,1,type=int)</span><br><span class="line"></span><br><span class="line">posts = current_user.followed_posts().paginate(page, app.config[&apos;POSTS_PER_PAGE&apos;],False)</span><br><span class="line"></span><br><span class="line"># 参数解释：</span><br><span class="line">page: 通过url所带的参数得来的，用来说明当前请求的是哪一页</span><br><span class="line"></span><br><span class="line">app.config[&apos;POSTS_PER_PAGE&apos;]: 顾名思义，每页显示多少内容</span><br><span class="line"></span><br><span class="line">False：error flag， 如果为True，那么请求的页面没有了，就会返回404. 如果为False，那么就会返回一个空的list</span><br><span class="line"></span><br><span class="line"># 返回值</span><br><span class="line">返回的是一个paginate对象.有一个item属性，用来返回一个包含每次请求内容的list</span><br><span class="line">比如请求的是第一页，那么就返回第一个list</span><br><span class="line"></span><br><span class="line"># 考虑三个情况</span><br><span class="line">https://localhost:5000/index </span><br><span class="line">https://localhost:5000/index?page=1</span><br><span class="line">https://localhost:5000/index?page=3</span><br><span class="line"></span><br><span class="line">### 如果取不到page这个参数的值，那么就默认为 1</span><br><span class="line">page = request.args.get(&apos;page&apos;,1,type=int)</span><br></pre></td></tr></table></figure>
+<h1 id="下一页-上一页"><a class="markdownIt-Anchor" href="#下一页-上一页"></a> 下一页、上一页</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># paginate对象有以下几个属性</span><br><span class="line">has_next： 是否有下一个列表</span><br><span class="line">has_pre： 是否有上一个列表</span><br><span class="line">next_num： 下一个的编号</span><br><span class="line">prev_num： 上一个的编号</span><br><span class="line"></span><br><span class="line"># 利用上面几个有用的属性，就可以构造出下一页，上一页的链接</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">如果，url_for(index,page=xxx)后面跟一个参数，但是在原来的index函数里面，没有参数，那么url就会被构造成：http://localhost/index?page=xxx</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">url_for(&apos;index&apos;,page=posts.prev_num)</span><br></pre></td></tr></table></figure>
+<h1 id="项目代码"><a class="markdownIt-Anchor" href="#项目代码"></a> 项目代码</h1>
+<p><a href="http://route.py" target="_blank" rel="noopener">route.py</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def index():</span><br><span class="line">    ...</span><br><span class="line">    page = request.args.get(&apos;page&apos;,1,type=int)</span><br><span class="line">    posts = current_user.followed_posts().paginate(page,app.config[&apos;POSTS_PER_PAGE&apos;],False)</span><br><span class="line">    prev_url = url_for(&apos;index&apos;, page=posts.prev_num) \</span><br><span class="line">                if posts.has_prev else None</span><br><span class="line">    next_url = url_for(&apos;index&apos;, page=posts.next_num) \</span><br><span class="line">                if posts.has_next else None</span><br><span class="line">    return render_template(&apos;index.html&apos;,posts=posts.items,form=form,pre_url=prev_url,next_url=next_url)</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
 <h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
-<blockquote>
-<p>LADP暂时用不到，先不弄了。</p>
-</blockquote>
+<p>至此，完成了分页的功能。</p>
 
       
     </div>
@@ -437,13 +418,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2018/06/24/3-Linux的本地认证/" title="3-Linux的本地认证"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2018/06/24/1-Linux中的安全问题/" title="1-Linux中的安全问题"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/06/29/python模块-threading/" title="python模块-threading"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
