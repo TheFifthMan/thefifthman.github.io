@@ -157,11 +157,11 @@
   </entry>
   
   <entry>
-    <title>kali下配置ss服务</title>
-    <link href="http://yoursite.com/2018/06/25/kali%E4%B8%8B%E9%85%8D%E7%BD%AEss%E6%9C%8D%E5%8A%A1/"/>
-    <id>http://yoursite.com/2018/06/25/kali下配置ss服务/</id>
+    <title>Kali下配置ss服务</title>
+    <link href="http://yoursite.com/2018/06/25/Kali%E4%B8%8B%E9%85%8D%E7%BD%AEss%E6%9C%8D%E5%8A%A1/"/>
+    <id>http://yoursite.com/2018/06/25/Kali下配置ss服务/</id>
     <published>2018-06-25T14:17:29.000Z</published>
-    <updated>2018-06-29T15:37:01.702Z</updated>
+    <updated>2018-06-30T11:48:40.886Z</updated>
     
     <content type="html"><![CDATA[<h1 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h1><ol><li>首先你必须要有一个ss服务器</li><li>安装shadowsocks</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure><ol start="3"><li>修改python包错误</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py</span><br><span class="line"></span><br><span class="line">将第52行libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</span><br><span class="line">改为libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)</span><br><span class="line"></span><br><span class="line">再次搜索cleanup（全文件共2处，此处位于111行），将libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)</span><br><span class="line">改为libcrypto.EVP_CIPHER_CTX_reset(self._ctx)</span><br><span class="line"></span><br><span class="line">save and restart shadowsocks service</span><br></pre></td></tr></table></figure><ol start="4"><li>增加ss服务器配置</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">    &quot;server&quot;:&quot;服务器地址&quot;,</span><br><span class="line">    &quot;server_port&quot;:服务器端口号, &quot;local_address&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">    &quot;local_port&quot;:1080, </span><br><span class="line">    password&quot;:&quot;密码&quot;, </span><br><span class="line">    &quot;timeout&quot;:300, </span><br><span class="line">    &quot;method&quot;:&quot;加密方式&quot;, </span><br><span class="line">    &quot;fast_open&quot;: true,</span><br><span class="line">    &quot;workers&quot;: 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="5"><li>启动服务</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sslocal -c /etc/shadowsocks.json</span><br></pre></td></tr></table></figure><ol start="6"><li>配置 /etc/proxychains.conf</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">socks5 127.0.0.1 1080</span><br></pre></td></tr></table></figure><ol start="7"><li>使用proxychains启动应用程序</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">proxychains firefox www.google.com</span><br><span class="line">proxychains msfconsole</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -208,9 +208,9 @@
       <category term="Linux_security" scheme="http://yoursite.com/categories/Linux-security/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="security" scheme="http://yoursite.com/tags/security/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -239,9 +239,9 @@
       <category term="Linux_security" scheme="http://yoursite.com/categories/Linux-security/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="security" scheme="http://yoursite.com/tags/security/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -270,9 +270,9 @@
       <category term="Linux_security" scheme="http://yoursite.com/categories/Linux-security/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="security" scheme="http://yoursite.com/tags/security/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -301,9 +301,9 @@
       <category term="Linux_security" scheme="http://yoursite.com/categories/Linux-security/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="security" scheme="http://yoursite.com/tags/security/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
