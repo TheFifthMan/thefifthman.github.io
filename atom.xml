@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-29T14:59:30.551Z</updated>
+  <updated>2018-06-30T15:54:16.013Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常见的逻辑漏洞</title>
+    <link href="http://yoursite.com/2018/06/30/%E5%B8%B8%E8%A7%81%E7%9A%84%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/"/>
+    <id>http://yoursite.com/2018/06/30/常见的逻辑漏洞/</id>
+    <published>2018-06-30T15:52:44.000Z</published>
+    <updated>2018-06-30T15:54:16.013Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="逻辑安全存在的前提"><a class="markdownIt-Anchor" href="#逻辑安全存在的前提"></a> 逻辑安全存在的前提</h1><blockquote><p>有效的区分每个用户，并且针对每个用户提供独立的服务内容，允许用户与服务器进行大量的交互<br>。web应用的攻击就是<mark>攻击者从零交互零权限到最后取得最高权限</mark>。以下分别总结几点逻辑安全的漏洞</p></blockquote><h1 id="用户管理功能漏洞"><a class="markdownIt-Anchor" href="#用户管理功能漏洞"></a> 用户管理功能漏洞</h1><h2 id="cookie-and-session"><a class="markdownIt-Anchor" href="#cookie-and-session"></a> Cookie and Session</h2><p>最大的漏洞就是避免cookie伪造，例如在cookies中存在一个字段为 admin: false，这个时候，如果黑客将其改为 true，那么就可以实现cookies的一个伪造，从而进行攻击。</p><h1 id="用户授权管理和安全分析"><a class="markdownIt-Anchor" href="#用户授权管理和安全分析"></a> 用户授权管理和安全分析</h1><p>授权管理分为以下几个部分</p><ol><li>注册</li><li>密码找回</li><li>登录</li><li>密码修改、绑定信息修改</li><li>管理权限</li></ol><p>下面总结一下，大概有哪些危险</p><h2 id="注册"><a class="markdownIt-Anchor" href="#注册"></a> 注册</h2><h4 id="面临的危险和解决方案"><a class="markdownIt-Anchor" href="#面临的危险和解决方案"></a> 面临的危险和解决方案</h4><ol><li>恶意重复注册</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#解决方案</span><br><span class="line">限制IP注册频率</span><br><span class="line">表单加上验证码</span><br><span class="line">姓名和身份证验证</span><br><span class="line">二次验证，例如绑定手机号码或者邮箱</span><br></pre></td></tr></table></figure><ol start="2"><li>注册用户与已经存在的用户重名</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#解决方案</span><br><span class="line">首先数据库字段，要加上验证，不允许重复</span><br><span class="line">对用户输入要做校验。</span><br></pre></td></tr></table></figure><ol start="3"><li>没有对用户输入进行校验，造成xss，sql注入</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#解决方案</span><br><span class="line">对用户输入要做校验.</span><br><span class="line">过滤特殊字符</span><br><span class="line">不使用sql拼接</span><br></pre></td></tr></table></figure><ol start="4"><li>mysql中，可能存在空格覆盖。</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#解决方案</span><br><span class="line">对用户输入要做校验,去除空格。</span><br></pre></td></tr></table></figure><h2 id="密码找回"><a class="markdownIt-Anchor" href="#密码找回"></a> 密码找回</h2><p>面临的危险和解决方案</p><ol><li>服务器没有校验修改密码的token，或者token是可猜测破解的，这回造成任意密码修改【!】。这个是存在最多的漏洞，很常见。</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">加强token的安全性</span><br></pre></td></tr></table></figure><ol start="2"><li>session覆盖攻击,少见，即一个用户的session，会覆盖掉另一个用户的session，导致打开的时候，修改的其实是另一个用户的密码</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">很少见，估计实现都有困难。</span><br></pre></td></tr></table></figure><h2 id="登录"><a class="markdownIt-Anchor" href="#登录"></a> 登录</h2><p>面临的危险和解决方案</p><ol><li>暴力破解用户密码</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用验证码形式，用户三次输入错误，需要输入验证码，多次输入错误需要绑定的手机或者邮箱进行解锁</span><br></pre></td></tr></table></figure><ol start="2"><li>明文传输导致中间人攻击</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HTTPS</span><br><span class="line">HSTS</span><br></pre></td></tr></table></figure><ol start="3"><li>万能密码</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">做好防止sql注入的漏洞</span><br></pre></td></tr></table></figure><ol start="4"><li>用户密码存储</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户密码应该使用hash+随机盐的形式进行存储。</span><br></pre></td></tr></table></figure><ol start="5"><li>登录提示</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不应该使用过于明显的登录提示</span><br></pre></td></tr></table></figure><h2 id="密码修改个人信息修改"><a class="markdownIt-Anchor" href="#密码修改个人信息修改"></a> 密码修改/个人信息修改</h2><ol><li>CSRF攻击</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">加CSRF token和 refer 进行防御</span><br></pre></td></tr></table></figure><ol start="2"><li>确认用户本人操作</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">需要进行二次验证，确认是本人操作</span><br></pre></td></tr></table></figure><h2 id="管理权限漏洞"><a class="markdownIt-Anchor" href="#管理权限漏洞"></a> 管理权限漏洞</h2><ol><li>开发过程中没有对当前用户的一致性做校验工作。例如在flask中，个人中心需要登录才能看，但是如果你忘记了对当前用户的身份做一个校验，那么就会变成，只要随便登录一个用户，那么他就可以随便的修改或者查看他人的个人中心。</li></ol><p>代码实例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/profile/&lt;username&gt;&apos;)</span><br><span class="line">@login_required</span><br><span class="line">def profile(username):</span><br><span class="line">    user = User.query.filter_by(username=username).first()</span><br><span class="line">    # 应该这么校验</span><br><span class="line">    if current_user == user:</span><br><span class="line">        ...</span><br><span class="line">    else:</span><br><span class="line">        flash(&quot;You have no permission to access this page.&quot;)</span><br><span class="line">        return redirect(url_for(&apos;index&apos;))</span><br></pre></td></tr></table></figure><ol start="2"><li>权限管理没做好，导致低权限用户可以访问高权限用户的页面。同上，做好权限校验</li></ol><h1 id="用户身份识别和安全防护"><a class="markdownIt-Anchor" href="#用户身份识别和安全防护"></a> 用户身份识别和安全防护</h1><p>这章主要讲的是验证码和二次验证码的安全，基本上可以概括为：</p><ol><li>无论哪种验证码，都应该要有一个过期时间。</li><li>为了保证安全，都不该可以被猜测</li></ol><h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1><p>下一步打算认认真真研究一下kali这个系统了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;逻辑安全存在的前提&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#逻辑安全存在的前提&quot;&gt;&lt;/a&gt; 逻辑安全存在的前提&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有效的区分每个用户，并且针对每个用户提供独立的服务内容，允许用户与服务器进行
+      
+    
+    </summary>
+    
+      <category term="web_security" scheme="http://yoursite.com/categories/web-security/"/>
+    
+    
+      <category term="security" scheme="http://yoursite.com/tags/security/"/>
+    
+      <category term="xss" scheme="http://yoursite.com/tags/xss/"/>
+    
+  </entry>
   
   <entry>
     <title>Flask10-分页</title>
@@ -559,35 +588,6 @@
     
     
       <category term="Flask" scheme="http://yoursite.com/tags/Flask/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>4-DDoS了解</title>
-    <link href="http://yoursite.com/2018/06/18/4-DDoS%E4%BA%86%E8%A7%A3/"/>
-    <id>http://yoursite.com/2018/06/18/4-DDoS了解/</id>
-    <published>2018-06-18T12:19:53.000Z</published>
-    <updated>2018-06-20T15:51:37.715Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><blockquote><p>DDoS攻击分为流量型攻击和CC攻击，<strong>流量攻击</strong>主要是发送报文侵占正常业务的带宽，阻塞整个数据中心的出口，导致正常用户的访问无法到达。<br><strong>CC攻击</strong> 主要针对某些业务频繁访问，激发大量消耗资源的数据库查询，文件IO，导致业务服务器CPU，或者IO出现瓶颈，无法提供正常的服务。</p></blockquote><h1 id="案例"><a class="markdownIt-Anchor" href="#案例"></a> 案例</h1><ol><li>TCP SYN FLOOD</li></ol><blockquote><p>一个正常的TCP需要三次握手，如下所示：</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">客户端 --发送TCP SYN数据包--&gt;服务器分配控制块--返回SYN ACK数据包--&gt; 客户端 --返回 SYN ACK数据包--&gt; 服务器端--&gt; 服务器释放控制块</span><br><span class="line"></span><br><span class="line">如果客户端不返回SYN ACK数据包，或者不存在，那么就会造成TCP SYN 泛洪攻击</span><br></pre></td></tr></table></figure><ol start="2"><li>UDP FLOOD攻击</li></ol><blockquote><p>UDP 是没有连接状态的协议，因此可以发送大量的UDP请求，干扰正常应用。</p></blockquote><ol start="3"><li>反射型攻击</li></ol><blockquote><p>黑客伪造IP，向网络上大量开放特定服务的服务器进行请求，从而造成被伪造IP地址的服务器形成了DDoS攻击</p></blockquote><h1 id="解决方案"><a class="markdownIt-Anchor" href="#解决方案"></a> 解决方案</h1><p>1, 流量清洗<br>2，流量压制</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;DDoS攻击分为流量型攻击和CC攻击，&lt;strong&gt;流量攻击&lt;/strong&gt;主要是发送报文侵占正常业务的带宽，阻塞
-      
-    
-    </summary>
-    
-      <category term="企业安全建设" scheme="http://yoursite.com/categories/%E4%BC%81%E4%B8%9A%E5%AE%89%E5%85%A8%E5%BB%BA%E8%AE%BE/"/>
-    
-    
-      <category term="security" scheme="http://yoursite.com/tags/security/"/>
-    
-      <category term="企业安全建设" scheme="http://yoursite.com/tags/%E4%BC%81%E4%B8%9A%E5%AE%89%E5%85%A8%E5%BB%BA%E8%AE%BE/"/>
     
   </entry>
   
