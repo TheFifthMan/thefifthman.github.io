@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-01T15:29:39.017Z</updated>
+  <updated>2018-07-02T16:14:31.773Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python模块-click</title>
+    <link href="http://yoursite.com/2018/07/03/python%E6%A8%A1%E5%9D%97-click/"/>
+    <id>http://yoursite.com/2018/07/03/python模块-click/</id>
+    <published>2018-07-02T16:14:16.000Z</published>
+    <updated>2018-07-02T16:14:31.773Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><p>我们有时候要实现命令行带参数去执行函数的时候，可以使用click模块去实现，简单方便。</p><h1 id="click常用语法"><a class="markdownIt-Anchor" href="#click常用语法"></a> click常用语法</h1><h2 id="基础用法"><a class="markdownIt-Anchor" href="#基础用法"></a> 基础用法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> click</span><br><span class="line"></span><br><span class="line"><span class="meta">@click.command()</span></span><br><span class="line"><span class="meta">@click.option('--name','-name',default='johnw')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(name)</span>:</span></span><br><span class="line">    print(name)</span><br></pre></td></tr></table></figure><h2 id="设置一个参数多个值"><a class="markdownIt-Anchor" href="#设置一个参数多个值"></a> 设置一个参数多个值</h2><p>其中多个值会被包装成一个tuple</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> click </span><br><span class="line"><span class="meta">@click.command()</span></span><br><span class="line"><span class="meta">@click.option('--name',nargs=2,type='str')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(name)</span>:</span></span><br><span class="line">    print(name)</span><br></pre></td></tr></table></figure><h2 id="一个参数设置多个值并且类型不同"><a class="markdownIt-Anchor" href="#一个参数设置多个值并且类型不同"></a> 一个参数设置多个值，并且类型不同</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> click</span><br><span class="line"></span><br><span class="line"><span class="meta">@click.command()</span></span><br><span class="line"><span class="meta">@click.option('--ops',type=(unicode,int))</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(ops)</span>:</span></span><br><span class="line">    print(ops)</span><br></pre></td></tr></table></figure><h2 id="问答型参数"><a class="markdownIt-Anchor" href="#问答型参数"></a> 问答型参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import click</span><br><span class="line"></span><br><span class="line">@click.command()</span><br><span class="line">@click.option(&apos;--name&apos;,prompt=&quot;Your name is : &quot;)</span><br><span class="line">def main(name):</span><br><span class="line">    print(&quot;Hello &quot;,name)</span><br></pre></td></tr></table></figure><h2 id="密码型参数"><a class="markdownIt-Anchor" href="#密码型参数"></a> 密码型参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import click</span><br><span class="line"></span><br><span class="line">@click.command()</span><br><span class="line">@click.option(&apos;--password&apos;,prompt=True,hide_input=True,confirmation_prompt=True)</span><br><span class="line"></span><br><span class="line">def encrypt(password):</span><br><span class="line">    print(&apos;encrypted password&apos;)</span><br></pre></td></tr></table></figure><h2 id="几个参数"><a class="markdownIt-Anchor" href="#几个参数"></a> 几个参数</h2><ol><li>default：默认值</li><li>type： int,str,float</li><li>help: 提示信息</li></ol><h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> reference</h1><p><a href="http://click.pocoo.org/6/options/#basic-value-options" target="_blank" rel="noopener">http://click.pocoo.org/6/options/#basic-value-options</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
+&lt;p&gt;我们有时候要实现命令行带参数去执行函数的时候，可以使用click模块去实现，简单方便。&lt;/p&gt;
+&lt;h1 id=&quot;click常用语法&quot;&gt;&lt;a cl
+      
+    
+    </summary>
+    
+      <category term="python_modules" scheme="http://yoursite.com/categories/python-modules/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>python模块-queue</title>
@@ -558,35 +585,6 @@
       <category term="php" scheme="http://yoursite.com/tags/php/"/>
     
       <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flask08 - unittest</title>
-    <link href="http://yoursite.com/2018/06/19/Flask08-unittest/"/>
-    <id>http://yoursite.com/2018/06/19/Flask08-unittest/</id>
-    <published>2018-06-18T16:08:54.000Z</published>
-    <updated>2018-06-20T15:51:53.302Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><blockquote><p>不可缺少的单元测试！ 使用unittest框架测试web应用的功能</p></blockquote><h1 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">#-*- coding:utf-8 -*-</span><br><span class="line">from datetime import datetime,timedelta</span><br><span class="line">import unittest</span><br><span class="line">from microblogapp import app,db</span><br><span class="line">from microblogapp.models import User,Post</span><br><span class="line"></span><br><span class="line">class UserModelClass(unittest.TestCase):</span><br><span class="line">    def setUp(self):</span><br><span class="line">        db.create_all()</span><br><span class="line"></span><br><span class="line">    def tearDown(self):</span><br><span class="line">        db.session.remove()</span><br><span class="line">        db.drop_all()</span><br><span class="line"></span><br><span class="line">    def test_password(self):</span><br><span class="line">        u = User(username=&apos;johnw&apos;)</span><br><span class="line">        hash1 = u.set_password_hash(&apos;cat&apos;)</span><br><span class="line">        self.assertTrue(u.check_password_hash(&apos;cat&apos;))</span><br><span class="line">        self.assertFalse(u.check_password_hash(&apos;dog&apos;))</span><br><span class="line"></span><br><span class="line">    def test_follow(self):</span><br><span class="line">        u1 = User(username=&apos;susan&apos;)</span><br><span class="line">        u2 = User(username=&apos;chris&apos;)</span><br><span class="line"></span><br><span class="line">        db.session.add(u1)</span><br><span class="line">        db.session.add(u2)</span><br><span class="line"></span><br><span class="line">        u1.follow(u2)</span><br><span class="line">        db.session.commit()</span><br><span class="line"></span><br><span class="line">        self.assertTrue(u1.is_following(u2))</span><br><span class="line">        self.assertEqual(u1.followed.count(),1)</span><br><span class="line">        self.assertEqual(u2.followers.count(),1)</span><br><span class="line">        self.assertEqual(u1.followed.first().username,&apos;chris&apos;)</span><br><span class="line">        self.assertEqual(u2.followers.first().username,&apos;susan&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def test_follow_post(self):</span><br><span class="line">        u1 = User(username=&apos;john&apos;)</span><br><span class="line">        u2 = User(username=&apos;susan&apos;)</span><br><span class="line">        u3 = User(username=&apos;jack&apos;)</span><br><span class="line">        u4 = User(username=&apos;chris&apos;)</span><br><span class="line"></span><br><span class="line">        now = datetime.now()</span><br><span class="line">        p1 = Post(body=&apos;Post from john&apos;,author=u1,timestamp=now+timedelta(seconds=1))</span><br><span class="line">        p2 = Post(body=&apos;Post from susan&apos;,author=u2,timestamp=now+timedelta(seconds=4))</span><br><span class="line">        p3 = Post(body=&apos;Post from jack&apos;,author=u3,timestamp=now+timedelta(seconds=2))</span><br><span class="line">        p4 = Post(body=&quot;Post from chris&quot;,author=u4,timestamp=now+timedelta(seconds=3))</span><br><span class="line"></span><br><span class="line">        db.session.add_all([u1,u2,u3,u4])</span><br><span class="line">        db.session.add_all([p1,p2,p3,p4])</span><br><span class="line"></span><br><span class="line">        u1.follow(u2) # john follow susan </span><br><span class="line">        u1.follow(u4) # john follow chris</span><br><span class="line">        u2.follow(u3) # susan follow jack</span><br><span class="line">        u3.follow(u4) # jack follow chris</span><br><span class="line">        </span><br><span class="line">        db.session.commit()</span><br><span class="line"></span><br><span class="line">        f1 = u1.followed_posts().all()</span><br><span class="line">        f2 = u2.followed_posts().all()</span><br><span class="line">        f3 = u3.followed_posts().all()</span><br><span class="line">        f4 = u4.followed_posts().all()</span><br><span class="line"></span><br><span class="line">        self.assertEqual(f1,[p2,p4,p1])</span><br><span class="line">        self.assertEqual(f2,[p2,p3])</span><br><span class="line">        self.assertEqual(f3,[p4,p3])</span><br><span class="line">        self.assertEqual(f4,[p4])</span><br><span class="line"></span><br><span class="line">if &quot;__main__&quot; == __name__:</span><br><span class="line">    unittest.main(verbosity=2)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;不可缺少的单元测试！ 使用unittest框架测试web应用的功能&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=
-      
-    
-    </summary>
-    
-      <category term="Flask" scheme="http://yoursite.com/categories/Flask/"/>
-    
-    
-      <category term="Flask" scheme="http://yoursite.com/tags/Flask/"/>
     
   </entry>
   

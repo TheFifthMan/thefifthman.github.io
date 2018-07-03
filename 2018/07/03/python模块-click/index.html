@@ -17,16 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Archive: 2018/6 | 打工</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/06/page/4/index.html">
+  <title>python模块-click | 打工</title>
+  <meta name="description" content="概述 我们有时候要实现命令行带参数去执行函数的时候，可以使用click模块去实现，简单方便。  click常用语法  基础用法 1234567import click@click.command()@click.option(&apos;--name&apos;,&apos;-name&apos;,default=&apos;johnw&apos;)def main(name):    print(name)  设置一个参数多个值 其中多个值会被包装成一">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python模块-click">
+<meta property="og:url" content="http://yoursite.com/2018/07/03/python模块-click/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概述 我们有时候要实现命令行带参数去执行函数的时候，可以使用click模块去实现，简单方便。  click常用语法  基础用法 1234567import click@click.command()@click.option(&apos;--name&apos;,&apos;-name&apos;,default=&apos;johnw&apos;)def main(name):    print(name)  设置一个参数多个值 其中多个值会被包装成一">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-02T16:14:31.773Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="python模块-click">
+<meta name="twitter:description" content="概述 我们有时候要实现命令行带参数去执行函数的时候，可以使用click模块去实现，简单方便。  click常用语法  基础用法 1234567import click@click.command()@click.option(&apos;--name&apos;,&apos;-name&apos;,default=&apos;johnw&apos;)def main(name):    print(name)  设置一个参数多个值 其中多个值会被包装成一">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/archives/2018/06/page/4/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/07/03/python模块-click/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -335,154 +340,161 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">Archive: 2018/6</h1>
-	      <p class="text-muted">Total 9 articles</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="post-python模块-click" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python模块-click
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2018" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2018
-            </a>
-            <!-- <a href="/archives/2018" class="archive-year">2018</a> -->
-          </h3>
-        </div>
-        <div id="collapse2018" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2018">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2018/06/13/python模块-re/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-13T00:30:57.000Z" itemprop="datePublished">2018-06-13</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> python模块 - re
-</a>
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/07/03/python模块-click/" class="article-date">
+	  <time datetime="2018-07-02T16:14:16.000Z" itemprop="datePublished">2018-07-03</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/python-modules/">python_modules</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Python/">Python</a>
+  </span>
 
 
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/07/03/python模块-click/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<p>我们有时候要实现命令行带参数去执行函数的时候，可以使用click模块去实现，简单方便。</p>
+<h1 id="click常用语法"><a class="markdownIt-Anchor" href="#click常用语法"></a> click常用语法</h1>
+<h2 id="基础用法"><a class="markdownIt-Anchor" href="#基础用法"></a> 基础用法</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> click</span><br><span class="line"></span><br><span class="line"><span class="meta">@click.command()</span></span><br><span class="line"><span class="meta">@click.option('--name','-name',default='johnw')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(name)</span>:</span></span><br><span class="line">    print(name)</span><br></pre></td></tr></table></figure>
+<h2 id="设置一个参数多个值"><a class="markdownIt-Anchor" href="#设置一个参数多个值"></a> 设置一个参数多个值</h2>
+<p>其中多个值会被包装成一个tuple</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> click </span><br><span class="line"><span class="meta">@click.command()</span></span><br><span class="line"><span class="meta">@click.option('--name',nargs=2,type='str')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(name)</span>:</span></span><br><span class="line">    print(name)</span><br></pre></td></tr></table></figure>
+<h2 id="一个参数设置多个值并且类型不同"><a class="markdownIt-Anchor" href="#一个参数设置多个值并且类型不同"></a> 一个参数设置多个值，并且类型不同</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> click</span><br><span class="line"></span><br><span class="line"><span class="meta">@click.command()</span></span><br><span class="line"><span class="meta">@click.option('--ops',type=(unicode,int))</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(ops)</span>:</span></span><br><span class="line">    print(ops)</span><br></pre></td></tr></table></figure>
+<h2 id="问答型参数"><a class="markdownIt-Anchor" href="#问答型参数"></a> 问答型参数</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import click</span><br><span class="line"></span><br><span class="line">@click.command()</span><br><span class="line">@click.option(&apos;--name&apos;,prompt=&quot;Your name is : &quot;)</span><br><span class="line">def main(name):</span><br><span class="line">    print(&quot;Hello &quot;,name)</span><br></pre></td></tr></table></figure>
+<h2 id="密码型参数"><a class="markdownIt-Anchor" href="#密码型参数"></a> 密码型参数</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import click</span><br><span class="line"></span><br><span class="line">@click.command()</span><br><span class="line">@click.option(&apos;--password&apos;,prompt=True,hide_input=True,confirmation_prompt=True)</span><br><span class="line"></span><br><span class="line">def encrypt(password):</span><br><span class="line">    print(&apos;encrypted password&apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="几个参数"><a class="markdownIt-Anchor" href="#几个参数"></a> 几个参数</h2>
+<ol>
+<li>default：默认值</li>
+<li>type： int,str,float</li>
+<li>help: 提示信息</li>
+</ol>
+<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> reference</h1>
+<p><a href="http://click.pocoo.org/6/options/#basic-value-options" target="_blank" rel="noopener">http://click.pocoo.org/6/options/#basic-value-options</a></p>
+
+      
+    </div>
+   
+  </article>
   
     
-    
-    
-<a href="/2018/06/09/Linux-Nginx/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-09T13:22:07.000Z" itemprop="datePublished">2018-06-09</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Linux - Nginx
-</a>
-
-
-  
-    
-    
-    
-<a href="/2018/06/09/Flask06-User-Profile/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-09T13:21:27.000Z" itemprop="datePublished">2018-06-09</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Flask06 - User Profile
-</a>
-
-
-  
-    
-    
-    
-<a href="/2018/06/09/Flask05-User-login/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-09T13:20:49.000Z" itemprop="datePublished">2018-06-09</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Flask05 - User login
-</a>
-
-
-  
-    
-    
-    
-<a href="/2018/06/09/Flask04-Database/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-09T13:19:29.000Z" itemprop="datePublished">2018-06-09</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Flask04 - Database
-</a>
-
-
-  
-    
-    
-    
-<a href="/2018/06/09/Flask03-Web-Form/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-09T13:18:48.000Z" itemprop="datePublished">2018-06-09</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Flask03 - Web Form
-</a>
-
-
-  
-    
-    
-    
-<a href="/2018/06/09/Flask02-Templates/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-09T13:18:00.000Z" itemprop="datePublished">2018-06-09</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Flask02 - Templates
-</a>
-
-
-  
-    
-    
-    
-<a href="/2018/06/09/Flask01-Hello World/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-09T12:46:52.333Z" itemprop="datePublished">2018-06-09</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Flask01 - Hello World
-</a>
-
-
-  
-    
-    
-    
-<a href="/2018/06/09/hello-world/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-09T06:58:25.169Z" itemprop="datePublished">2018-06-09</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Hello World
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
+  <section id="comments">
   	
+       
+    <div id="uyan_frame"></div>
+
     
-    <nav class="bar bar-footer clearfix" data-stick-bottom>
-        <div class="bar-inner">
-        <ul class="pager pull-left">
-            
-            <li class="prev">
-                <a href="/archives/2018/06/page/3/">
-                    <i class="icon icon-angle-left"></i>
-                    Prev
-                </a>
-            </li>
-            
-            
-            <li class="next disabled">
-                <a href="javascript:;">
-                    Next
-                    <i class="icon icon-angle-right"></i>                    
-                </a>
-            </li>
-            
-        </ul>
-        <div class="total-article bar-right">Page 4 of 4</div>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/07/01/python模块-queue/" title="python模块-queue"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
-    
- 	
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -524,6 +536,16 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     
     
     
+        
+
+
+    
+    
+        
+    
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+
+
     
     
 
