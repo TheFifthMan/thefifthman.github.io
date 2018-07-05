@@ -17,21 +17,24 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>1-Linux中的安全问题 | 打工</title>
-  <meta name="description" content="概述  读书笔记   Linux的安全策略  对系统的访问能力 系统上安装软件的权限 数据的访问能力 故障恢复   检验安装介质的安全性 1234567891011121314# Linuxmd5sum ubuntu18.iso# windows CertUtil -hashfile xxxx.iso MD5# mac~/Downloads» md5 ubuntu18.iso MD5 (ubun">
-<meta name="keywords" content="Linux,security">
+  <title>01-项目分析 | 打工</title>
+  <meta name="description" content="概述 首先阐述一下我们要开发的微电影网站。功能还是比较强大的。一图胜前言   开发和生产环境  centos python3 mysql html5 flask nginx pycharm   框架对比">
+<meta name="keywords" content="flask">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1-Linux中的安全问题">
-<meta property="og:url" content="http://yoursite.com/2018/06/24/1-Linux中的安全问题/index.html">
+<meta property="og:title" content="01-项目分析">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/01-项目分析/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概述  读书笔记   Linux的安全策略  对系统的访问能力 系统上安装软件的权限 数据的访问能力 故障恢复   检验安装介质的安全性 1234567891011121314# Linuxmd5sum ubuntu18.iso# windows CertUtil -hashfile xxxx.iso MD5# mac~/Downloads» md5 ubuntu18.iso MD5 (ubun">
+<meta property="og:description" content="概述 首先阐述一下我们要开发的微电影网站。功能还是比较强大的。一图胜前言   开发和生产环境  centos python3 mysql html5 flask nginx pycharm   框架对比">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-24T04:39:00.487Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/projectneeds.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94.png">
+<meta property="og:updated_time" content="2018-07-05T16:05:25.279Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1-Linux中的安全问题">
-<meta name="twitter:description" content="概述  读书笔记   Linux的安全策略  对系统的访问能力 系统上安装软件的权限 数据的访问能力 故障恢复   检验安装介质的安全性 1234567891011121314# Linuxmd5sum ubuntu18.iso# windows CertUtil -hashfile xxxx.iso MD5# mac~/Downloads» md5 ubuntu18.iso MD5 (ubun">
+<meta name="twitter:title" content="01-项目分析">
+<meta name="twitter:description" content="概述 首先阐述一下我们要开发的微电影网站。功能还是比较强大的。一图胜前言   开发和生产环境  centos python3 mysql html5 flask nginx pycharm   框架对比">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/projectneeds.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2018/06/24/1-Linux中的安全问题/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/01-项目分析/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -341,14 +344,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-1-Linux中的安全问题" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-01-项目分析" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      1-Linux中的安全问题
+      01-项目分析
     </h1>
   
 
@@ -356,48 +359,46 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/06/24/1-Linux中的安全问题/" class="article-date">
-	  <time datetime="2018-06-24T02:04:07.000Z" itemprop="datePublished">2018-06-24</time>
+	<a href="/2018/07/06/01-项目分析/" class="article-date">
+	  <time datetime="2018-07-05T16:03:30.000Z" itemprop="datePublished">2018-07-06</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Linux-security/">Linux_security</a>
+    <a class="article-category-link" href="/categories/micro-movie/">micro_movie</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Linux/">Linux</a>, <a class="article-tag-link" href="/tags/security/">security</a>
+	<a class="article-tag-link" href="/tags/flask/">flask</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/24/1-Linux中的安全问题/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/07/06/01-项目分析/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
         <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
-<blockquote>
-<p>读书笔记</p>
-</blockquote>
-<h1 id="linux的安全策略"><a class="markdownIt-Anchor" href="#linux的安全策略"></a> Linux的安全策略</h1>
+<p>首先阐述一下我们要开发的微电影网站。功能还是比较强大的。一图胜前言</p>
+<p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/projectneeds.png" alt="image"></p>
+<h1 id="开发和生产环境"><a class="markdownIt-Anchor" href="#开发和生产环境"></a> 开发和生产环境</h1>
 <ol>
-<li>对系统的访问能力</li>
-<li>系统上安装软件的权限</li>
-<li>数据的访问能力</li>
-<li>故障恢复</li>
+<li>centos</li>
+<li>python3</li>
+<li>mysql</li>
+<li>html5</li>
+<li>flask</li>
+<li>nginx</li>
+<li>pycharm</li>
 </ol>
-<h1 id="检验安装介质的安全性"><a class="markdownIt-Anchor" href="#检验安装介质的安全性"></a> 检验安装介质的安全性</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># Linux</span><br><span class="line">md5sum ubuntu18.iso</span><br><span class="line"></span><br><span class="line"># windows </span><br><span class="line">CertUtil -hashfile xxxx.iso MD5</span><br><span class="line"></span><br><span class="line"># mac</span><br><span class="line">~/Downloads» md5 ubuntu18.iso </span><br><span class="line">MD5 (ubuntu18.iso) = 129292a182136a35e1f89c586dbac2e2</span><br><span class="line"></span><br><span class="line">---------------------------------</span><br><span class="line">官网md5：</span><br><span class="line"></span><br><span class="line">129292a182136a35e1f89c586dbac2e2 *ubuntu-18.04-desktop-amd64.iso</span><br></pre></td></tr></table></figure>
-<h1 id="配置sudo访问"><a class="markdownIt-Anchor" href="#配置sudo访问"></a> 配置sudo访问</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">useradd test</span><br><span class="line">groupadd testgroups</span><br><span class="line">passwd test</span><br><span class="line">visudo </span><br><span class="line"></span><br><span class="line">## Allow people in group test run all commands</span><br><span class="line">test ALL=(ALL) ALL</span><br><span class="line"></span><br><span class="line">usermod -aG testgroups test</span><br><span class="line"></span><br><span class="line">sudo test -</span><br></pre></td></tr></table></figure>
-<h1 id="使用namp扫描metasploitable2"><a class="markdownIt-Anchor" href="#使用namp扫描metasploitable2"></a> 使用namp扫描metasploitable2</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 首先下载metasploitable2</span><br><span class="line">https://sourceforge.net/projects/metasploitable/ </span><br><span class="line"># 安装kali系统</span><br><span class="line"># 设置kali系统的metasploitable</span><br><span class="line"># 使用进行扫描</span><br></pre></td></tr></table></figure>
+<h1 id="框架对比"><a class="markdownIt-Anchor" href="#框架对比"></a> 框架对比</h1>
+<p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94.png" alt="image"></p>
 
       
     </div>
@@ -423,12 +424,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2018/06/24/2-本地文件系统安全/" title="2-本地文件系统安全"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+      <a href="/2018/07/06/02-环境搭建/" title="02-环境搭建"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2018/06/24/Flask09-补缺补漏/" title="Flask09-补缺补漏"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/07/03/python模块-click/" title="python模块-click"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

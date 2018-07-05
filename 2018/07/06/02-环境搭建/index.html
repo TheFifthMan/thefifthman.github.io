@@ -17,21 +17,30 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>1-Linux中的安全问题 | 打工</title>
-  <meta name="description" content="概述  读书笔记   Linux的安全策略  对系统的访问能力 系统上安装软件的权限 数据的访问能力 故障恢复   检验安装介质的安全性 1234567891011121314# Linuxmd5sum ubuntu18.iso# windows CertUtil -hashfile xxxx.iso MD5# mac~/Downloads» md5 ubuntu18.iso MD5 (ubun">
-<meta name="keywords" content="Linux,security">
+  <title>02-环境搭建 | 打工</title>
+  <meta name="description" content="概述  windows环境搭建 mac环境搭建 mysql常规配置   windows搭建  0. 下载简介   1. 下载安装python3  2. 下载安装mysql       3. 下载安装pycharm  4. 指定python下载源  验证源：   5. 安装虚拟环境 1234mkdir microMoviecd microMoviepython -m venv venv .\ven">
+<meta name="keywords" content="flask">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1-Linux中的安全问题">
-<meta property="og:url" content="http://yoursite.com/2018/06/24/1-Linux中的安全问题/index.html">
+<meta property="og:title" content="02-环境搭建">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/02-环境搭建/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概述  读书笔记   Linux的安全策略  对系统的访问能力 系统上安装软件的权限 数据的访问能力 故障恢复   检验安装介质的安全性 1234567891011121314# Linuxmd5sum ubuntu18.iso# windows CertUtil -hashfile xxxx.iso MD5# mac~/Downloads» md5 ubuntu18.iso MD5 (ubun">
+<meta property="og:description" content="概述  windows环境搭建 mac环境搭建 mysql常规配置   windows搭建  0. 下载简介   1. 下载安装python3  2. 下载安装mysql       3. 下载安装pycharm  4. 指定python下载源  验证源：   5. 安装虚拟环境 1234mkdir microMoviecd microMoviepython -m venv venv .\ven">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-24T04:39:00.487Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%9C%B0%E5%9D%80.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/mysql%E5%AE%89%E8%A3%851.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/mysql%E5%AE%89%E8%A3%852.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/mysql%E5%AE%89%E8%A3%853.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/mysql%E5%AE%89%E8%A3%854.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/mysql%E5%AE%89%E8%A3%855.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/pypi%E6%BA%901.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/pypi%E6%BA%902.png">
+<meta property="og:updated_time" content="2018-07-05T16:05:41.824Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1-Linux中的安全问题">
-<meta name="twitter:description" content="概述  读书笔记   Linux的安全策略  对系统的访问能力 系统上安装软件的权限 数据的访问能力 故障恢复   检验安装介质的安全性 1234567891011121314# Linuxmd5sum ubuntu18.iso# windows CertUtil -hashfile xxxx.iso MD5# mac~/Downloads» md5 ubuntu18.iso MD5 (ubun">
+<meta name="twitter:title" content="02-环境搭建">
+<meta name="twitter:description" content="概述  windows环境搭建 mac环境搭建 mysql常规配置   windows搭建  0. 下载简介   1. 下载安装python3  2. 下载安装mysql       3. 下载安装pycharm  4. 指定python下载源  验证源：   5. 安装虚拟环境 1234mkdir microMoviecd microMoviepython -m venv venv .\ven">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%9C%B0%E5%9D%80.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2018/06/24/1-Linux中的安全问题/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/02-环境搭建/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -341,14 +350,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-1-Linux中的安全问题" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-02-环境搭建" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      1-Linux中的安全问题
+      02-环境搭建
     </h1>
   
 
@@ -356,49 +365,85 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/06/24/1-Linux中的安全问题/" class="article-date">
-	  <time datetime="2018-06-24T02:04:07.000Z" itemprop="datePublished">2018-06-24</time>
+	<a href="/2018/07/06/02-环境搭建/" class="article-date">
+	  <time datetime="2018-07-05T16:03:39.000Z" itemprop="datePublished">2018-07-06</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Linux-security/">Linux_security</a>
+    <a class="article-category-link" href="/categories/micro-movie/">micro_movie</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Linux/">Linux</a>, <a class="article-tag-link" href="/tags/security/">security</a>
+	<a class="article-tag-link" href="/tags/flask/">flask</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/24/1-Linux中的安全问题/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/07/06/02-环境搭建/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
         <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
-<blockquote>
-<p>读书笔记</p>
-</blockquote>
-<h1 id="linux的安全策略"><a class="markdownIt-Anchor" href="#linux的安全策略"></a> Linux的安全策略</h1>
 <ol>
-<li>对系统的访问能力</li>
-<li>系统上安装软件的权限</li>
-<li>数据的访问能力</li>
-<li>故障恢复</li>
+<li>windows环境搭建</li>
+<li>mac环境搭建</li>
+<li>mysql常规配置</li>
 </ol>
-<h1 id="检验安装介质的安全性"><a class="markdownIt-Anchor" href="#检验安装介质的安全性"></a> 检验安装介质的安全性</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># Linux</span><br><span class="line">md5sum ubuntu18.iso</span><br><span class="line"></span><br><span class="line"># windows </span><br><span class="line">CertUtil -hashfile xxxx.iso MD5</span><br><span class="line"></span><br><span class="line"># mac</span><br><span class="line">~/Downloads» md5 ubuntu18.iso </span><br><span class="line">MD5 (ubuntu18.iso) = 129292a182136a35e1f89c586dbac2e2</span><br><span class="line"></span><br><span class="line">---------------------------------</span><br><span class="line">官网md5：</span><br><span class="line"></span><br><span class="line">129292a182136a35e1f89c586dbac2e2 *ubuntu-18.04-desktop-amd64.iso</span><br></pre></td></tr></table></figure>
-<h1 id="配置sudo访问"><a class="markdownIt-Anchor" href="#配置sudo访问"></a> 配置sudo访问</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">useradd test</span><br><span class="line">groupadd testgroups</span><br><span class="line">passwd test</span><br><span class="line">visudo </span><br><span class="line"></span><br><span class="line">## Allow people in group test run all commands</span><br><span class="line">test ALL=(ALL) ALL</span><br><span class="line"></span><br><span class="line">usermod -aG testgroups test</span><br><span class="line"></span><br><span class="line">sudo test -</span><br></pre></td></tr></table></figure>
-<h1 id="使用namp扫描metasploitable2"><a class="markdownIt-Anchor" href="#使用namp扫描metasploitable2"></a> 使用namp扫描metasploitable2</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 首先下载metasploitable2</span><br><span class="line">https://sourceforge.net/projects/metasploitable/ </span><br><span class="line"># 安装kali系统</span><br><span class="line"># 设置kali系统的metasploitable</span><br><span class="line"># 使用进行扫描</span><br></pre></td></tr></table></figure>
-
+<h1 id="windows搭建"><a class="markdownIt-Anchor" href="#windows搭建"></a> windows搭建</h1>
+<h3 id="0-下载简介"><a class="markdownIt-Anchor" href="#0-下载简介"></a> 0. 下载简介</h3>
+<p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%9C%B0%E5%9D%80.png" alt="image"></p>
+<h3 id="1-下载安装python3"><a class="markdownIt-Anchor" href="#1-下载安装python3"></a> 1. 下载安装python3</h3>
+<h3 id="2-下载安装mysql"><a class="markdownIt-Anchor" href="#2-下载安装mysql"></a> 2. 下载安装mysql</h3>
+<p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/mysql%E5%AE%89%E8%A3%851.png" alt="image"><br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/mysql%E5%AE%89%E8%A3%852.png" alt="image"><br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/mysql%E5%AE%89%E8%A3%853.png" alt="image"><br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/mysql%E5%AE%89%E8%A3%854.png" alt="image"><br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/mysql%E5%AE%89%E8%A3%855.png" alt="image"></p>
+<h3 id="3-下载安装pycharm"><a class="markdownIt-Anchor" href="#3-下载安装pycharm"></a> 3. 下载安装pycharm</h3>
+<h3 id="4-指定python下载源"><a class="markdownIt-Anchor" href="#4-指定python下载源"></a> 4. 指定python下载源</h3>
+<p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/pypi%E6%BA%901.png" alt="image"></p>
+<p>验证源：<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/pypi%E6%BA%902.png" alt="image"></p>
+<h3 id="5-安装虚拟环境"><a class="markdownIt-Anchor" href="#5-安装虚拟环境"></a> 5. 安装虚拟环境</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir microMovie</span><br><span class="line">cd microMovie</span><br><span class="line">python -m venv venv </span><br><span class="line">.\venv\Scripts\activate</span><br></pre></td></tr></table></figure>
+<h1 id="mac环境搭建"><a class="markdownIt-Anchor" href="#mac环境搭建"></a> mac环境搭建</h1>
+<ol>
+<li>安装pyenv，用于python环境切换</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">brew install pyenv </span><br><span class="line">cd ~/.pyenv</span><br><span class="line">mkdir cache</span><br><span class="line">pyenv install 3.6.4</span><br><span class="line">pyenv global 3.6.4 </span><br><span class="line">pyenv refresh</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>指定python下载源</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.pip</span><br><span class="line">cd ~/.pip</span><br><span class="line">vim pip.conf</span><br><span class="line"></span><br><span class="line">-----file content</span><br><span class="line">[global]</span><br><span class="line">trusted-host =  mirrors.aliyun.com</span><br><span class="line">index-url = http://mirrors.aliyun.com/pypi/simple</span><br><span class="line">-----</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>安装docker<br>
+<a href="https://download.docker.com/mac/stable/Docker.dmg" target="_blank" rel="noopener">https://download.docker.com/mac/stable/Docker.dmg</a></li>
+<li>使用docker安装mysql</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3306:3306 -v /data/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7</span><br><span class="line">docker exec -it /bin/bash</span><br></pre></td></tr></table></figure>
+<h1 id="mysql数据库配置"><a class="markdownIt-Anchor" href="#mysql数据库配置"></a> mysql数据库配置</h1>
+<h3 id="1-mysql修改密码"><a class="markdownIt-Anchor" href="#1-mysql修改密码"></a> 1. mysql修改密码</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1、修改 /etc/my.cnf，在 [mysqld] 小节下添加一行：skip-grant-tables=1</span><br><span class="line"></span><br><span class="line">这一行配置让 mysqld 启动时不对密码进行验证</span><br><span class="line"></span><br><span class="line">2、重启 mysqld 服务：systemctl restart mysqld</span><br><span class="line"></span><br><span class="line">3、使用 root 用户登录到 mysql：mysql -u root </span><br><span class="line"></span><br><span class="line">4、切换到mysql数据库，更新 user 表：</span><br><span class="line"></span><br><span class="line">update user set authentication_string = password(&apos;wzw011992&apos;), password_expired = &apos;N&apos;, password_last_changed = now() where user = &apos;wluser&apos;;</span><br><span class="line"></span><br><span class="line">在之前的版本中，密码字段的字段名是 password，5.7版本改为了 authentication_string</span><br><span class="line"></span><br><span class="line">5、退出 mysql，编辑 /etc/my.cnf 文件，删除 skip-grant-tables=1 的内容</span><br><span class="line"></span><br><span class="line">6、重启 mysqld 服务，再用新密码登录即可</span><br></pre></td></tr></table></figure>
+<h3 id="2-配置远程用户登录"><a class="markdownIt-Anchor" href="#2-配置远程用户登录"></a> 2. 配置远程用户登录</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *(db name).* to &apos;username&apos;@&apos;%&apos; identified by &apos;qwe123&apos; with grant option</span><br><span class="line"></span><br><span class="line">flush privileges;</span><br><span class="line"></span><br><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure>
+<h3 id="3-创建本地用户"><a class="markdownIt-Anchor" href="#3-创建本地用户"></a> 3. 创建本地用户</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">use awesome;</span><br><span class="line">grant select,insert,update,delete on awesome.* to &apos;john(user)&apos;@&apos;localhost&apos; identified by &apos;qwe123(password)&apos;;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+<h3 id="4-创建数据库"><a class="markdownIt-Anchor" href="#4-创建数据库"></a> 4. 创建数据库</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database `threatenReport` default character set utf8 collate utf8_general_ci;</span><br></pre></td></tr></table></figure>
+<h3 id="5错误"><a class="markdownIt-Anchor" href="#5错误"></a> 5.错误：</h3>
+<p>61 ： 数据库没有开启远程访问的权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/mysql/my.cnf</span><br><span class="line">bind-address :0.0.0.0</span><br></pre></td></tr></table></figure>
+<p>没有映射端口的话也会出错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -lnp | grep 3306</span><br></pre></td></tr></table></figure>
+<p>数据库连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 127.0.0.1 -u root -p</span><br></pre></td></tr></table></figure>
       
     </div>
    
@@ -423,12 +468,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2018/06/24/2-本地文件系统安全/" title="2-本地文件系统安全"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+      <a href="/2018/07/06/00-课程导学/" title="00-课程导学"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2018/06/24/Flask09-补缺补漏/" title="Flask09-补缺补漏"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/07/06/01-项目分析/" title="01-项目分析"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
