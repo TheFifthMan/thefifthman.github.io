@@ -17,21 +17,26 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>在kali中配置metasploit | 打工</title>
-  <meta name="description" content="安装Kali系统 推荐使用虚拟机，太简单不赘述。  配置数据库  开启开机启动 12vim /etc/rc.local 添加/etc/init.d/postgresql start  启动数据库 12service postgresql start systemctl restart postgresql  创建新用户 1234&amp;gt;&amp;gt; su postgres&amp;gt;&amp;gt; pssql">
-<meta name="keywords" content="metasploit">
+  <title>03-项目搭建 | 打工</title>
+  <meta name="description" content="概述 这一节有以下要点  [ ] 项目分析 [ ] 项目目录 [ ] 安装基础插件及环境 [ ] 蓝图 [ ] 代码   项目分析    项目目录   安装基础插件及环境 123456cd micromoviepython -m venv venvsource .\venv\bin\activatepip install flaskgit init git checkout -b day01">
+<meta name="keywords" content="flask">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在kali中配置metasploit">
-<meta property="og:url" content="http://yoursite.com/2018/06/24/kali下配置metasploit/index.html">
+<meta property="og:title" content="03-项目搭建">
+<meta property="og:url" content="http://yoursite.com/2018/07/09/03-项目搭建/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="安装Kali系统 推荐使用虚拟机，太简单不赘述。  配置数据库  开启开机启动 12vim /etc/rc.local 添加/etc/init.d/postgresql start  启动数据库 12service postgresql start systemctl restart postgresql  创建新用户 1234&amp;gt;&amp;gt; su postgres&amp;gt;&amp;gt; pssql">
+<meta property="og:description" content="概述 这一节有以下要点  [ ] 项目分析 [ ] 项目目录 [ ] 安装基础插件及环境 [ ] 蓝图 [ ] 代码   项目分析    项目目录   安装基础插件及环境 123456cd micromoviepython -m venv venvsource .\venv\bin\activatepip install flaskgit init git checkout -b day01">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-27T15:25:46.554Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%e9%a1%b9%e7%9b%ae%e5%88%86%e6%9e%90%e5%89%8d%e5%8f%b0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90%E5%90%8E%E5%8F%B0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%E8%93%9D%E5%9B%BE%E7%AE%80%E4%BB%8B.png">
+<meta property="og:updated_time" content="2018-07-08T16:08:59.951Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在kali中配置metasploit">
-<meta name="twitter:description" content="安装Kali系统 推荐使用虚拟机，太简单不赘述。  配置数据库  开启开机启动 12vim /etc/rc.local 添加/etc/init.d/postgresql start  启动数据库 12service postgresql start systemctl restart postgresql  创建新用户 1234&amp;gt;&amp;gt; su postgres&amp;gt;&amp;gt; pssql">
+<meta name="twitter:title" content="03-项目搭建">
+<meta name="twitter:description" content="概述 这一节有以下要点  [ ] 项目分析 [ ] 项目目录 [ ] 安装基础插件及环境 [ ] 蓝图 [ ] 代码   项目分析    项目目录   安装基础插件及环境 123456cd micromoviepython -m venv venvsource .\venv\bin\activatepip install flaskgit init git checkout -b day01">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%e9%a1%b9%e7%9b%ae%e5%88%86%e6%9e%90%e5%89%8d%e5%8f%b0.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2018/06/24/kali下配置metasploit/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/07/09/03-项目搭建/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -341,14 +346,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-kali下配置metasploit" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-03-项目搭建" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      在kali中配置metasploit
+      03-项目搭建
     </h1>
   
 
@@ -356,51 +361,57 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/06/24/kali下配置metasploit/" class="article-date">
-	  <time datetime="2018-06-24T01:54:59.000Z" itemprop="datePublished">2018-06-24</time>
+	<a href="/2018/07/09/03-项目搭建/" class="article-date">
+	  <time datetime="2018-07-08T16:08:42.000Z" itemprop="datePublished">2018-07-09</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Linux-security/">Linux_security</a>
+    <a class="article-category-link" href="/categories/micro-movie/">micro_movie</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/metasploit/">metasploit</a>
+	<a class="article-tag-link" href="/tags/flask/">flask</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/24/kali下配置metasploit/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/07/09/03-项目搭建/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h1 id="安装kali系统"><a class="markdownIt-Anchor" href="#安装kali系统"></a> 安装Kali系统</h1>
-<p>推荐使用虚拟机，太简单不赘述。</p>
-<h1 id="配置数据库"><a class="markdownIt-Anchor" href="#配置数据库"></a> 配置数据库</h1>
-<h3 id="开启开机启动"><a class="markdownIt-Anchor" href="#开启开机启动"></a> 开启开机启动</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.local 添加</span><br><span class="line">/etc/init.d/postgresql start</span><br></pre></td></tr></table></figure>
-<h3 id="启动数据库"><a class="markdownIt-Anchor" href="#启动数据库"></a> 启动数据库</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service postgresql start </span><br><span class="line">systemctl restart postgresql</span><br></pre></td></tr></table></figure>
-<h3 id="创建新用户"><a class="markdownIt-Anchor" href="#创建新用户"></a> 创建新用户</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; su postgres</span><br><span class="line">&gt;&gt; pssql</span><br><span class="line">&gt;&gt; create user &quot;msfuser&quot; with password &apos;msfpassword&apos; nocreatedb;</span><br><span class="line">&gt;&gt; create database &quot;msfdb&quot; with owner=&quot;msfuser&quot;;</span><br></pre></td></tr></table></figure>
-<h3 id="编辑databaseyml文件"><a class="markdownIt-Anchor" href="#编辑databaseyml文件"></a> 编辑database.yml文件</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;cd /usr/share/metasploit-framework/config</span><br><span class="line">&gt;&gt; cp database.yml.example database.yml</span><br><span class="line">&gt;&gt; vim database.yml</span><br><span class="line">...</span><br><span class="line">database: msfdb</span><br><span class="line">username: msfuser</span><br><span class="line">password:msfpassword</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h3 id="编辑postgresql本地启动"><a class="markdownIt-Anchor" href="#编辑postgresql本地启动"></a> 编辑postgresql，本地启动</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; cd /etc/postgresql/10/main</span><br><span class="line">&gt;&gt; cp pg_hba.conf pg_hba.conf.backup</span><br><span class="line">&gt;&gt; vim pg_hba.conf</span><br><span class="line">...</span><br><span class="line"># TYPE  DATABASE        USER            ADDRESS                 METHOD</span><br><span class="line"></span><br><span class="line"># &quot;local&quot; is for Unix domain socket connections only</span><br><span class="line">local   all             all                                     trust</span><br><span class="line"># IPv4 local connections:</span><br><span class="line">host    all             all             127.0.0.1/32            trust</span><br><span class="line"># IPv6 local connections:</span><br><span class="line">host    all             all             ::1/128                 trust</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h3 id="启动msf查看状态"><a class="markdownIt-Anchor" href="#启动msf查看状态"></a> 启动msf,查看状态</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; msfconsole</span><br><span class="line">&gt;&gt; db_status</span><br></pre></td></tr></table></figure>
-<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
-<p><a href="https://www.secpulse.com/archives/33281.html" target="_blank" rel="noopener">https://www.secpulse.com/archives/33281.html</a></p>
-<p><a href="https://www.jianshu.com/p/9c82ccb2aaf7" target="_blank" rel="noopener">https://www.jianshu.com/p/9c82ccb2aaf7</a></p>
-<p><a href="https://blog.csdn.net/sanbingyutuoniao123/article/details/52209653" target="_blank" rel="noopener">https://blog.csdn.net/sanbingyutuoniao123/article/details/52209653</a></p>
-<p><a href="https://docs.kali.org/general-use/starting-metasploit-framework-in-kali" target="_blank" rel="noopener">https://docs.kali.org/general-use/starting-metasploit-framework-in-kali</a></p>
+        <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<p>这一节有以下要点</p>
+<ul>
+<li>[ ] 项目分析</li>
+<li>[ ] 项目目录</li>
+<li>[ ] 安装基础插件及环境</li>
+<li>[ ] 蓝图</li>
+<li>[ ] 代码</li>
+</ul>
+<h1 id="项目分析"><a class="markdownIt-Anchor" href="#项目分析"></a> 项目分析</h1>
+<p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%e9%a1%b9%e7%9b%ae%e5%88%86%e6%9e%90%e5%89%8d%e5%8f%b0.png" alt="image"><br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90%E5%90%8E%E5%8F%B0.png" alt="image"></p>
+<h1 id="项目目录"><a class="markdownIt-Anchor" href="#项目目录"></a> 项目目录</h1>
+<p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png" alt="image"></p>
+<h1 id="安装基础插件及环境"><a class="markdownIt-Anchor" href="#安装基础插件及环境"></a> 安装基础插件及环境</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd micromovie</span><br><span class="line">python -m venv venv</span><br><span class="line">source .\venv\bin\activate</span><br><span class="line">pip install flask</span><br><span class="line">git init </span><br><span class="line">git checkout -b day01</span><br></pre></td></tr></table></figure>
+<h1 id="程序工程函数"><a class="markdownIt-Anchor" href="#程序工程函数"></a> 程序工程函数</h1>
+<p>如果全局创建程序，也就是<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">#app/__init__.py</span><br><span class="line"></span><br><span class="line">from flask import Flask</span><br><span class="line">from config import Configuration</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def create_app(config_name):</span><br><span class="line">    app = Flask(__name__)</span><br><span class="line">    app.config.from_object(Configuration[config_name])</span><br><span class="line"></span><br><span class="line">    from .frontend import index as index_blueprint</span><br><span class="line">    app.register_blueprint(index_blueprint)</span><br><span class="line"></span><br><span class="line">    from .backend import backoffice as backoffice_blueprint</span><br><span class="line">    app.register_blueprint(backoffice_blueprint,url_prefix=&apos;/backoffice&apos;) </span><br><span class="line"></span><br><span class="line">    return app</span><br></pre></td></tr></table></figure></p>
+<h1 id="蓝图"><a class="markdownIt-Anchor" href="#蓝图"></a> 蓝图</h1>
+<p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/flask_microMovie/%E8%93%9D%E5%9B%BE%E7%AE%80%E4%BB%8B.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># movie/frontend/__init__.py</span><br><span class="line"></span><br><span class="line">from flask import Blueprint</span><br><span class="line">index = Blueprint(&apos;index&apos;,__name__)</span><br><span class="line">from . import views</span><br><span class="line"></span><br><span class="line"># movie/backoffice/__init__.py</span><br><span class="line">from flask import Blueprint</span><br><span class="line">backoffice = Blueprint(&apos;backoffice&apos;,__name__)</span><br><span class="line">from . import views</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意点：<mark>注意包的引入格式。</mark></li>
+</ul>
+<h1 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码：</h1>
+<p><a href="https://github.com/TheFifthMan/micromovie/tree/day01" target="_blank" rel="noopener">https://github.com/TheFifthMan/micromovie/tree/day01</a></p>
 
       
     </div>
@@ -425,13 +436,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2018/06/24/1-Linux中的安全问题/" title="1-Linux中的安全问题"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2018/06/23/执行XSS代码/" title="执行XSS代码"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/07/08/python模块-requests/" title="python模块-requests"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

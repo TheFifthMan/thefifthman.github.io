@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/07/09/03-%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2018-07-08T16:08:59.951Z</lastmod>
+    <data>
+        <display>
+        <title>03-项目搭建</title>
+        <pubTime>2018-07-08T16:08:42.000Z</pubTime>
+        
+        <tag>flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="micro_movie" url="http://yoursite.com/categories/micro-movie/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/07/08/python%E6%A8%A1%E5%9D%97-requests/</loc>
     <lastmod>2018-07-08T15:33:21.899Z</lastmod>
     <data>
