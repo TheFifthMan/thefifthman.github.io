@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-08T16:08:59.951Z</updated>
+  <updated>2018-07-19T15:55:54.801Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>自动化测试-ui自动化+docker</title>
+    <link href="http://yoursite.com/2018/07/19/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95-ui%E8%87%AA%E5%8A%A8%E5%8C%96-docker/"/>
+    <id>http://yoursite.com/2018/07/19/自动化测试-ui自动化-docker/</id>
+    <published>2018-07-19T15:54:54.000Z</published>
+    <updated>2018-07-19T15:55:54.801Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><p>在docker里面创建UI自动化测试平台</p><h1 id="搭建环境"><a class="markdownIt-Anchor" href="#搭建环境"></a> 搭建环境</h1><h2 id="安装docker"><a class="markdownIt-Anchor" href="#安装docker"></a> 安装docker</h2><p>详细见docker官方文档</p><h2 id="安装selenoid"><a class="markdownIt-Anchor" href="#安装selenoid"></a> 安装selenoid</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">docker pull aerokube/selenoid:latest-release</span><br><span class="line">mkdir -p /data/config</span><br><span class="line">vim /data/config/browsers.json</span><br><span class="line">---------------------------</span><br><span class="line">&#123;</span><br><span class="line">    &quot;firefox&quot;: &#123;</span><br><span class="line">        &quot;default&quot;: &quot;57.0&quot;,</span><br><span class="line">        &quot;versions&quot;: &#123;</span><br><span class="line">            &quot;57.0&quot;: &#123;</span><br><span class="line">                &quot;image&quot;: &quot;selenoid/vnc:firefox_57.0&quot;,</span><br><span class="line">                &quot;port&quot;: &quot;4444&quot;,</span><br><span class="line">                &quot;path&quot;: &quot;/wd/hub&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">---------------------------</span><br><span class="line"></span><br><span class="line">docker run -d       \</span><br><span class="line">--name selenoid   \</span><br><span class="line">-p 14444:4444     \</span><br><span class="line">-v /data/config:/etc/selenoid/:ro \</span><br><span class="line">-v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">aerokube/selenoid:latest-release</span><br></pre></td></tr></table></figure><p>注意：最好使用其他的端口转发4444端口。4444端口不是安全的，应该禁止掉。</p><h2 id="安装selenoid-ui"><a class="markdownIt-Anchor" href="#安装selenoid-ui"></a> 安装selenoid ui</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker pull aerokube/selenoid-ui</span><br><span class="line">如果selenoid是跟selenoid-ui安装在一起的话，那么需要查看selenoid的IP</span><br><span class="line">&gt;&gt;&gt; ifconfig | grep -E &quot;([0-9]&#123;1,3&#125;\.)&#123;3&#125;[0-9]&#123;1,3&#125;&quot; | grep -v 127.0.0.1 | awk &apos;&#123; print $2 &#125;&apos; | cut -f2 -d: | head -n1</span><br><span class="line">&gt;&gt;&gt; 172.17.0.1</span><br><span class="line">&gt;&gt;&gt; docker run -d --name selenoid-ui -p 8080:8080 aerokube/selenoid-ui --selenoid-uri http://172.17.0.1:14444</span><br></pre></td></tr></table></figure><h1 id="操作"><a class="markdownIt-Anchor" href="#操作"></a> 操作</h1><p>在本地写好脚本，用python撸了一个</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import selenium </span><br><span class="line">from selenium import webdriver</span><br><span class="line">        </span><br><span class="line">capabilities = &#123;</span><br><span class="line">    &quot;browserName&quot;: &quot;firefox&quot;,</span><br><span class="line">    &quot;version&quot;: &quot;57.0&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">driver = webdriver.Remote(</span><br><span class="line">    command_executor=&quot;http://192.168.31.236:4444/wd/hub&quot;,</span><br><span class="line">    desired_capabilities=capabilities)</span><br><span class="line"></span><br><span class="line">driver.get(&apos;https://www.baidu.com&apos;)</span><br><span class="line">print(driver.title)</span><br></pre></td></tr></table></figure><p>然后你就可以看到成功运行的样子<br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/selenium/success.jpg" alt="image"></p><h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1><p>然后打开 <a href="http://yourip:8080" target="_blank" rel="noopener">http://yourip:8080</a> 就可以打开相应的webUI界面，在这里我们可以看到selenoid的使用方法，最后编写相应的脚本放上去跑就可以了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
+&lt;p&gt;在docker里面创建UI自动化测试平台&lt;/p&gt;
+&lt;h1 id=&quot;搭建环境&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href
+      
+    
+    </summary>
+    
+      <category term="自动化测试" scheme="http://yoursite.com/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="ui自动化" scheme="http://yoursite.com/tags/ui%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>03-项目搭建</title>
@@ -555,35 +582,6 @@
       <category term="security" scheme="http://yoursite.com/tags/security/"/>
     
       <category term="xss" scheme="http://yoursite.com/tags/xss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python模块-shutil</title>
-    <link href="http://yoursite.com/2018/06/21/python%E6%A8%A1%E5%9D%97-shutil/"/>
-    <id>http://yoursite.com/2018/06/21/python模块-shutil/</id>
-    <published>2018-06-21T13:52:26.000Z</published>
-    <updated>2018-06-21T13:52:51.734Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><blockquote><p>shutil模块提供了基于文件和文件夹的更高维度的操作，例如复制和移除等等</p></blockquote><h1 id="文件操作"><a class="markdownIt-Anchor" href="#文件操作"></a> 文件操作</h1><h2 id="shutilcopyfilesrcdstfollow_symlinkstrue"><a class="markdownIt-Anchor" href="#shutilcopyfilesrcdstfollow_symlinkstrue"></a> shutil.copyfile(src,dst,follow_symlinks=True)</h2><blockquote><p>复制一个文件</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># dst也必须是一个文件名.</span><br><span class="line">shutil.copyfile(&apos;D://new_folder2/test2/testsample.txt&apos;,&quot;D://new_folder2//testsample.txt&quot;)</span><br></pre></td></tr></table></figure><h2 id="shutilcopysrcdstfollow_symlinkstrue"><a class="markdownIt-Anchor" href="#shutilcopysrcdstfollow_symlinkstrue"></a> shutil.copy(src,dst,follow_symlinks=True)</h2><blockquote><p>针对文件，复制操作</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutil.copy(&apos;D://new_folder2//test2//testsample.txt&apos;,&quot;D://new_folder2//testsample2.txt&quot;)</span><br></pre></td></tr></table></figure><h2 id="shutilcopy2srcdstfollow_symlinkstrue"><a class="markdownIt-Anchor" href="#shutilcopy2srcdstfollow_symlinkstrue"></a> shutil.copy2(src,dst,follow_symlinks=True)</h2><blockquote><p>类似copy，不同的是，这个copy会同样复制文件的元数据。元数据指的是一个文件的权限，大小，创建时间等等。</p></blockquote><h2 id="shutilcopytreesrcdst"><a class="markdownIt-Anchor" href="#shutilcopytreesrcdst"></a> shutil.copytree(src,dst)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutil.copytree(src, dst, symlinks=False, ignore=None,copy_function=copy2, ignore_dangling_symlinks=False)</span><br></pre></td></tr></table></figure><blockquote><p>复制文件夹,底下的文件，文件夹都会被复制。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutil.copytree(&apos;D://new_folder2//test2&apos;,&quot;D://new_folder2//test222&quot;,copy_function=shutil.copy2)</span><br></pre></td></tr></table></figure><h2 id="shutilrmtreepath"><a class="markdownIt-Anchor" href="#shutilrmtreepath"></a> shutil.rmtree(path)</h2><blockquote><p>移除文件夹及底下的文件</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutil.rmtree(&quot;D://new_folder2//test222&quot;)</span><br></pre></td></tr></table></figure><h2 id="shutilmovesrcdstcopy_functioncopy2"><a class="markdownIt-Anchor" href="#shutilmovesrcdstcopy_functioncopy2"></a> shutil.move(src,dst,copy_function=copy2)</h2><blockquote><p>递归移动一个文件或者文件夹到dst，然后返回路径</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">shutil.move(&apos;D://new_folder2/test3&apos;,&apos;D://new_folder2/test4&apos;)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;&gt;返回D://new_folder2/test4\test2</span><br></pre></td></tr></table></figure><h2 id="shutildisk_usagepath"><a class="markdownIt-Anchor" href="#shutildisk_usagepath"></a> shutil.disk_usage(path)</h2><blockquote><p>返回以bytes为单位的磁盘使用情况</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(shutil.disk_usage(&apos;D://&apos;))</span><br><span class="line">&gt;&gt;&gt;&gt; usage(total=84001771520, used=76966387712, free=7035383808)</span><br></pre></td></tr></table></figure><h2 id="shutilchownpathusernonegroupnone"><a class="markdownIt-Anchor" href="#shutilchownpathusernonegroupnone"></a> shutil.chown(path,user=None,group=None)</h2><blockquote><p>改变一个文件/文件夹的所有者</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutil.chown(path,user,group)</span><br></pre></td></tr></table></figure><h2 id="shutilwhichcmd"><a class="markdownIt-Anchor" href="#shutilwhichcmd"></a> shutil.which(cmd)</h2><blockquote><p>显示可执行程序所在的路径</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutil.which(&apos;python&apos;)</span><br></pre></td></tr></table></figure><h1 id="归档压缩操作"><a class="markdownIt-Anchor" href="#归档压缩操作"></a> 归档压缩操作</h1><h2 id="shutilmake_archivebasenameformatroot_dirbase_dir"><a class="markdownIt-Anchor" href="#shutilmake_archivebasenameformatroot_dirbase_dir"></a> shutil.make_archive(basename,format,root_dir,base_dir)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">basename: 要创建的压缩文件名，需要包含路径</span><br><span class="line">format： zip,tar,gztar,bztar,zxtar</span><br><span class="line">root_dir: 先进去这个root_dir的目录，然后在压缩base_dir的所有东西</span><br><span class="line">base_dir: 路径的前缀</span><br><span class="line"></span><br><span class="line">shutil.make_archive(&quot;D://new_folder2/test3&quot;,&apos;zip&apos;,&apos;D://new_folder2/&apos;,&apos;D://new_folder2/test3&apos;)</span><br></pre></td></tr></table></figure><h2 id="shutilunpack_archivefilenameextract_dirformat"><a class="markdownIt-Anchor" href="#shutilunpack_archivefilenameextract_dirformat"></a> shutil.unpack_archive(filename,extract_dir,format)</h2><blockquote><p>解压缩</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># test1 不存在，但是会自动创建</span><br><span class="line">shutil.unpack_archive(&apos;D://new_folder2/test3.zip&apos;,&quot;D://new_folder2//test1&quot;,&quot;zip&quot;)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;shutil模块提供了基于文件和文件夹的更高维度的操作，例如复制和移除等等&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1
-      
-    
-    </summary>
-    
-      <category term="python_modules" scheme="http://yoursite.com/categories/python-modules/"/>
-    
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
