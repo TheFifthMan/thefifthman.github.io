@@ -17,17 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Repositories | 打工</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Repositories">
-<meta property="og:url" content="http://yoursite.com/repository/index.html">
+  <title>python学习-装饰器 | 打工</title>
+  <meta name="description" content="概述 学习一下python的装饰器函数。关于装饰器的定义，底层，肯定说得不如网上的文章好。这里就简单记录一下其使用。  需求 python的装饰器其实是一种面向切面的编程方式，可以将大量可复用的代码抽离出来进行复用，这样的编程方式显得优雅。其主要需求有几种：  插入日志 性能测试 权限检验 事务处理 缓存 …   语法 装饰器的语法也很简单，其原理可以先这样理解： 假设我们要为一个函数打印log">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python学习-装饰器">
+<meta property="og:url" content="http://yoursite.com/2018/07/22/python学习-装饰器/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概述 学习一下python的装饰器函数。关于装饰器的定义，底层，肯定说得不如网上的文章好。这里就简单记录一下其使用。  需求 python的装饰器其实是一种面向切面的编程方式，可以将大量可复用的代码抽离出来进行复用，这样的编程方式显得优雅。其主要需求有几种：  插入日志 性能测试 权限检验 事务处理 缓存 …   语法 装饰器的语法也很简单，其原理可以先这样理解： 假设我们要为一个函数打印log">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-09T12:41:47.799Z">
+<meta property="og:updated_time" content="2018-07-22T14:18:25.713Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Repositories">
+<meta name="twitter:title" content="python学习-装饰器">
+<meta name="twitter:description" content="概述 学习一下python的装饰器函数。关于装饰器的定义，底层，肯定说得不如网上的文章好。这里就简单记录一下其使用。  需求 python的装饰器其实是一种面向切面的编程方式，可以将大量可复用的代码抽离出来进行复用，这样的编程方式显得优雅。其主要需求有几种：  插入日志 性能测试 权限检验 事务处理 缓存 …   语法 装饰器的语法也很简单，其原理可以先这样理解： 假设我们要为一个函数打印log">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/repository/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/07/22/python学习-装饰器/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -44,7 +48,7 @@
 </head>
 
 
-<body class="main-center theme-black no-sidebar" itemscope itemtype="http://schema.org/WebPage">
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
   <header class="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="slimContent">
     <div class="navbar-header">
@@ -334,46 +338,213 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="article article-repository article-type-list" itemscope="">
-  <header class="article-header">
-    <h1 itemprop="title">Repositories</h1>
-    <p class="text-muted">I have <span id="repo-count">0</span> projects on Github</p>
-  </header>
-  <div class="article-body">
-    <div class="repo-content">
-      <div class="blankslate">
-        <p>正在加载...</p>
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-python学习-装饰器" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python学习-装饰器
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/07/22/python学习-装饰器/" class="article-date">
+	  <time datetime="2018-07-22T14:17:13.000Z" itemprop="datePublished">2018-07-22</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/python-modules/">python_modules</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Python/">Python</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/07/22/python学习-装饰器/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<p>学习一下python的装饰器函数。关于装饰器的定义，底层，肯定说得不如网上的文章好。这里就简单记录一下其使用。</p>
+<h1 id="需求"><a class="markdownIt-Anchor" href="#需求"></a> 需求</h1>
+<p>python的装饰器其实是一种面向切面的编程方式，可以将大量可复用的代码抽离出来进行复用，这样的编程方式显得优雅。其主要需求有几种：</p>
+<ol>
+<li>插入日志</li>
+<li>性能测试</li>
+<li>权限检验</li>
+<li>事务处理</li>
+<li>缓存</li>
+<li>…</li>
+</ol>
+<h1 id="语法"><a class="markdownIt-Anchor" href="#语法"></a> 语法</h1>
+<p>装饰器的语法也很简单，其原理可以先这样理解：<br>
+假设我们要为一个函数打印log</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def foo():</span><br><span class="line">    print(&quot;I am foo&quot;)</span><br><span class="line">    </span><br><span class="line">def print_log_for_foo(func):</span><br><span class="line">    print(&quot;Hello log&quot;)</span><br><span class="line">    func()</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">print_log_for_foo(foo)</span><br></pre></td></tr></table></figure>
+<p>这样我们就为foo打印了log，但不是很优雅，因为我们调用的是另一个函数，这样显得杂乱无章。用了装饰器就显得清晰明白了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def decoration(func):</span><br><span class="line">    def wrapper(*args,**kw):</span><br><span class="line">        print(&quot;Hello logs&quot;)</span><br><span class="line">        return func(*args,**kw)</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">@decoration    </span><br><span class="line">def foo():</span><br><span class="line">    print(&apos;Hello I am foo&apos;)</span><br><span class="line">    </span><br><span class="line">foo() # 调用foo</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 输出</span><br><span class="line">Hello logs</span><br><span class="line">Hello I am foo</span><br></pre></td></tr></table></figure>
+<p>同样的，这样还存在一些问题，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>print(foo.<strong>name</strong>) # wrapper</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这个时候我们要引入另一个装饰函数，把元信息也给传进去.</span><br><span class="line"></span><br><span class="line">所以废话这么多，完整的case是</span><br></pre></td></tr></table></figure>
+<p>from functools import wraps<br>
+def decoration(func):<br>
+@wraps(func)<br>
+def wrapper(*args,**kw):<br>
+print(“Hello logs”)<br>
+return func(*args,**kw)<br>
+return wrapper</p>
+<p>@decoration<br>
+def foo():<br>
+print(‘Hello I am foo’)</p>
+<p>a = foo() # 调用foo<br>
+print(foo.<strong>name</strong>) # foo</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>输出<br>
+Hello logs<br>
+Hello I am foo<br>
+foo</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 类装饰器</span><br><span class="line">类也有装饰器，其装饰器是通过```__call__ 函数```来实现的.通过@调用了这个函数</span><br></pre></td></tr></table></figure>
+<p>class Decorations(object):<br>
+def <strong>init</strong>(self,func):<br>
+self.func = func</p>
+<pre><code>def __call__(self):
+    print('Hello i am decarations')
+    self.func()
+</code></pre>
+<p>@Decorations<br>
+def foo():<br>
+print(‘i am foo’)</p>
+<p>foo()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">类装饰器具有以下优点</span><br><span class="line">1. 灵活度大</span><br><span class="line">2. 高内聚</span><br><span class="line">3. 封装性</span><br><span class="line"></span><br><span class="line"># 总结</span><br><span class="line">当然平时一些小东西，也就用函数装饰器就足够使用了。</span><br><span class="line">最后附上写flask时候验证admin权限的装饰器</span><br></pre></td></tr></table></figure>
+<p>def adminRequired(func):<br>
+@functools.wraps(func)<br>
+def decoration(*args,**kw):<br>
+if current_user.is_authenticated and current_user.is_admin == 1:<br>
+return func(*args,**kw)<br>
+else:<br>
+return redirect(url_for(‘auth.login’))<br>
+return decoration</p>
+<p>@admin.route(’/’)<br>
+@adminRequired<br>
+def home():<br>
+return “Hello This is admin”</p>
+<pre class="highlight"><code class="">
+# 参考
+https://foofish.net/python-decorator.html 
+https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318435599930270c0381a3b44db991cd6d858064ac0000 </code></pre>
+
+      
+    </div>
+   
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="uyan_frame"></div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/07/19/自动化测试-ui自动化-docker/" title="自动化测试-ui自动化+docker"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</article>
-
-  
+</div>
 
 
 
-<!--Github项模版-->
-<script type="text/template" id="list-template">
-  <li class="col-sm-6 col-md-6 col-lg-4">
-    <div class="repo hover-shadow hover-grow">
-      <div class="repo-image geopattern" data-pattern-id="{%=name%}"></div>
-      <h3 class="repo-title"><a href="{%=clone_url%}" target="_blank" rel="external nofollow noopener noreferrer">{%=full_name%}</a></h3>
-      <p class="repo-body">{%=description%}</p>
-      <div class="repo-meta">
-        <span class="meta meta-type pull-left" aria-label="{%=language%} project">{%=language%}</span>
-        <span class="meta meta-star" aria-label="{%=stargazers_count%} stars"><i class="icon icon-star-fill"></i> {%=stargazers_count%}</span>
-        <span class="meta meta-fork" aria-label="{%=forks_count%} forks"><i class="icon icon-code-fork"></i> {%=forks_count%}</span>
-        <span class="meta meta-last-updated" aria-label="最后更新时间：{%=updated_at%}">
-        <i class="icon icon-clock"></i> <time datetime="{%=updated_at%}">{%=updated_at%}</time></span>
-      </div>
-    </div>
-  </li>
-</script>
-<!--获取失败模版-->
-<script type="text/template" id="error-template">
-  <h3>加载失败</h3><p>请刷新或稍后再试...</p>
-</script>
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -392,51 +563,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 <script src="/js/plugin.min.js"></script>
 <script src="/js/application.js"></script>
   
-    
-        <script type="text/javascript">
-var open = function() {
-  var baiduTpl = new Object();
-  var handleTpl = function() {
-    baiduTpl.list = baidu.template("list-template");
-    baiduTpl.error = baidu.template("error-template");
-  };
-
-  var handleGithub = function() {
-    var repoContainer = $('.repo-content');
-    var errorContainer = repoContainer.find(".blankslate");
-    var countContainer = $("#repo-count");
-
-    $.get("https://api.github.com/users/thefifthman/repos", function(result) {
-      if (result) {
-        errorContainer.remove();
-        countContainer.text(result.length); //设置项目个数
-        var ul = $("<ul class='repo-list row clearfix'></ul>");
-        for (var i in result) {
-          var repo = result[i];
-          repo.updated_at = repo.updated_at.substring(0, repo.updated_at.lastIndexOf("T"));
-          var html = baiduTpl.list(repo);
-          ul.append(html);
-        }
-        repoContainer.append(ul);
-        $(".geopattern").each(function() {
-          $(this).geopattern($(this).data('pattern-id'));
-        });
-      } else {
-        errorContainer.append(baiduTpl.error());
-      }
-    });
-  };
-
-  return {
-    init: function() {
-      handleTpl();
-      handleGithub();
-    }
-  }
-};
-$(open().init);
-</script>
-
     
     
     
@@ -460,6 +586,16 @@ $(open().init);
     
     
     
+        
+
+
+    
+    
+        
+    
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+
+
     
     
 
