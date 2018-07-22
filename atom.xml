@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-22T14:18:25.713Z</updated>
+  <updated>2018-07-22T14:35:11.216Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>移动端测试1-MAC下配置Android Studio环境</title>
+    <link href="http://yoursite.com/2018/07/22/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%951-MAC%E4%B8%8B%E9%85%8D%E7%BD%AEAndroid-Studio%E7%8E%AF%E5%A2%83/"/>
+    <id>http://yoursite.com/2018/07/22/移动端测试1-MAC下配置Android-Studio环境/</id>
+    <published>2018-07-22T14:33:51.000Z</published>
+    <updated>2018-07-22T14:35:11.216Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><p>本来安装工具这种东西是没什么好记录的，点点点就完了，但是因为我国的特殊网络环境，发现在下载android的SDK，一直报<figure class="highlight plain"><figcaption><span>tools directory is missing``` 试过多种方法，多种镜像网站，发现均不能下载。最后终于找到解决方法了</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 解决方案</span><br><span class="line">### 设置代理</span><br><span class="line"></span><br><span class="line">testhome提供了http代理地址：</span><br><span class="line">![image](https://testerhome.com/uploads/photo/2018/c4f0647b-6255-4631-b2f9-24f654d91c4c.png)</span><br><span class="line"></span><br><span class="line">其中port number，比如今天是7月22号，port number就是 60722</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 删除</span><br><span class="line">还有一个坑就是，在mac下面删除android，直接从app里面删除是不够的。下面提供彻底删除的方法：</span><br></pre></td></tr></table></figure></p><p>rm -Rf /Applications/Android\ Studio.app<br>rm -Rf ~/Library/Preferences/AndroidStudio*<br>rm ~/Library/Preferences/com.google.android.studio.plist<br>rm -Rf ~/Library/Application\ Support/AndroidStudio*<br>rm -Rf ~/Library/Logs/AndroidStudio*<br>rm -Rf ~/Library/Caches/AndroidStudio*<br>rm -Rf ~/.gradle<br>rm -Rf ~/.android<br>rm -Rf ~/Library/Android*</p><pre class="highlight"><code class=""># 总结算是做为了解移动端的一个起步吧。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
+&lt;p&gt;本来安装工具这种东西是没什么好记录的，点点点就完了，但是因为我国的特殊网络环境，发现在下载android的SDK，一直报&lt;figure clas
+      
+    
+    </summary>
+    
+      <category term="测试" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="测试" scheme="http://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>python学习-装饰器</title>
@@ -554,33 +580,6 @@
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
       <category term="security" scheme="http://yoursite.com/tags/security/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在kali中配置metasploit</title>
-    <link href="http://yoursite.com/2018/06/24/kali%E4%B8%8B%E9%85%8D%E7%BD%AEmetasploit/"/>
-    <id>http://yoursite.com/2018/06/24/kali下配置metasploit/</id>
-    <published>2018-06-24T01:54:59.000Z</published>
-    <updated>2018-06-27T15:25:46.554Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="安装kali系统"><a class="markdownIt-Anchor" href="#安装kali系统"></a> 安装Kali系统</h1><p>推荐使用虚拟机，太简单不赘述。</p><h1 id="配置数据库"><a class="markdownIt-Anchor" href="#配置数据库"></a> 配置数据库</h1><h3 id="开启开机启动"><a class="markdownIt-Anchor" href="#开启开机启动"></a> 开启开机启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.local 添加</span><br><span class="line">/etc/init.d/postgresql start</span><br></pre></td></tr></table></figure><h3 id="启动数据库"><a class="markdownIt-Anchor" href="#启动数据库"></a> 启动数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service postgresql start </span><br><span class="line">systemctl restart postgresql</span><br></pre></td></tr></table></figure><h3 id="创建新用户"><a class="markdownIt-Anchor" href="#创建新用户"></a> 创建新用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; su postgres</span><br><span class="line">&gt;&gt; pssql</span><br><span class="line">&gt;&gt; create user &quot;msfuser&quot; with password &apos;msfpassword&apos; nocreatedb;</span><br><span class="line">&gt;&gt; create database &quot;msfdb&quot; with owner=&quot;msfuser&quot;;</span><br></pre></td></tr></table></figure><h3 id="编辑databaseyml文件"><a class="markdownIt-Anchor" href="#编辑databaseyml文件"></a> 编辑database.yml文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;cd /usr/share/metasploit-framework/config</span><br><span class="line">&gt;&gt; cp database.yml.example database.yml</span><br><span class="line">&gt;&gt; vim database.yml</span><br><span class="line">...</span><br><span class="line">database: msfdb</span><br><span class="line">username: msfuser</span><br><span class="line">password:msfpassword</span><br><span class="line">...</span><br></pre></td></tr></table></figure><h3 id="编辑postgresql本地启动"><a class="markdownIt-Anchor" href="#编辑postgresql本地启动"></a> 编辑postgresql，本地启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; cd /etc/postgresql/10/main</span><br><span class="line">&gt;&gt; cp pg_hba.conf pg_hba.conf.backup</span><br><span class="line">&gt;&gt; vim pg_hba.conf</span><br><span class="line">...</span><br><span class="line"># TYPE  DATABASE        USER            ADDRESS                 METHOD</span><br><span class="line"></span><br><span class="line"># &quot;local&quot; is for Unix domain socket connections only</span><br><span class="line">local   all             all                                     trust</span><br><span class="line"># IPv4 local connections:</span><br><span class="line">host    all             all             127.0.0.1/32            trust</span><br><span class="line"># IPv6 local connections:</span><br><span class="line">host    all             all             ::1/128                 trust</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure><h3 id="启动msf查看状态"><a class="markdownIt-Anchor" href="#启动msf查看状态"></a> 启动msf,查看状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; msfconsole</span><br><span class="line">&gt;&gt; db_status</span><br></pre></td></tr></table></figure><h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1><p><a href="https://www.secpulse.com/archives/33281.html" target="_blank" rel="noopener">https://www.secpulse.com/archives/33281.html</a></p><p><a href="https://www.jianshu.com/p/9c82ccb2aaf7" target="_blank" rel="noopener">https://www.jianshu.com/p/9c82ccb2aaf7</a></p><p><a href="https://blog.csdn.net/sanbingyutuoniao123/article/details/52209653" target="_blank" rel="noopener">https://blog.csdn.net/sanbingyutuoniao123/article/details/52209653</a></p><p><a href="https://docs.kali.org/general-use/starting-metasploit-framework-in-kali" target="_blank" rel="noopener">https://docs.kali.org/general-use/starting-metasploit-framework-in-kali</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;安装kali系统&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装kali系统&quot;&gt;&lt;/a&gt; 安装Kali系统&lt;/h1&gt;
-&lt;p&gt;推荐使用虚拟机，太简单不赘述。&lt;/p&gt;
-&lt;h1 id=&quot;配置数据库&quot;&gt;&lt;a class=&quot;markdownI
-      
-    
-    </summary>
-    
-      <category term="Linux_security" scheme="http://yoursite.com/categories/Linux-security/"/>
-    
-    
-      <category term="metasploit" scheme="http://yoursite.com/tags/metasploit/"/>
     
   </entry>
   
