@@ -4,28 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/07/22/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%951-MAC%E4%B8%8B%E9%85%8D%E7%BD%AEAndroid-Studio%E7%8E%AF%E5%A2%83/</loc>
-    <lastmod>2018-07-22T14:35:11.216Z</lastmod>
-    <data>
-        <display>
-        <title>移动端测试1-MAC下配置Android Studio环境</title>
-        <pubTime>2018-07-22T14:33:51.000Z</pubTime>
-        
-        <tag>测试</tag>
-         
-         
-           
-             
-              <breadCrumb title="测试" url="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/07/22/python%E5%AD%A6%E4%B9%A0-%E8%A3%85%E9%A5%B0%E5%99%A8/</loc>
-    <lastmod>2018-07-22T14:18:25.713Z</lastmod>
+    <lastmod>2018-07-25T12:45:40.252Z</lastmod>
     <data>
         <display>
         <title>python学习-装饰器</title>
@@ -37,6 +17,26 @@
            
              
               <breadCrumb title="python_modules" url="http://yoursite.com/categories/python-modules/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/07/22/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%951-MAC%E4%B8%8B%E9%85%8D%E7%BD%AEAndroid-Studio%E7%8E%AF%E5%A2%83/</loc>
+    <lastmod>2018-07-25T12:43:57.350Z</lastmod>
+    <data>
+        <display>
+        <title>移动端测试1-MAC下配置Android Studio环境</title>
+        <pubTime>2018-07-22T14:33:51.000Z</pubTime>
+        
+        <tag>测试</tag>
+         
+         
+           
+             
+              <breadCrumb title="测试" url="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
           
         </display>
     </data>
@@ -397,9 +397,9 @@
         <title>4-Linux的远程认证</title>
         <pubTime>2018-06-24T07:35:37.000Z</pubTime>
         
-        <tag>Linux</tag>
-         
         <tag>security</tag>
+         
+        <tag>Linux</tag>
          
          
            
@@ -419,9 +419,9 @@
         <title>3-Linux的本地认证</title>
         <pubTime>2018-06-24T07:35:11.000Z</pubTime>
         
-        <tag>Linux</tag>
-         
         <tag>security</tag>
+         
+        <tag>Linux</tag>
          
          
            
@@ -441,9 +441,9 @@
         <title>XSS平台的搭建</title>
         <pubTime>2018-06-14T12:20:09.000Z</pubTime>
         
-        <tag>Linux</tag>
-         
         <tag>security</tag>
+         
+        <tag>Linux</tag>
          
         <tag>xss</tag>
          
@@ -487,9 +487,9 @@
         <title>2-本地文件系统安全</title>
         <pubTime>2018-06-24T04:33:17.000Z</pubTime>
         
-        <tag>Linux</tag>
-         
         <tag>security</tag>
+         
+        <tag>Linux</tag>
          
          
            
@@ -509,9 +509,9 @@
         <title>1-Linux中的安全问题</title>
         <pubTime>2018-06-24T02:04:07.000Z</pubTime>
         
-        <tag>Linux</tag>
-         
         <tag>security</tag>
+         
+        <tag>Linux</tag>
          
          
            

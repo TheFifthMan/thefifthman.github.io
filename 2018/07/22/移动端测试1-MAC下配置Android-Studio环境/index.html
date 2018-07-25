@@ -18,18 +18,20 @@
   
   
   <title>移动端测试1-MAC下配置Android Studio环境 | 打工</title>
-  <meta name="description" content="概述 本来安装工具这种东西是没什么好记录的，点点点就完了，但是因为我国的特殊网络环境，发现在下载android的SDK，一直报tools directory is missing``` 试过多种方法，多种镜像网站，发现均不能下载。最后终于找到解决方法了123456789101112# 解决方案### 设置代理testhome提供了http代理地址：![image](https://testerh">
+  <meta name="description" content="概述 本来安装工具这种东西是没什么好记录的，点点点就完了，但是因为我国的特殊网络环境，发现在下载android的SDK，一直报&amp;quot; SDK tools directory is missing&amp;quot; 试过多种方法，多种镜像网站，发现均不能下载。最后终于找到解决方法了  解决方案  设置代理 testhome提供了http代理地址：  其中port number，比如今天是7月22号">
 <meta name="keywords" content="测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端测试1-MAC下配置Android Studio环境">
 <meta property="og:url" content="http://yoursite.com/2018/07/22/移动端测试1-MAC下配置Android-Studio环境/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概述 本来安装工具这种东西是没什么好记录的，点点点就完了，但是因为我国的特殊网络环境，发现在下载android的SDK，一直报tools directory is missing``` 试过多种方法，多种镜像网站，发现均不能下载。最后终于找到解决方法了123456789101112# 解决方案### 设置代理testhome提供了http代理地址：![image](https://testerh">
+<meta property="og:description" content="概述 本来安装工具这种东西是没什么好记录的，点点点就完了，但是因为我国的特殊网络环境，发现在下载android的SDK，一直报&amp;quot; SDK tools directory is missing&amp;quot; 试过多种方法，多种镜像网站，发现均不能下载。最后终于找到解决方法了  解决方案  设置代理 testhome提供了http代理地址：  其中port number，比如今天是7月22号">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-22T14:35:11.216Z">
+<meta property="og:image" content="https://testerhome.com/uploads/photo/2018/c4f0647b-6255-4631-b2f9-24f654d91c4c.png">
+<meta property="og:updated_time" content="2018-07-25T12:43:57.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端测试1-MAC下配置Android Studio环境">
-<meta name="twitter:description" content="概述 本来安装工具这种东西是没什么好记录的，点点点就完了，但是因为我国的特殊网络环境，发现在下载android的SDK，一直报tools directory is missing``` 试过多种方法，多种镜像网站，发现均不能下载。最后终于找到解决方法了123456789101112# 解决方案### 设置代理testhome提供了http代理地址：![image](https://testerh">
+<meta name="twitter:description" content="概述 本来安装工具这种东西是没什么好记录的，点点点就完了，但是因为我国的特殊网络环境，发现在下载android的SDK，一直报&amp;quot; SDK tools directory is missing&amp;quot; 试过多种方法，多种镜像网站，发现均不能下载。最后终于找到解决方法了  解决方案  设置代理 testhome提供了http代理地址：  其中port number，比如今天是7月22号">
+<meta name="twitter:image" content="https://testerhome.com/uploads/photo/2018/c4f0647b-6255-4631-b2f9-24f654d91c4c.png">
   <!-- Canonical links -->
   <link rel="canonical" href="http://yoursite.com/2018/07/22/移动端测试1-MAC下配置Android-Studio环境/index.html">
   
@@ -382,19 +384,17 @@
     <div class="article-entry markdown-body" itemprop="articleBody">
       
         <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
-<p>本来安装工具这种东西是没什么好记录的，点点点就完了，但是因为我国的特殊网络环境，发现在下载android的SDK，一直报<figure class="highlight plain"><figcaption><span>tools directory is missing``` 试过多种方法，多种镜像网站，发现均不能下载。最后终于找到解决方法了</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 解决方案</span><br><span class="line">### 设置代理</span><br><span class="line"></span><br><span class="line">testhome提供了http代理地址：</span><br><span class="line">![image](https://testerhome.com/uploads/photo/2018/c4f0647b-6255-4631-b2f9-24f654d91c4c.png)</span><br><span class="line"></span><br><span class="line">其中port number，比如今天是7月22号，port number就是 60722</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 删除</span><br><span class="line">还有一个坑就是，在mac下面删除android，直接从app里面删除是不够的。下面提供彻底删除的方法：</span><br></pre></td></tr></table></figure></p>
-<p>rm -Rf /Applications/Android\ Studio.app<br>
-rm -Rf ~/Library/Preferences/AndroidStudio*<br>
-rm ~/Library/Preferences/com.google.android.studio.plist<br>
-rm -Rf ~/Library/Application\ Support/AndroidStudio*<br>
-rm -Rf ~/Library/Logs/AndroidStudio*<br>
-rm -Rf ~/Library/Caches/AndroidStudio*<br>
-rm -Rf ~/.gradle<br>
-rm -Rf ~/.android<br>
-rm -Rf ~/Library/Android*</p>
-<pre class="highlight"><code class="">
-# 总结
-算是做为了解移动端的一个起步吧。</code></pre>
+<p>本来安装工具这种东西是没什么好记录的，点点点就完了，但是因为我国的特殊网络环境，发现在下载android的SDK，一直报&quot; SDK tools directory is missing&quot; 试过多种方法，多种镜像网站，发现均不能下载。最后终于找到解决方法了</p>
+<h1 id="解决方案"><a class="markdownIt-Anchor" href="#解决方案"></a> 解决方案</h1>
+<h3 id="设置代理"><a class="markdownIt-Anchor" href="#设置代理"></a> 设置代理</h3>
+<p>testhome提供了http代理地址：<br>
+<img src="https://testerhome.com/uploads/photo/2018/c4f0647b-6255-4631-b2f9-24f654d91c4c.png" alt="image"></p>
+<p>其中port number，比如今天是7月22号，port number就是 60722</p>
+<h3 id="删除"><a class="markdownIt-Anchor" href="#删除"></a> 删除</h3>
+<p>还有一个坑就是，在mac下面删除android，直接从app里面删除是不够的。下面提供彻底删除的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">rm -Rf /Applications/Android\ Studio.app</span><br><span class="line">rm -Rf ~/Library/Preferences/AndroidStudio*</span><br><span class="line">rm ~/Library/Preferences/com.google.android.studio.plist</span><br><span class="line">rm -Rf ~/Library/Application\ Support/AndroidStudio*</span><br><span class="line">rm -Rf ~/Library/Logs/AndroidStudio*</span><br><span class="line">rm -Rf ~/Library/Caches/AndroidStudio*</span><br><span class="line">rm -Rf ~/.gradle</span><br><span class="line">rm -Rf ~/.android</span><br><span class="line">rm -Rf ~/Library/Android*</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
+<p>算是做为了解移动端的一个起步吧。</p>
 
       
     </div>

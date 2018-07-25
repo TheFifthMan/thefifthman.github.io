@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="概述 学习一下python的装饰器函数。关于装饰器的定义，底层，肯定说得不如网上的文章好。这里就简单记录一下其使用。  需求 python的装饰器其实是一种面向切面的编程方式，可以将大量可复用的代码抽离出来进行复用，这样的编程方式显得优雅。其主要需求有几种：  插入日志 性能测试 权限检验 事务处理 缓存 …   语法 装饰器的语法也很简单，其原理可以先这样理解： 假设我们要为一个函数打印log">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-22T14:18:25.713Z">
+<meta property="og:updated_time" content="2018-07-25T12:45:40.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python学习-装饰器">
 <meta name="twitter:description" content="概述 学习一下python的装饰器函数。关于装饰器的定义，底层，肯定说得不如网上的文章好。这里就简单记录一下其使用。  需求 python的装饰器其实是一种面向切面的编程方式，可以将大量可复用的代码抽离出来进行复用，这样的编程方式显得优雅。其主要需求有几种：  插入日志 性能测试 权限检验 事务处理 缓存 …   语法 装饰器的语法也很简单，其原理可以先这样理解： 假设我们要为一个函数打印log">
@@ -401,7 +401,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def decoration(func):</span><br><span class="line">    def wrapper(*args,**kw):</span><br><span class="line">        print(&quot;Hello logs&quot;)</span><br><span class="line">        return func(*args,**kw)</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">@decoration    </span><br><span class="line">def foo():</span><br><span class="line">    print(&apos;Hello I am foo&apos;)</span><br><span class="line">    </span><br><span class="line">foo() # 调用foo</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 输出</span><br><span class="line">Hello logs</span><br><span class="line">Hello I am foo</span><br></pre></td></tr></table></figure>
 <p>同样的，这样还存在一些问题，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
 <p>print(foo.<strong>name</strong>) # wrapper</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这个时候我们要引入另一个装饰函数，把元信息也给传进去.</span><br><span class="line"></span><br><span class="line">所以废话这么多，完整的case是</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这个时候我们要引入另一个装饰函数，把元信息也给传进去.</span><br><span class="line">所以废话这么多，完整的case是</span><br></pre></td></tr></table></figure>
 <p>from functools import wraps<br>
 def decoration(func):<br>
 @wraps(func)<br>
@@ -424,7 +424,7 @@ foo</p>
 </blockquote>
 </blockquote>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 类装饰器</span><br><span class="line">类也有装饰器，其装饰器是通过```__call__ 函数```来实现的.通过@调用了这个函数</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 类装饰器</span><br><span class="line">类也有装饰器，其装饰器是通过```__call__ 函数```来实现的.通过@调用了这个函数</span><br></pre></td></tr></table></figure>
 <p>class Decorations(object):<br>
 def <strong>init</strong>(self,func):<br>
 self.func = func</p>
@@ -436,7 +436,7 @@ self.func = func</p>
 def foo():<br>
 print(‘i am foo’)</p>
 <p>foo()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">类装饰器具有以下优点</span><br><span class="line">1. 灵活度大</span><br><span class="line">2. 高内聚</span><br><span class="line">3. 封装性</span><br><span class="line"></span><br><span class="line"># 总结</span><br><span class="line">当然平时一些小东西，也就用函数装饰器就足够使用了。</span><br><span class="line">最后附上写flask时候验证admin权限的装饰器</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">类装饰器具有以下优点</span><br><span class="line">1. 灵活度大</span><br><span class="line">2. 高内聚</span><br><span class="line">3. 封装性</span><br><span class="line"></span><br><span class="line"># 总结</span><br><span class="line">当然平时一些小东西，也就用函数装饰器就足够使用了。</span><br><span class="line">最后附上写flask时候验证admin权限的装饰器</span><br></pre></td></tr></table></figure>
 <p>def adminRequired(func):<br>
 @functools.wraps(func)<br>
 def decoration(*args,**kw):<br>
