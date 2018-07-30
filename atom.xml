@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-25T14:44:38.474Z</updated>
+  <updated>2018-07-30T15:30:24.576Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>zookeeper简介</title>
+    <link href="http://yoursite.com/2018/07/30/zookeeper%E7%AE%80%E4%BB%8B/"/>
+    <id>http://yoursite.com/2018/07/30/zookeeper简介/</id>
+    <published>2018-07-30T15:29:11.000Z</published>
+    <updated>2018-07-30T15:30:24.576Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装zookeeper"><a class="markdownIt-Anchor" href="#安装zookeeper"></a> 安装Zookeeper</h2><h4 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h4><p>Zookeeper 是一个非常流行的分布式系统协调服务，目前的应用非常的广泛，其主要特点：</p><ol><li>分布式集群</li><li>高可用性</li><li>奇数个节点</li></ol><p>其应用场景有如下：</p><ol><li>服务器主从选举。假设我们有多个服务器需要提供服务，但是为了数据的一致性，我们需要每一个时刻只能有一个服务器来提供服务，其他服务器做为主服务器的备份，如果主服务器挂了，立马备份服务器就成了主服务器进行工作。这种场景常见于数据库服务器</li><li>批量更新配置，如果我们有多个服务器节点需要更新配置文件的内容，这个时候如果挨个去改，很容易出错，尤其是服务器很多的情况下，统一推送配置文件，就显得很重要。因此我们可以将配置文件存放在第三方，修改后，通知zookeeper通知其他节点，各个节点自己读取配置文件。</li></ol><h4 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h4><h5 id="安装jdk"><a class="markdownIt-Anchor" href="#安装jdk"></a> 安装Jdk</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install jdk -y</span><br></pre></td></tr></table></figure><h5 id="下载zookeeper"><a class="markdownIt-Anchor" href="#下载zookeeper"></a> 下载zookeeper</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 下载</span><br><span class="line">2. 解压</span><br><span class="line">tar -zxvf zookeeper.tar.gz</span><br></pre></td></tr></table></figure><h5 id="zookeeper的配置文件"><a class="markdownIt-Anchor" href="#zookeeper的配置文件"></a> zookeeper的配置文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 文件位于 zookeeper/conf/zoo.cfg</span><br><span class="line"></span><br><span class="line">tickTime=2000</span><br><span class="line">dataDir=/data/zookeeper</span><br><span class="line">clientPort=2181</span><br><span class="line">initLimit=5</span><br><span class="line">syncLimit=2</span><br><span class="line">server.1=192.168.31.144:2888:3888</span><br><span class="line">server.2=192.168.31.20:2888:3888</span><br><span class="line">server.3=192.168.31.223:2888:3888</span><br></pre></td></tr></table></figure><h5 id="将zookeeper复制到多个服务器上面"><a class="markdownIt-Anchor" href="#将zookeeper复制到多个服务器上面"></a> 将zookeeper复制到多个服务器上面</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r zookeeper root@192.168.31.20:.</span><br><span class="line">scp -r zookeeper root@192.168.31.44:.</span><br></pre></td></tr></table></figure><h5 id="启动"><a class="markdownIt-Anchor" href="#启动"></a> 启动</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./zookeeper/bin/zkServer.sh start</span><br></pre></td></tr></table></figure><h5 id="查看状态"><a class="markdownIt-Anchor" href="#查看状态"></a> 查看状态</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./zookeeper/bin/zkServer.sh status</span><br></pre></td></tr></table></figure><h5 id="完成后"><a class="markdownIt-Anchor" href="#完成后"></a> 完成后</h5><p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/zookeeper1.jpg" alt="image"><br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/zookeeper2.jpg" alt="image"><br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/zookeeper3.jpg" alt="image"></p><h5 id="pythonzookeeper"><a class="markdownIt-Anchor" href="#pythonzookeeper"></a> python+zookeeper</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kazoo.client <span class="keyword">import</span> KazooClient</span><br><span class="line"></span><br><span class="line">zk = KazooClient(hosts=<span class="string">"192.168.31.144:2181,192.168.31.20:2181,192.168.31.223:2181"</span>)</span><br><span class="line">zk.start()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除节点</span></span><br><span class="line">zk.delete(<span class="string">"/bb/aa/validator"</span>,recursive=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建节点</span></span><br><span class="line">result = zk.create(<span class="string">'/bb/aa/validator'</span>,<span class="string">b'validator_huabei_1'</span>)</span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新节点</span></span><br><span class="line">zk.set(<span class="string">"/bb/aa/validator"</span>,<span class="string">b"updated new message"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取节点</span></span><br><span class="line">data,stat = zk.get(<span class="string">"/bb/aa/validator"</span>)</span><br><span class="line">print(data.decode(<span class="string">'utf-8'</span>))</span><br><span class="line">print(stat)</span><br><span class="line"><span class="comment">#zk.delete("/bb/aa/validator",recursive=True)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 监听节点</span></span><br><span class="line"><span class="meta">@zk.DataWatch("/bb/aa/validator")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">watch_node</span><span class="params">(data, stat)</span>:</span></span><br><span class="line">    print(<span class="string">"Version: %s, data: %s"</span> % (stat, data.decode(<span class="string">"utf-8"</span>)))</span><br></pre></td></tr></table></figure><h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1><p><a href="https://blog.csdn.net/mrbcy/article/details/54767484" target="_blank" rel="noopener">ZooKeeper简介与安装</a><br><a href="https://blog.csdn.net/liaosiqian/article/details/77828036" target="_blank" rel="noopener">zookeeper伪集群启动失败失败：Invalid config, exiting abnormally</a><br><a href="https://blog.csdn.net/mrbcy/article/details/60869079" target="_blank" rel="noopener">Python与ZooKeeper集群连接</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装zookeeper&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装zookeeper&quot;&gt;&lt;/a&gt; 安装Zookeeper&lt;/h2&gt;
+&lt;h4 id=&quot;简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>python模块-协程</title>
@@ -534,37 +560,6 @@
       
         &lt;h1 id=&quot;增强ssh安全性&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#增强ssh安全性&quot;&gt;&lt;/a&gt; 增强ssh安全性&lt;/h1&gt;
 &lt;h3 id=&quot;改变ssh的端口&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#改变s
-      
-    
-    </summary>
-    
-      <category term="Linux_security" scheme="http://yoursite.com/categories/Linux-security/"/>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-      <category term="security" scheme="http://yoursite.com/tags/security/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>3-Linux的本地认证</title>
-    <link href="http://yoursite.com/2018/06/24/3-Linux%E7%9A%84%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81/"/>
-    <id>http://yoursite.com/2018/06/24/3-Linux的本地认证/</id>
-    <published>2018-06-24T07:35:11.000Z</published>
-    <updated>2018-06-24T07:36:23.439Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><ul><li>[x] 用户认证和日志记录</li><li>[x] 限制用户登录的能力</li><li>[x] 使用acct监视用户行为</li><li>[x] 定义用户授权控制</li><li>[ ] 使用USB设备和PAM进行登录</li></ul><h1 id="日志记录"><a class="markdownIt-Anchor" href="#日志记录"></a> 日志记录</h1><h3 id="varlog"><a class="markdownIt-Anchor" href="#varlog"></a> /var/log</h3><blockquote><p>存放着各种log</p></blockquote><h3 id="查看特定账号的错误登录尝试"><a class="markdownIt-Anchor" href="#查看特定账号的错误登录尝试"></a> 查看特定账号的错误登录尝试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lastb root</span><br></pre></td></tr></table></figure><h3 id="查看内存中缓存的内核信息"><a class="markdownIt-Anchor" href="#查看内存中缓存的内核信息"></a> 查看内存中缓存的内核信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dmesg</span><br></pre></td></tr></table></figure><h3 id="查看最近某用户登录信息"><a class="markdownIt-Anchor" href="#查看最近某用户登录信息"></a> 查看最近某用户登录信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">last</span><br></pre></td></tr></table></figure><h3 id="查看最后一次登录"><a class="markdownIt-Anchor" href="#查看最后一次登录"></a> 查看最后一次登录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lastlog</span><br></pre></td></tr></table></figure><h1 id="限制用户登录"><a class="markdownIt-Anchor" href="#限制用户登录"></a> 限制用户登录</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">usermod -s /usr/bim/nologin user1</span><br><span class="line">passwd -l user1</span><br><span class="line">usermod -l user1</span><br><span class="line"># 解锁</span><br><span class="line">passwd -u user1</span><br><span class="line">usermod -u user1</span><br></pre></td></tr></table></figure><h1 id="使用acct监视用户"><a class="markdownIt-Anchor" href="#使用acct监视用户"></a> 使用acct监视用户</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get install acct</span><br><span class="line"></span><br><span class="line">查询特定用户执行过的命令</span><br><span class="line">lastcomm root</span><br></pre></td></tr></table></figure><h1 id="定义用户用户授权限制"><a class="markdownIt-Anchor" href="#定义用户用户授权限制"></a> 定义用户用户授权限制</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim sudoers</span><br><span class="line"># 每次切换root权限都需要输入密码</span><br><span class="line">Defaults user1 timestamp_timeout=0</span><br></pre></td></tr></table></figure><h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1><p>这章，比较没写什么有价值的东西。单纯了解了一些linux的操作。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] 用户认证和日志记录&lt;/li&gt;
-&lt;li&gt;[x] 限制用户登录的能力&lt;/li&gt;
-&lt;li&gt;[x] 使用acct监视用户行为&lt;/li
       
     
     </summary>

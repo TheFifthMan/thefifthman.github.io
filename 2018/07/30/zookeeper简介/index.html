@@ -17,21 +17,25 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>4-Linux的远程认证 | 打工</title>
-  <meta name="description" content="增强ssh安全性  改变ssh的端口 1234567cp /ect/ssh/sshd_onfig /etc/ssh/sshd_config.backupvim /etc/ssh/sshd_config...Port 3333service sshd restart  禁止root直接登录 12345vim /etc/ssh/sshd_config...PermissionRootLogin no">
-<meta name="keywords" content="Linux,security">
+  <title>zookeeper简介 | 打工</title>
+  <meta name="description" content="安装Zookeeper  简介 Zookeeper 是一个非常流行的分布式系统协调服务，目前的应用非常的广泛，其主要特点：  分布式集群 高可用性 奇数个节点  其应用场景有如下：  服务器主从选举。假设我们有多个服务器需要提供服务，但是为了数据的一致性，我们需要每一个时刻只能有一个服务器来提供服务，其他服务器做为主服务器的备份，如果主服务器挂了，立马备份服务器就成了主服务器进行工作。这种场景常">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="4-Linux的远程认证">
-<meta property="og:url" content="http://yoursite.com/2018/06/24/4-Linux的远程认证/index.html">
+<meta property="og:title" content="zookeeper简介">
+<meta property="og:url" content="http://yoursite.com/2018/07/30/zookeeper简介/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="增强ssh安全性  改变ssh的端口 1234567cp /ect/ssh/sshd_onfig /etc/ssh/sshd_config.backupvim /etc/ssh/sshd_config...Port 3333service sshd restart  禁止root直接登录 12345vim /etc/ssh/sshd_config...PermissionRootLogin no">
+<meta property="og:description" content="安装Zookeeper  简介 Zookeeper 是一个非常流行的分布式系统协调服务，目前的应用非常的广泛，其主要特点：  分布式集群 高可用性 奇数个节点  其应用场景有如下：  服务器主从选举。假设我们有多个服务器需要提供服务，但是为了数据的一致性，我们需要每一个时刻只能有一个服务器来提供服务，其他服务器做为主服务器的备份，如果主服务器挂了，立马备份服务器就成了主服务器进行工作。这种场景常">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-24T07:39:16.221Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/zookeeper1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/zookeeper2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/zookeeper3.jpg">
+<meta property="og:updated_time" content="2018-07-30T15:30:24.576Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="4-Linux的远程认证">
-<meta name="twitter:description" content="增强ssh安全性  改变ssh的端口 1234567cp /ect/ssh/sshd_onfig /etc/ssh/sshd_config.backupvim /etc/ssh/sshd_config...Port 3333service sshd restart  禁止root直接登录 12345vim /etc/ssh/sshd_config...PermissionRootLogin no">
+<meta name="twitter:title" content="zookeeper简介">
+<meta name="twitter:description" content="安装Zookeeper  简介 Zookeeper 是一个非常流行的分布式系统协调服务，目前的应用非常的广泛，其主要特点：  分布式集群 高可用性 奇数个节点  其应用场景有如下：  服务器主从选举。假设我们有多个服务器需要提供服务，但是为了数据的一致性，我们需要每一个时刻只能有一个服务器来提供服务，其他服务器做为主服务器的备份，如果主服务器挂了，立马备份服务器就成了主服务器进行工作。这种场景常">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/zookeeper1.jpg">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2018/06/24/4-Linux的远程认证/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/07/30/zookeeper简介/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -341,14 +345,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-4-Linux的远程认证" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-zookeeper简介" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      4-Linux的远程认证
+      zookeeper简介
     </h1>
   
 
@@ -356,42 +360,67 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/06/24/4-Linux的远程认证/" class="article-date">
-	  <time datetime="2018-06-24T07:35:37.000Z" itemprop="datePublished">2018-06-24</time>
+	<a href="/2018/07/30/zookeeper简介/" class="article-date">
+	  <time datetime="2018-07-30T15:29:11.000Z" itemprop="datePublished">2018-07-30</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Linux-security/">Linux_security</a>
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Linux/">Linux</a>, <a class="article-tag-link" href="/tags/security/">security</a>
+	<a class="article-tag-link" href="/tags/Linux/">Linux</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/24/4-Linux的远程认证/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/07/30/zookeeper简介/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h1 id="增强ssh安全性"><a class="markdownIt-Anchor" href="#增强ssh安全性"></a> 增强ssh安全性</h1>
-<h3 id="改变ssh的端口"><a class="markdownIt-Anchor" href="#改变ssh的端口"></a> 改变ssh的端口</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cp /ect/ssh/sshd_onfig /etc/ssh/sshd_config.backup</span><br><span class="line"></span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">...</span><br><span class="line">Port 3333</span><br><span class="line"></span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
-<h3 id="禁止root直接登录"><a class="markdownIt-Anchor" href="#禁止root直接登录"></a> 禁止root直接登录</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">...</span><br><span class="line">PermissionRootLogin no</span><br><span class="line">...</span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
-<h3 id="只允许一部分用户登录"><a class="markdownIt-Anchor" href="#只允许一部分用户登录"></a> 只允许一部分用户登录</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">...</span><br><span class="line">AllowUsers user1 user2</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
-<h3 id="使用密钥登录服务器"><a class="markdownIt-Anchor" href="#使用密钥登录服务器"></a> 使用密钥登录服务器</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 首先在本地生成一个私钥和公钥。客户端</span><br><span class="line">ssh-keygen-t rsa</span><br><span class="line"></span><br><span class="line">2. 将客户端的公钥上传到服务器端</span><br><span class="line">ssh-copy-id -p 33 linux@172.16.190.901</span><br><span class="line"></span><br><span class="line">3. 登录</span><br><span class="line">ssh -p 33 linux@172.111.111.111</span><br></pre></td></tr></table></figure>
-<h3 id="禁止密码登录"><a class="markdownIt-Anchor" href="#禁止密码登录"></a> 禁止密码登录</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">...</span><br><span class="line">PasswordAuthentication      no</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+        <h2 id="安装zookeeper"><a class="markdownIt-Anchor" href="#安装zookeeper"></a> 安装Zookeeper</h2>
+<h4 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h4>
+<p>Zookeeper 是一个非常流行的分布式系统协调服务，目前的应用非常的广泛，其主要特点：</p>
+<ol>
+<li>分布式集群</li>
+<li>高可用性</li>
+<li>奇数个节点</li>
+</ol>
+<p>其应用场景有如下：</p>
+<ol>
+<li>服务器主从选举。假设我们有多个服务器需要提供服务，但是为了数据的一致性，我们需要每一个时刻只能有一个服务器来提供服务，其他服务器做为主服务器的备份，如果主服务器挂了，立马备份服务器就成了主服务器进行工作。这种场景常见于数据库服务器</li>
+<li>批量更新配置，如果我们有多个服务器节点需要更新配置文件的内容，这个时候如果挨个去改，很容易出错，尤其是服务器很多的情况下，统一推送配置文件，就显得很重要。因此我们可以将配置文件存放在第三方，修改后，通知zookeeper通知其他节点，各个节点自己读取配置文件。</li>
+</ol>
+<h4 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h4>
+<h5 id="安装jdk"><a class="markdownIt-Anchor" href="#安装jdk"></a> 安装Jdk</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install jdk -y</span><br></pre></td></tr></table></figure>
+<h5 id="下载zookeeper"><a class="markdownIt-Anchor" href="#下载zookeeper"></a> 下载zookeeper</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 下载</span><br><span class="line">2. 解压</span><br><span class="line">tar -zxvf zookeeper.tar.gz</span><br></pre></td></tr></table></figure>
+<h5 id="zookeeper的配置文件"><a class="markdownIt-Anchor" href="#zookeeper的配置文件"></a> zookeeper的配置文件</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 文件位于 zookeeper/conf/zoo.cfg</span><br><span class="line"></span><br><span class="line">tickTime=2000</span><br><span class="line">dataDir=/data/zookeeper</span><br><span class="line">clientPort=2181</span><br><span class="line">initLimit=5</span><br><span class="line">syncLimit=2</span><br><span class="line">server.1=192.168.31.144:2888:3888</span><br><span class="line">server.2=192.168.31.20:2888:3888</span><br><span class="line">server.3=192.168.31.223:2888:3888</span><br></pre></td></tr></table></figure>
+<h5 id="将zookeeper复制到多个服务器上面"><a class="markdownIt-Anchor" href="#将zookeeper复制到多个服务器上面"></a> 将zookeeper复制到多个服务器上面</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r zookeeper root@192.168.31.20:.</span><br><span class="line">scp -r zookeeper root@192.168.31.44:.</span><br></pre></td></tr></table></figure>
+<h5 id="启动"><a class="markdownIt-Anchor" href="#启动"></a> 启动</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./zookeeper/bin/zkServer.sh start</span><br></pre></td></tr></table></figure>
+<h5 id="查看状态"><a class="markdownIt-Anchor" href="#查看状态"></a> 查看状态</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./zookeeper/bin/zkServer.sh status</span><br></pre></td></tr></table></figure>
+<h5 id="完成后"><a class="markdownIt-Anchor" href="#完成后"></a> 完成后</h5>
+<p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/zookeeper1.jpg" alt="image"><br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/zookeeper2.jpg" alt="image"><br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/zookeeper3.jpg" alt="image"></p>
+<h5 id="pythonzookeeper"><a class="markdownIt-Anchor" href="#pythonzookeeper"></a> python+zookeeper</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kazoo.client <span class="keyword">import</span> KazooClient</span><br><span class="line"></span><br><span class="line">zk = KazooClient(hosts=<span class="string">"192.168.31.144:2181,192.168.31.20:2181,192.168.31.223:2181"</span>)</span><br><span class="line">zk.start()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除节点</span></span><br><span class="line">zk.delete(<span class="string">"/bb/aa/validator"</span>,recursive=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建节点</span></span><br><span class="line">result = zk.create(<span class="string">'/bb/aa/validator'</span>,<span class="string">b'validator_huabei_1'</span>)</span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新节点</span></span><br><span class="line">zk.set(<span class="string">"/bb/aa/validator"</span>,<span class="string">b"updated new message"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取节点</span></span><br><span class="line">data,stat = zk.get(<span class="string">"/bb/aa/validator"</span>)</span><br><span class="line">print(data.decode(<span class="string">'utf-8'</span>))</span><br><span class="line">print(stat)</span><br><span class="line"><span class="comment">#zk.delete("/bb/aa/validator",recursive=True)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 监听节点</span></span><br><span class="line"><span class="meta">@zk.DataWatch("/bb/aa/validator")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">watch_node</span><span class="params">(data, stat)</span>:</span></span><br><span class="line">    print(<span class="string">"Version: %s, data: %s"</span> % (stat, data.decode(<span class="string">"utf-8"</span>)))</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<p><a href="https://blog.csdn.net/mrbcy/article/details/54767484" target="_blank" rel="noopener">ZooKeeper简介与安装</a><br>
+<a href="https://blog.csdn.net/liaosiqian/article/details/77828036" target="_blank" rel="noopener">zookeeper伪集群启动失败失败：Invalid config, exiting abnormally</a><br>
+<a href="https://blog.csdn.net/mrbcy/article/details/60869079" target="_blank" rel="noopener">Python与ZooKeeper集群连接</a></p>
 
       
     </div>
@@ -416,13 +445,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2018/06/25/Kali下配置ss服务/" title="Kali下配置ss服务"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2018/06/24/3-Linux的本地认证/" title="3-Linux的本地认证"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/07/25/python模块-协程/" title="python模块-协程"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
