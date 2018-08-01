@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/07/01/python%E6%A8%A1%E5%9D%97-queue/</loc>
+    <lastmod>2018-08-01T15:37:57.624Z</lastmod>
+    <data>
+        <display>
+        <title>python模块-queue</title>
+        <pubTime>2018-07-01T15:29:19.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python_modules" url="http://yoursite.com/categories/python-modules/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/08/01/kafka%E5%85%A5%E9%97%A8/</loc>
+    <lastmod>2018-08-01T15:37:02.150Z</lastmod>
+    <data>
+        <display>
+        <title>kafka入门</title>
+        <pubTime>2018-08-01T15:36:35.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://yoursite.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/07/30/zookeeper%E7%AE%80%E4%BB%8B/</loc>
     <lastmod>2018-07-30T15:30:24.576Z</lastmod>
     <data>
@@ -252,26 +292,6 @@
         <display>
         <title>python模块-click</title>
         <pubTime>2018-07-02T16:14:16.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="python_modules" url="http://yoursite.com/categories/python-modules/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/07/01/python%E6%A8%A1%E5%9D%97-queue/</loc>
-    <lastmod>2018-07-01T15:29:39.017Z</lastmod>
-    <data>
-        <display>
-        <title>python模块-queue</title>
-        <pubTime>2018-07-01T15:29:19.000Z</pubTime>
         
         <tag>Python</tag>
          

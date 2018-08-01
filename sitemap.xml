@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/07/01/python%E6%A8%A1%E5%9D%97-queue/</loc>
+    
+    <lastmod>2018-08-01T15:37:57.624Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/08/01/kafka%E5%85%A5%E9%97%A8/</loc>
+    
+    <lastmod>2018-08-01T15:37:02.150Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/07/30/zookeeper%E7%AE%80%E4%BB%8B/</loc>
     
     <lastmod>2018-07-30T15:30:24.576Z</lastmod>
@@ -89,13 +103,6 @@
     <loc>http://yoursite.com/2018/07/03/python%E6%A8%A1%E5%9D%97-click/</loc>
     
     <lastmod>2018-07-02T16:14:31.773Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/07/01/python%E6%A8%A1%E5%9D%97-queue/</loc>
-    
-    <lastmod>2018-07-01T15:29:39.017Z</lastmod>
     
   </url>
   
