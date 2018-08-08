@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>0x006-使用email | 打工</title>
+  <meta name="description" content="发送邮件重置密码  需求  重置密码需要用户输入邮箱，因此需要开发一个输入邮箱的页面 开发重置密码功能   准备工作 12pip install flask-mailpip install pyjwt  开发输入邮箱用于重置密码的页面  表单对象 123class ResetPasswdByEmailForm(FlaskForm):    email = StringField(&amp;quot;请输">
+<meta name="keywords" content="flask">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0x006-使用email">
+<meta property="og:url" content="http://yoursite.com/2018/08/08/0x006-使用email/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="发送邮件重置密码  需求  重置密码需要用户输入邮箱，因此需要开发一个输入邮箱的页面 开发重置密码功能   准备工作 12pip install flask-mailpip install pyjwt  开发输入邮箱用于重置密码的页面  表单对象 123class ResetPasswdByEmailForm(FlaskForm):    email = StringField(&amp;quot;请输">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-08T14:16:00.836Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="0x006-使用email">
+<meta name="twitter:description" content="发送邮件重置密码  需求  重置密码需要用户输入邮箱，因此需要开发一个输入邮箱的页面 开发重置密码功能   准备工作 12pip install flask-mailpip install pyjwt  开发输入邮箱用于重置密码的页面  表单对象 123class ResetPasswdByEmailForm(FlaskForm):    email = StringField(&amp;quot;请输">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2018/08/08/0x006-使用email/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/thefifthman" target="_blank">
+          <img class="img-circle img-rotate" src="/images/1.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm"></h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> fujian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+     
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>Hello World</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-security/">Linux_security</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flask/">flask</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/micro-movie/">micro_movie</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python-modules/">python_modules</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-security/">web_security</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/企业安全建设/">企业安全建设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试/">测试</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/自动化测试/">自动化测试</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSRF/">CSRF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/">flask</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/metasploit/">metasploit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui自动化/">ui自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xss/">xss</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/企业安全建设/">企业安全建设</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CSRF/" style="font-size: 13px;">CSRF</a> <a href="/tags/Linux/" style="font-size: 13.57px;">Linux</a> <a href="/tags/Python/" style="font-size: 13.86px;">Python</a> <a href="/tags/flask/" style="font-size: 13.71px;">flask</a> <a href="/tags/kali/" style="font-size: 13.14px;">kali</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/metasploit/" style="font-size: 13px;">metasploit</a> <a href="/tags/nginx/" style="font-size: 13px;">nginx</a> <a href="/tags/php/" style="font-size: 13.14px;">php</a> <a href="/tags/python/" style="font-size: 13.14px;">python</a> <a href="/tags/security/" style="font-size: 14px;">security</a> <a href="/tags/ui自动化/" style="font-size: 13px;">ui自动化</a> <a href="/tags/xss/" style="font-size: 13.29px;">xss</a> <a href="/tags/企业安全建设/" style="font-size: 13.43px;">企业安全建设</a> <a href="/tags/文件上传漏洞/" style="font-size: 13px;">文件上传漏洞</a> <a href="/tags/测试/" style="font-size: 13px;">测试</a>
+    </div>
+  </div>
+-->
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">29</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/flask/">flask</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/08/0x006-使用email/" class="title">0x006-使用email</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-08T14:15:14.000Z" itemprop="datePublished">2018-08-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/flask/">flask</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/08/0x005-错误处理/" class="title">0x005-错误处理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-08T14:14:37.000Z" itemprop="datePublished">2018-08-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/flask/">flask</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/08/0x004-数据库使用/" class="title">0x004-数据库使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-08T14:14:04.000Z" itemprop="datePublished">2018-08-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/flask/">flask</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/08/0x003-表单的应用/" class="title">0x003-表单的应用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-08T14:13:32.000Z" itemprop="datePublished">2018-08-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/flask/">flask</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/08/0x002-jinja2静态模板应用/" class="title">0x002-jinja2静态模板应用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-08T14:13:00.000Z" itemprop="datePublished">2018-08-08</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+-->
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-0x006-使用email" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      0x006-使用email
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/08/08/0x006-使用email/" class="article-date">
+	  <time datetime="2018-08-08T14:15:14.000Z" itemprop="datePublished">2018-08-08</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/flask/">flask</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/flask/">flask</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/08/08/0x006-使用email/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h1 id="发送邮件重置密码"><a class="markdownIt-Anchor" href="#发送邮件重置密码"></a> 发送邮件重置密码</h1>
+<h2 id="需求"><a class="markdownIt-Anchor" href="#需求"></a> 需求</h2>
+<ol>
+<li>重置密码需要用户输入邮箱，因此需要开发一个输入邮箱的页面</li>
+<li>开发重置密码功能</li>
+</ol>
+<h2 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-mail</span><br><span class="line">pip install pyjwt</span><br></pre></td></tr></table></figure>
+<h2 id="开发输入邮箱用于重置密码的页面"><a class="markdownIt-Anchor" href="#开发输入邮箱用于重置密码的页面"></a> 开发输入邮箱用于重置密码的页面</h2>
+<h3 id="表单对象"><a class="markdownIt-Anchor" href="#表单对象"></a> 表单对象</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class ResetPasswdByEmailForm(FlaskForm):</span><br><span class="line">    email = StringField(&quot;请输入你的邮箱：&quot;,validators=[DataRequired()])</span><br><span class="line">    submit = Submit(&quot;提交&quot;)</span><br></pre></td></tr></table></figure>
+<h3 id="模板页面"><a class="markdownIt-Anchor" href="#模板页面"></a> 模板页面</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &quot;_layout.html&quot; %&#125;</span><br><span class="line">&#123;% block main %&#125;</span><br><span class="line">    &lt;form method=&quot;POST&quot;&gt;</span><br><span class="line">        &#123;&#123; form.hidden_tag() &#125;&#125;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &#123;&#123; form.email.label &#125;&#125;</span><br><span class="line">            &#123;&#123; form.email() &#125;&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &#123;&#123; form.submit() &#125;&#125;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="业务逻辑"><a class="markdownIt-Anchor" href="#业务逻辑"></a> 业务逻辑</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 重置密码所需要填入email的页面</span><br><span class="line">@app.route(&apos;/reset/password&apos;,methods=[&apos;GET&apos;,&apos;POST&apos;])</span><br><span class="line">def reset_passwd_by_email():</span><br><span class="line">    if current_user.is_authenticated:</span><br><span class="line">        flash(&quot;已经登录啦&quot;)</span><br><span class="line">        return redirect(url_for(&apos;index&apos;))</span><br><span class="line">    form = RestPasswdByEmailForm()</span><br><span class="line">    if form.validate_on_submit():</span><br><span class="line">        user = User.query.filter_by(email=form.email.data).first()</span><br><span class="line">        if user:</span><br><span class="line">            send_password_reset_email(user)</span><br><span class="line">        flash(&quot;已经发送邮件，如果没有收到邮件，请检查邮箱地址是否正确。&quot;)</span><br><span class="line">        return redirect(url_for(&apos;login&apos;))</span><br><span class="line">    return render_template(&apos;reset_passwd_by_email.html&apos;,form=form)</span><br></pre></td></tr></table></figure>
+<h2 id="开发重置密码功能"><a class="markdownIt-Anchor" href="#开发重置密码功能"></a> 开发重置密码功能</h2>
+<h3 id="准备发送给用户邮件"><a class="markdownIt-Anchor" href="#准备发送给用户邮件"></a> 准备发送给用户邮件</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># templates/email/reset_passwd.txt | reset_passwd.html</span><br><span class="line">&lt;p&gt;Dear &#123;&#123; user.username &#125;&#125;,&lt;/p&gt;</span><br><span class="line">&lt;p&gt;</span><br><span class="line">    To reset your password</span><br><span class="line">    &lt;a href=&quot;&#123;&#123; url_for(&apos;reset_password&apos;, token=token, _external=True) &#125;&#125;&quot;&gt;</span><br><span class="line">        click here</span><br><span class="line">    &lt;/a&gt;.</span><br><span class="line">&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Alternatively, you can paste the following link in your browser&apos;s address bar:&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&#123;&#123; url_for(&apos;reset_password&apos;, token=token, _external=True) &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;p&gt;If you have not requested a password reset simply ignore this message.&lt;/p&gt;</span><br><span class="line">&lt;a href=&quot;javascript:alert(0)&quot;&gt;Click me to show xss&lt;/a&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    alert(1);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;p&gt;Sincerely,&lt;/p&gt;</span><br><span class="line">&lt;p&gt;The Microblog Team&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="发送邮件的功能"><a class="markdownIt-Anchor" href="#发送邮件的功能"></a> 发送邮件的功能</h3>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 首先配置服务器地址，在config.py里面配置</span><br><span class="line">MAIL_SERVER = os.environ.get(<span class="string">"MAIL_SERVER"</span>)</span><br><span class="line">MAIL_PORT = os.environ.get(<span class="string">"MAIL_PORT"</span>) <span class="keyword">or</span> <span class="number">25</span></span><br><span class="line">MAIL_USE_TLS = os.environ.get(<span class="string">"MAIL_USE_TLS"</span>) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span></span><br><span class="line">MAIL_USERNAME = os.environ.get(<span class="string">"MAIL_USERNAME"</span>)</span><br><span class="line">MAIL_PASSWORD = os.environ.get(<span class="string">"MAIL_PASSWORD"</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 开发发送邮件的函数, email.py</span><br><span class="line"><span class="comment"># 在flask中，有两个状态，一个是请求上下文，一个应用程序上下文</span></span><br><span class="line"><span class="comment"># 很多时候，这两种状态，flask会自动去调配</span></span><br><span class="line"><span class="comment"># 但是如果是自己起的线程，就需要自己去适配。</span></span><br><span class="line"><span class="comment"># 具体还需要学习。</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_async_email</span><span class="params">(app,msg)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> app.app_context():</span><br><span class="line">        mail.send(msg)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_email</span><span class="params">(subject,sender,recipients,text_body,html_body)</span>:</span></span><br><span class="line">    msg = Message(subject,sender=sender,recipients=recipients)</span><br><span class="line">    msg.body = text_body</span><br><span class="line">    msg.html = html_body</span><br><span class="line">    Thread(target=send_async_email, args=(app,msg)).start()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送邮件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_password_reset_email</span><span class="params">(user)</span>:</span></span><br><span class="line">    token = user.generate_token()</span><br><span class="line">    send_email(<span class="string">"【重置你的密码】"</span>,sender=app.config[<span class="string">'MAIL_USERNAME'</span>],recipients=[user.email],</span><br><span class="line">            text_body=render_template(<span class="string">'email/reset_password.txt'</span>,user=user,token=token),</span><br><span class="line">            html_body = render_template(<span class="string">'email/reset_password.html'</span>,user=user,token=token))</span><br></pre></td></tr></table></figure>
+<h3 id="token的功能"><a class="markdownIt-Anchor" href="#token的功能"></a> token的功能</h3>
+<blockquote>
+<p>token用于我们判断这个用户是否是本人，也就是从这个邮箱里面链接，这个我们在这个用户的类里面直接生成。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(UserMixix,db.Model)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">generate_token</span><span class="params">(self,expires_in=<span class="number">600</span>)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> jwt.encode(</span><br><span class="line">            &#123;<span class="string">"reset_passwd"</span>:self.id,<span class="string">"exp"</span>:time()+ expires_in&#125;,</span><br><span class="line">            app.config[<span class="string">'SECRET_KEY'</span>],algorithm=<span class="string">'HS256'</span>).decode(<span class="string">'utf-8'</span>)</span><br><span class="line">    </span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">validate_token</span><span class="params">(token)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            id = jwt.decode(</span><br><span class="line">                token,app.config[<span class="string">'SECRET_KEY'</span>],algorithms=[<span class="string">'HS256'</span>])[<span class="string">'reset_passwd'</span>]</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            app.logger.error(<span class="string">"查无此人，此token为&#123;&#125;"</span>.format(token))</span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line">        <span class="keyword">return</span> User.query.get(id)</span><br></pre></td></tr></table></figure>
+<h3 id="修改密码的实际页面"><a class="markdownIt-Anchor" href="#修改密码的实际页面"></a> 修改密码的实际页面</h3>
+<ol>
+<li>首先判断这个user是不是登录了</li>
+<li>验证一下传过来的token，查询用户，如果是失效的，或者不符合的，直接返回</li>
+<li>开始接受表单数据，写入数据库</li>
+</ol>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重置密码的真实页面</span></span><br><span class="line"><span class="meta">@app.route('/reset/password/&lt;token&gt;',methods=['GET','POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reset_password</span><span class="params">(token)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> current_user.is_authenticated:</span><br><span class="line">        flash(<span class="string">"已经登录啦。"</span>)</span><br><span class="line">        <span class="keyword">return</span> rediretc(url_for(<span class="string">'index'</span>))</span><br><span class="line"></span><br><span class="line">    user = User.validate_token(token)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> user:</span><br><span class="line">        flash(<span class="string">"验证失败，返回首页"</span>)</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'index'</span>))</span><br><span class="line">    </span><br><span class="line">    form = ResetPasswdForm()</span><br><span class="line">    <span class="keyword">if</span> form.validate_on_submit():</span><br><span class="line">        passwd = form.password.data</span><br><span class="line">        user.set_password(passwd)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            db.session.commit()</span><br><span class="line">            flash(<span class="string">"成功修改密码！！"</span>)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            app.logger.error(e)</span><br><span class="line">            db.session.rollback()</span><br><span class="line">            flash(<span class="string">"修改密码失败！"</span>)</span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">'reset_passwd'</span>))</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'login'</span>))</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'reset_passwd.html'</span>,form=form)</span><br></pre></td></tr></table></figure>
+<h3 id="模板页面-2"><a class="markdownIt-Anchor" href="#模板页面-2"></a> 模板页面</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &quot;_layout.html&quot; %&#125;</span><br><span class="line">&#123;% block main %&#125;</span><br><span class="line">    &lt;form method=&quot;POST&quot;&gt;</span><br><span class="line">        &#123;&#123; form.hidden_tag() &#125;&#125;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &#123;&#123; form.password.label &#125;&#125;</span><br><span class="line">            &#123;&#123; form.password() &#125;&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &#123;&#123; form.password2.label &#125;&#125;</span><br><span class="line">            &#123;&#123; form.password2() &#125;&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &#123;&#123; form.submit() &#125;&#125;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+   
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="uyan_frame"></div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/08/08/0x005-错误处理/" title="0x005-错误处理"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+
+
+    
+    
+
+
+
+</body>
+</html>
