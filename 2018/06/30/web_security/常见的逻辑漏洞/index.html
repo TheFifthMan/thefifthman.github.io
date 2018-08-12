@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>常见的逻辑漏洞 | 打工</title>
+  <meta name="description" content="逻辑安全存在的前提  有效的区分每个用户，并且针对每个用户提供独立的服务内容，允许用户与服务器进行大量的交互 。web应用的攻击就是攻击者从零交互零权限到最后取得最高权限。以下分别总结几点逻辑安全的漏洞   用户管理功能漏洞  Cookie and Session 最大的漏洞就是避免cookie伪造，例如在cookies中存在一个字段为 admin: false，这个时候，如果黑客将其改为 tr">
+<meta name="keywords" content="security,xss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见的逻辑漏洞">
+<meta property="og:url" content="http://yoursite.com/2018/06/30/web_security/常见的逻辑漏洞/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="逻辑安全存在的前提  有效的区分每个用户，并且针对每个用户提供独立的服务内容，允许用户与服务器进行大量的交互 。web应用的攻击就是攻击者从零交互零权限到最后取得最高权限。以下分别总结几点逻辑安全的漏洞   用户管理功能漏洞  Cookie and Session 最大的漏洞就是避免cookie伪造，例如在cookies中存在一个字段为 admin: false，这个时候，如果黑客将其改为 tr">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-30T15:54:16.013Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常见的逻辑漏洞">
+<meta name="twitter:description" content="逻辑安全存在的前提  有效的区分每个用户，并且针对每个用户提供独立的服务内容，允许用户与服务器进行大量的交互 。web应用的攻击就是攻击者从零交互零权限到最后取得最高权限。以下分别总结几点逻辑安全的漏洞   用户管理功能漏洞  Cookie and Session 最大的漏洞就是避免cookie伪造，例如在cookies中存在一个字段为 admin: false，这个时候，如果黑客将其改为 tr">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2018/06/30/web_security/常见的逻辑漏洞/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/thefifthman" target="_blank">
+          <img class="img-circle img-rotate" src="/images/1.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm"></h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> fujian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+     
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>Hello World</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Kali/">Kali</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-security/">Linux_security</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flask/">flask</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/metasploit/">metasploit</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/micro-movie/">micro_movie</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python模块/">python模块</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-security/">web_security</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/企业安全建设/">企业安全建设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试/">测试</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/自动化测试/">自动化测试</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSRF/">CSRF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/">flask</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/metasploit/">metasploit</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui自动化/">ui自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xss/">xss</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/企业安全建设/">企业安全建设</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CSRF/" style="font-size: 13px;">CSRF</a> <a href="/tags/Linux/" style="font-size: 13.67px;">Linux</a> <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/flask/" style="font-size: 13.83px;">flask</a> <a href="/tags/kali/" style="font-size: 13.17px;">kali</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/metasploit/" style="font-size: 13.17px;">metasploit</a> <a href="/tags/nginx/" style="font-size: 13px;">nginx</a> <a href="/tags/php/" style="font-size: 13.17px;">php</a> <a href="/tags/security/" style="font-size: 14px;">security</a> <a href="/tags/ui自动化/" style="font-size: 13px;">ui自动化</a> <a href="/tags/xss/" style="font-size: 13.33px;">xss</a> <a href="/tags/企业安全建设/" style="font-size: 13.5px;">企业安全建设</a> <a href="/tags/文件上传漏洞/" style="font-size: 13px;">文件上传漏洞</a> <a href="/tags/测试/" style="font-size: 13.33px;">测试</a>
+    </div>
+  </div>
+-->
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">29</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/metasploit/">metasploit</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/12/metasploit/0x002-exploitdb/" class="title">0x002-exploitdb</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-12T09:51:53.000Z" itemprop="datePublished">2018-08-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/测试/">测试</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/11/appium/移动端测试4-安装apk/" class="title">移动端测试4-安装apk</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-11T15:29:51.000Z" itemprop="datePublished">2018-08-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/flask/">flask</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/11/flask/0x007-部署centos/" class="title">0x007-部署centos</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-11T07:20:39.000Z" itemprop="datePublished">2018-08-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/python模块/">python模块</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/10/python/python模块-configparse/" class="title">python模块-configparse</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-10T13:37:49.000Z" itemprop="datePublished">2018-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/测试/">测试</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/10/appium/移动端测试3-第一个脚本/" class="title">移动端测试3-第一个脚本</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-10T13:30:36.000Z" itemprop="datePublished">2018-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+-->
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-web_security/常见的逻辑漏洞" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常见的逻辑漏洞
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/06/30/web_security/常见的逻辑漏洞/" class="article-date">
+	  <time datetime="2018-06-30T15:52:44.000Z" itemprop="datePublished">2018-06-30</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/web-security/">web_security</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/security/">security</a>, <a class="article-tag-link" href="/tags/xss/">xss</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/30/web_security/常见的逻辑漏洞/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h1 id="逻辑安全存在的前提"><a class="markdownIt-Anchor" href="#逻辑安全存在的前提"></a> 逻辑安全存在的前提</h1>
+<blockquote>
+<p>有效的区分每个用户，并且针对每个用户提供独立的服务内容，允许用户与服务器进行大量的交互<br>
+。web应用的攻击就是<mark>攻击者从零交互零权限到最后取得最高权限</mark>。以下分别总结几点逻辑安全的漏洞</p>
+</blockquote>
+<h1 id="用户管理功能漏洞"><a class="markdownIt-Anchor" href="#用户管理功能漏洞"></a> 用户管理功能漏洞</h1>
+<h2 id="cookie-and-session"><a class="markdownIt-Anchor" href="#cookie-and-session"></a> Cookie and Session</h2>
+<p>最大的漏洞就是避免cookie伪造，例如在cookies中存在一个字段为 admin: false，这个时候，如果黑客将其改为 true，那么就可以实现cookies的一个伪造，从而进行攻击。</p>
+<h1 id="用户授权管理和安全分析"><a class="markdownIt-Anchor" href="#用户授权管理和安全分析"></a> 用户授权管理和安全分析</h1>
+<p>授权管理分为以下几个部分</p>
+<ol>
+<li>注册</li>
+<li>密码找回</li>
+<li>登录</li>
+<li>密码修改、绑定信息修改</li>
+<li>管理权限</li>
+</ol>
+<p>下面总结一下，大概有哪些危险</p>
+<h2 id="注册"><a class="markdownIt-Anchor" href="#注册"></a> 注册</h2>
+<h4 id="面临的危险和解决方案"><a class="markdownIt-Anchor" href="#面临的危险和解决方案"></a> 面临的危险和解决方案</h4>
+<ol>
+<li>恶意重复注册</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#解决方案</span><br><span class="line">限制IP注册频率</span><br><span class="line">表单加上验证码</span><br><span class="line">姓名和身份证验证</span><br><span class="line">二次验证，例如绑定手机号码或者邮箱</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>注册用户与已经存在的用户重名</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#解决方案</span><br><span class="line">首先数据库字段，要加上验证，不允许重复</span><br><span class="line">对用户输入要做校验。</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>没有对用户输入进行校验，造成xss，sql注入</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#解决方案</span><br><span class="line">对用户输入要做校验.</span><br><span class="line">过滤特殊字符</span><br><span class="line">不使用sql拼接</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>mysql中，可能存在空格覆盖。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#解决方案</span><br><span class="line">对用户输入要做校验,去除空格。</span><br></pre></td></tr></table></figure>
+<h2 id="密码找回"><a class="markdownIt-Anchor" href="#密码找回"></a> 密码找回</h2>
+<p>面临的危险和解决方案</p>
+<ol>
+<li>服务器没有校验修改密码的token，或者token是可猜测破解的，这回造成任意密码修改【!】。这个是存在最多的漏洞，很常见。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">加强token的安全性</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>session覆盖攻击,少见，即一个用户的session，会覆盖掉另一个用户的session，导致打开的时候，修改的其实是另一个用户的密码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">很少见，估计实现都有困难。</span><br></pre></td></tr></table></figure>
+<h2 id="登录"><a class="markdownIt-Anchor" href="#登录"></a> 登录</h2>
+<p>面临的危险和解决方案</p>
+<ol>
+<li>暴力破解用户密码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用验证码形式，用户三次输入错误，需要输入验证码，多次输入错误需要绑定的手机或者邮箱进行解锁</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>明文传输导致中间人攻击</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HTTPS</span><br><span class="line">HSTS</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>万能密码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">做好防止sql注入的漏洞</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>用户密码存储</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户密码应该使用hash+随机盐的形式进行存储。</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>登录提示</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不应该使用过于明显的登录提示</span><br></pre></td></tr></table></figure>
+<h2 id="密码修改个人信息修改"><a class="markdownIt-Anchor" href="#密码修改个人信息修改"></a> 密码修改/个人信息修改</h2>
+<ol>
+<li>CSRF攻击</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">加CSRF token和 refer 进行防御</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>确认用户本人操作</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">需要进行二次验证，确认是本人操作</span><br></pre></td></tr></table></figure>
+<h2 id="管理权限漏洞"><a class="markdownIt-Anchor" href="#管理权限漏洞"></a> 管理权限漏洞</h2>
+<ol>
+<li>开发过程中没有对当前用户的一致性做校验工作。例如在flask中，个人中心需要登录才能看，但是如果你忘记了对当前用户的身份做一个校验，那么就会变成，只要随便登录一个用户，那么他就可以随便的修改或者查看他人的个人中心。</li>
+</ol>
+<p>代码实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/profile/&lt;username&gt;&apos;)</span><br><span class="line">@login_required</span><br><span class="line">def profile(username):</span><br><span class="line">    user = User.query.filter_by(username=username).first()</span><br><span class="line">    # 应该这么校验</span><br><span class="line">    if current_user == user:</span><br><span class="line">        ...</span><br><span class="line">    else:</span><br><span class="line">        flash(&quot;You have no permission to access this page.&quot;)</span><br><span class="line">        return redirect(url_for(&apos;index&apos;))</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>权限管理没做好，导致低权限用户可以访问高权限用户的页面。同上，做好权限校验</li>
+</ol>
+<h1 id="用户身份识别和安全防护"><a class="markdownIt-Anchor" href="#用户身份识别和安全防护"></a> 用户身份识别和安全防护</h1>
+<p>这章主要讲的是验证码和二次验证码的安全，基本上可以概括为：</p>
+<ol>
+<li>无论哪种验证码，都应该要有一个过期时间。</li>
+<li>为了保证安全，都不该可以被猜测</li>
+</ol>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
+<p>下一步打算认认真真研究一下kali这个系统了。</p>
+
+      
+    </div>
+   
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="uyan_frame"></div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/07/01/python/python模块-queue/" title="python模块-queue"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/06/29/python/python模块-threading/" title="python模块-threading"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+
+
+    
+    
+
+
+
+</body>
+</html>

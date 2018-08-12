@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>3-搭建WAF环境 | 打工</title>
+  <meta name="description" content="概述  针对HTTP/HTTPS的安全策略为web应用提供保护的产品，承担了sql注入，xss，远程命令执行，目录遍历等攻击的抵抗，是守护安全的第一道防线   优点  使用，配置简单方便 能够抵抗常见的扫描和常见的漏洞测探   缺点  防护能力不足以对抗黑产，依赖规则，针对未知攻击无应对方法，容易绕过 无法承担基础业务安全能力，比如褥羊毛行为，刷短信接口等 审计能力不足，出现事故无法提取较为详细">
+<meta name="keywords" content="security,企业安全建设">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3-搭建WAF环境">
+<meta property="og:url" content="http://yoursite.com/2018/06/18/企业安全建设读书笔记/3-搭建WAF环境/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概述  针对HTTP/HTTPS的安全策略为web应用提供保护的产品，承担了sql注入，xss，远程命令执行，目录遍历等攻击的抵抗，是守护安全的第一道防线   优点  使用，配置简单方便 能够抵抗常见的扫描和常见的漏洞测探   缺点  防护能力不足以对抗黑产，依赖规则，针对未知攻击无应对方法，容易绕过 无法承担基础业务安全能力，比如褥羊毛行为，刷短信接口等 审计能力不足，出现事故无法提取较为详细">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/unixhotwaf.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/unixhotwaf2.jpg">
+<meta property="og:updated_time" content="2018-07-25T14:43:24.280Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3-搭建WAF环境">
+<meta name="twitter:description" content="概述  针对HTTP/HTTPS的安全策略为web应用提供保护的产品，承担了sql注入，xss，远程命令执行，目录遍历等攻击的抵抗，是守护安全的第一道防线   优点  使用，配置简单方便 能够抵抗常见的扫描和常见的漏洞测探   缺点  防护能力不足以对抗黑产，依赖规则，针对未知攻击无应对方法，容易绕过 无法承担基础业务安全能力，比如褥羊毛行为，刷短信接口等 审计能力不足，出现事故无法提取较为详细">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/unixhotwaf.jpg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2018/06/18/企业安全建设读书笔记/3-搭建WAF环境/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/thefifthman" target="_blank">
+          <img class="img-circle img-rotate" src="/images/1.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm"></h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> fujian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+     
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>Hello World</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Kali/">Kali</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-security/">Linux_security</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flask/">flask</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/metasploit/">metasploit</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/micro-movie/">micro_movie</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python模块/">python模块</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-security/">web_security</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/企业安全建设/">企业安全建设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试/">测试</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/自动化测试/">自动化测试</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSRF/">CSRF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/">flask</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/metasploit/">metasploit</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui自动化/">ui自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xss/">xss</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/企业安全建设/">企业安全建设</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CSRF/" style="font-size: 13px;">CSRF</a> <a href="/tags/Linux/" style="font-size: 13.67px;">Linux</a> <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/flask/" style="font-size: 13.83px;">flask</a> <a href="/tags/kali/" style="font-size: 13.17px;">kali</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/metasploit/" style="font-size: 13.17px;">metasploit</a> <a href="/tags/nginx/" style="font-size: 13px;">nginx</a> <a href="/tags/php/" style="font-size: 13.17px;">php</a> <a href="/tags/security/" style="font-size: 14px;">security</a> <a href="/tags/ui自动化/" style="font-size: 13px;">ui自动化</a> <a href="/tags/xss/" style="font-size: 13.33px;">xss</a> <a href="/tags/企业安全建设/" style="font-size: 13.5px;">企业安全建设</a> <a href="/tags/文件上传漏洞/" style="font-size: 13px;">文件上传漏洞</a> <a href="/tags/测试/" style="font-size: 13.33px;">测试</a>
+    </div>
+  </div>
+-->
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">29</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/metasploit/">metasploit</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/12/metasploit/0x002-exploitdb/" class="title">0x002-exploitdb</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-12T09:51:53.000Z" itemprop="datePublished">2018-08-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/测试/">测试</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/11/appium/移动端测试4-安装apk/" class="title">移动端测试4-安装apk</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-11T15:29:51.000Z" itemprop="datePublished">2018-08-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/flask/">flask</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/11/flask/0x007-部署centos/" class="title">0x007-部署centos</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-11T07:20:39.000Z" itemprop="datePublished">2018-08-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/python模块/">python模块</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/10/python/python模块-configparse/" class="title">python模块-configparse</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-10T13:37:49.000Z" itemprop="datePublished">2018-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/测试/">测试</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/10/appium/移动端测试3-第一个脚本/" class="title">移动端测试3-第一个脚本</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-10T13:30:36.000Z" itemprop="datePublished">2018-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+-->
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-企业安全建设读书笔记/3-搭建WAF环境" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      3-搭建WAF环境
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/06/18/企业安全建设读书笔记/3-搭建WAF环境/" class="article-date">
+	  <time datetime="2018-06-18T12:19:26.000Z" itemprop="datePublished">2018-06-18</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/企业安全建设/">企业安全建设</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/security/">security</a>, <a class="article-tag-link" href="/tags/企业安全建设/">企业安全建设</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/18/企业安全建设读书笔记/3-搭建WAF环境/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<blockquote>
+<p>针对HTTP/HTTPS的安全策略为web应用提供保护的产品，承担了sql注入，xss，远程命令执行，目录遍历等攻击的抵抗，是守护安全的第一道防线</p>
+</blockquote>
+<h2 id="优点"><a class="markdownIt-Anchor" href="#优点"></a> 优点</h2>
+<ol>
+<li>使用，配置简单方便</li>
+<li>能够抵抗常见的扫描和常见的漏洞测探</li>
+</ol>
+<h2 id="缺点"><a class="markdownIt-Anchor" href="#缺点"></a> 缺点</h2>
+<ol>
+<li>防护能力不足以对抗黑产，依赖规则，针对未知攻击无应对方法，容易绕过</li>
+<li>无法承担基础业务安全能力，比如褥羊毛行为，刷短信接口等</li>
+<li>审计能力不足，出现事故无法提取较为详细的事件log记录等等</li>
+</ol>
+<h1 id="配置一个简单的waf"><a class="markdownIt-Anchor" href="#配置一个简单的waf"></a> 配置一个简单的WAF</h1>
+<p>以unixhot的WAF为例，进行分析，其代码的架构如下<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/unixhotwaf.jpg" alt="image"></p>
+<p>其中access.lua有一堆的check函数，分别来自init.lua文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">init.lua文件分别从config.lua和lib.lua文件中取得:</span><br><span class="line">规则开关</span><br><span class="line">+解析用户请求数据</span><br><span class="line">+自己定义的正则规则 </span><br><span class="line">=决定该请求是否为合法请求</span><br></pre></td></tr></table></figure>
+<h2 id="openresty"><a class="markdownIt-Anchor" href="#openresty"></a> OpenResty</h2>
+<blockquote>
+<p>基于nginx与lua的高性能web平台，内部集成了大量精良的nginx模块，用于方便的搭建超高并发和拓展性极高的web应用，web服务和动态网管</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># 安装</span><br><span class="line"></span><br><span class="line">Debian 和 Ubuntu 用户</span><br><span class="line">推荐您使用 apt-get安装以下的开发库:</span><br><span class="line"></span><br><span class="line">apt-get install libpcre3-dev \</span><br><span class="line">    libssl-dev perl make build-essential curl</span><br><span class="line">Fedora 和 RedHat 用户</span><br><span class="line">推荐您使用yum安装以下的开发库:</span><br><span class="line"></span><br><span class="line">yum install pcre-devel openssl-devel gcc curl</span><br><span class="line"></span><br><span class="line">./configure</span><br><span class="line">然后在进入 openresty-VERSION/ 目录, 然后输入以下命令配置:</span><br><span class="line"></span><br><span class="line">./configure</span><br><span class="line">默认, --prefix=/usr/local/openresty 程序会被安装到/usr/local/openresty目录。</span><br><span class="line"></span><br><span class="line">您可以指定各种选项，比如</span><br><span class="line"></span><br><span class="line">./configure --prefix=/opt/openresty \</span><br><span class="line">            --with-luajit \</span><br><span class="line">            --without-http_redis2_module \</span><br><span class="line">            --with-http_iconv_module \</span><br><span class="line">            --with-http_postgres_module</span><br><span class="line">            </span><br><span class="line">make</span><br><span class="line">或者make -j2 （双核编译）</span><br><span class="line"></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<h2 id="waf"><a class="markdownIt-Anchor" href="#waf"></a> waf</h2>
+<p><a href="https://github.com/unixhot/waf.git" target="_blank" rel="noopener">https://github.com/unixhot/waf.git</a></p>
+<h2 id="配置反向代理"><a class="markdownIt-Anchor" href="#配置反向代理"></a> 配置反向代理</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># openresty</span><br><span class="line">http&#123;</span><br><span class="line">    ...</span><br><span class="line">    lua_shared_dict limit 50m;</span><br><span class="line">    lua_package_path &quot;/usr/local/openresty/nginx/conf/waf/?.lua&quot;;</span><br><span class="line">    init_by_lua_file &quot;/usr/local/openresty/nginx/conf/waf/init.lua&quot;;</span><br><span class="line">    access_by_lua_file &quot;/usr/local/openresty/nginx/conf/waf/access.lua&quot;;</span><br><span class="line">&#125;</span><br><span class="line">include &quot;/usr/local/openresty/nginx/conf/www.testwaf.com.conf&quot;;</span><br><span class="line"></span><br><span class="line">./nginx -s reload</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># www.testwaf.com.conf</span><br><span class="line">upstream testwaf&#123;</span><br><span class="line">    server 192.168.1.12:80;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name www.testwaf.com;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass: http://testwaf;</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 最好使用root权限安装</span><br></pre></td></tr></table></figure>
+<p>一切安装好以后，效果如下：<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/security/unixhotwaf2.jpg" alt="image"></p>
+<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
+<p><a href="https://openresty.org/cn/" target="_blank" rel="noopener">https://openresty.org/cn/</a></p>
+<p><a href="https://openresty.org/cn/installation.html" target="_blank" rel="noopener">https://openresty.org/cn/installation.html</a></p>
+
+      
+    </div>
+   
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="uyan_frame"></div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/06/18/企业安全建设读书笔记/5-RASP安装/" title="5-RASP安装"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/06/18/企业安全建设读书笔记/2-常见防御体系/" title="2-常见防御体系"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+
+
+    
+    
+
+
+
+</body>
+</html>

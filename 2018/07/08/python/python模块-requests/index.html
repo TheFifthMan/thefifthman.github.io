@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>python模块-requests | 打工</title>
+  <meta name="description" content="概述 requests是python中热门的模块，它封装了python底层的库，并且更加容易使用。在python爬虫中非常常见的使用这个框架作为其请求的发送，这里记录其部分常见用法。  requests  安装 1pip install reqeusts  简单使用  POST请求  x-www-form-urlencode 12345data=&amp;#123;&amp;quot;xx&amp;quot;:&amp;quo">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python模块-requests">
+<meta property="og:url" content="http://yoursite.com/2018/07/08/python/python模块-requests/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概述 requests是python中热门的模块，它封装了python底层的库，并且更加容易使用。在python爬虫中非常常见的使用这个框架作为其请求的发送，这里记录其部分常见用法。  requests  安装 1pip install reqeusts  简单使用  POST请求  x-www-form-urlencode 12345data=&amp;#123;&amp;quot;xx&amp;quot;:&amp;quo">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-10T13:39:17.946Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python模块-requests">
+<meta name="twitter:description" content="概述 requests是python中热门的模块，它封装了python底层的库，并且更加容易使用。在python爬虫中非常常见的使用这个框架作为其请求的发送，这里记录其部分常见用法。  requests  安装 1pip install reqeusts  简单使用  POST请求  x-www-form-urlencode 12345data=&amp;#123;&amp;quot;xx&amp;quot;:&amp;quo">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2018/07/08/python/python模块-requests/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/thefifthman" target="_blank">
+          <img class="img-circle img-rotate" src="/images/1.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm"></h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> fujian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+     
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>Hello World</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Kali/">Kali</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-security/">Linux_security</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flask/">flask</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/metasploit/">metasploit</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/micro-movie/">micro_movie</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python模块/">python模块</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-security/">web_security</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/企业安全建设/">企业安全建设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试/">测试</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/自动化测试/">自动化测试</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSRF/">CSRF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/">flask</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/metasploit/">metasploit</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui自动化/">ui自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xss/">xss</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/企业安全建设/">企业安全建设</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CSRF/" style="font-size: 13px;">CSRF</a> <a href="/tags/Linux/" style="font-size: 13.67px;">Linux</a> <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/flask/" style="font-size: 13.83px;">flask</a> <a href="/tags/kali/" style="font-size: 13.17px;">kali</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/metasploit/" style="font-size: 13.17px;">metasploit</a> <a href="/tags/nginx/" style="font-size: 13px;">nginx</a> <a href="/tags/php/" style="font-size: 13.17px;">php</a> <a href="/tags/security/" style="font-size: 14px;">security</a> <a href="/tags/ui自动化/" style="font-size: 13px;">ui自动化</a> <a href="/tags/xss/" style="font-size: 13.33px;">xss</a> <a href="/tags/企业安全建设/" style="font-size: 13.5px;">企业安全建设</a> <a href="/tags/文件上传漏洞/" style="font-size: 13px;">文件上传漏洞</a> <a href="/tags/测试/" style="font-size: 13.33px;">测试</a>
+    </div>
+  </div>
+-->
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">29</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/metasploit/">metasploit</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/12/metasploit/0x002-exploitdb/" class="title">0x002-exploitdb</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-12T09:51:53.000Z" itemprop="datePublished">2018-08-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/测试/">测试</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/11/appium/移动端测试4-安装apk/" class="title">移动端测试4-安装apk</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-11T15:29:51.000Z" itemprop="datePublished">2018-08-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/flask/">flask</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/11/flask/0x007-部署centos/" class="title">0x007-部署centos</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-11T07:20:39.000Z" itemprop="datePublished">2018-08-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/python模块/">python模块</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/10/python/python模块-configparse/" class="title">python模块-configparse</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-10T13:37:49.000Z" itemprop="datePublished">2018-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/测试/">测试</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/10/appium/移动端测试3-第一个脚本/" class="title">移动端测试3-第一个脚本</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-10T13:30:36.000Z" itemprop="datePublished">2018-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+-->
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-python/python模块-requests" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python模块-requests
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/07/08/python/python模块-requests/" class="article-date">
+	  <time datetime="2018-07-08T15:32:50.000Z" itemprop="datePublished">2018-07-08</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/python模块/">python模块</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Python/">Python</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/07/08/python/python模块-requests/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<p>requests是python中热门的模块，它封装了python底层的库，并且更加容易使用。在python爬虫中非常常见的使用这个框架作为其请求的发送，这里记录其部分常见用法。</p>
+<h1 id="requests"><a class="markdownIt-Anchor" href="#requests"></a> requests</h1>
+<h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install reqeusts</span><br></pre></td></tr></table></figure>
+<h2 id="简单使用"><a class="markdownIt-Anchor" href="#简单使用"></a> 简单使用</h2>
+<h3 id="post请求"><a class="markdownIt-Anchor" href="#post请求"></a> POST请求</h3>
+<h5 id="x-www-form-urlencode"><a class="markdownIt-Anchor" href="#x-www-form-urlencode"></a> x-www-form-urlencode</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data=&#123;</span><br><span class="line">&quot;xx&quot;:&quot;yy&quot;,</span><br><span class="line">&quot;aa&quot;:&quot;bb&quot;</span><br><span class="line">&#125;</span><br><span class="line">r = requests.post(&quot;http://www.posturl.com&quot;,data=data)</span><br></pre></td></tr></table></figure>
+<h5 id="json"><a class="markdownIt-Anchor" href="#json"></a> json</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">json=&quot;&#123;&apos;type&apos;:&apos;post&apos;,&apos;age&apos;:123&#125;&quot;</span><br><span class="line">r = requests.post(url,data=json)</span><br></pre></td></tr></table></figure>
+<h2 id="get"><a class="markdownIt-Anchor" href="#get"></a> GET</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">headers=&#123;</span><br><span class="line">&quot;user-agent&quot;:&apos;xxxx&apos;,</span><br><span class="line">&#125;</span><br><span class="line">r=requests.get(url,headers=headers)</span><br></pre></td></tr></table></figure>
+<h1 id="高级使用"><a class="markdownIt-Anchor" href="#高级使用"></a> 高级使用</h1>
+<h2 id="有时候某些场景会出现ssl错误我们需要禁用"><a class="markdownIt-Anchor" href="#有时候某些场景会出现ssl错误我们需要禁用"></a> 有时候某些场景会出现SSL错误，我们需要禁用</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from urllib3.exceptions import InsecureRequestWarning</span><br><span class="line">requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)</span><br><span class="line"></span><br><span class="line">requests.api.request(&apos;post&apos;, url, data=&#123;&apos;bar&apos;:&apos;baz&apos;&#125;, json=None, verify=False)</span><br></pre></td></tr></table></figure>
+<h2 id="我们需要session来保持网站的连接"><a class="markdownIt-Anchor" href="#我们需要session来保持网站的连接"></a> 我们需要session来保持网站的连接</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session = requests.session()</span><br><span class="line">response = session.get(url)</span><br></pre></td></tr></table></figure>
+<h2 id="上传文件模拟"><a class="markdownIt-Anchor" href="#上传文件模拟"></a> 上传文件模拟</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; url = &apos;http://httpbin.org/post&apos;</span><br><span class="line">&gt;&gt;&gt; files = &#123;&apos;file&apos;: (&apos;report.xls&apos;, open(&apos;report.xls&apos;, &apos;rb&apos;), &apos;application/vnd.ms-excel&apos;, &#123;&apos;Expires&apos;: &apos;0&apos;&#125;)&#125;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; r = requests.post(url, files=files)</span><br><span class="line">&gt;&gt;&gt; r.text</span><br></pre></td></tr></table></figure>
+<h2 id="responsetext-和-responsecontent"><a class="markdownIt-Anchor" href="#responsetext-和-responsecontent"></a> response.text 和 response.content</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text是正常的字符流</span><br><span class="line">content是二进制的字节流，常用于图片的传输</span><br></pre></td></tr></table></figure>
+<h1 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h1>
+<p>结合unittest做API测试框架</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install html-testRunner</span><br><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> HtmlTestRunner</span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestPyRequest</span><span class="params">(unittest.TestCase)</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></span><br><span class="line">    self.url = <span class="string">'https://api.douban.com'</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">test_douban_api</span><span class="params">(self)</span>:</span></span><br><span class="line">    r = requests.get(self.url+<span class="string">'/v2/movie/top250'</span>,verify=<span class="keyword">False</span>)</span><br><span class="line">    self.assertTrue(r.status_code,<span class="number">200</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">  unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output=<span class="string">'.'</span>))</span><br></pre></td></tr></table></figure>
+<p>以上我们就完成了一个以requests发送请求，以html-testRunner生成report，unittest作为验证断言的api框架，（以上代码只为简略的演示。）</p>
+<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> reference</h1>
+<p><a href="http://docs.python-requests.org/zh_CN/latest/" target="_blank" rel="noopener">http://docs.python-requests.org/zh_CN/latest/</a></p>
+
+      
+    </div>
+   
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="uyan_frame"></div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/07/19/test/自动化测试-ui自动化-docker/" title="自动化测试-ui自动化+docker"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/07/06/windws_security/00-课程导学/" title="00-课程导学"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+
+
+    
+    
+
+
+
+</body>
+</html>

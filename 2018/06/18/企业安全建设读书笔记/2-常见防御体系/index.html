@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>2-常见防御体系 | 打工</title>
+  <meta name="description" content="名词解释  IDS：  IDS是英文“Intrusion Detection Systems”的缩写，中文意思是“入侵检测系统”。 专业上讲就是依照一定的安全策略，通过软、硬件，对网络、系统的运行状况进行监视， 尽可能发现各种攻击企图、攻击行为或者攻击结果，以保证网络系统资源的机密性、完整性和可用性。 做一个形象的比喻： 假如防火墙是一幢大楼的门锁，那么IDS就是这幢大楼里的监视系统。一旦小偷爬">
+<meta name="keywords" content="security,企业安全建设">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2-常见防御体系">
+<meta property="og:url" content="http://yoursite.com/2018/06/18/企业安全建设读书笔记/2-常见防御体系/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="名词解释  IDS：  IDS是英文“Intrusion Detection Systems”的缩写，中文意思是“入侵检测系统”。 专业上讲就是依照一定的安全策略，通过软、硬件，对网络、系统的运行状况进行监视， 尽可能发现各种攻击企图、攻击行为或者攻击结果，以保证网络系统资源的机密性、完整性和可用性。 做一个形象的比喻： 假如防火墙是一幢大楼的门锁，那么IDS就是这幢大楼里的监视系统。一旦小偷爬">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-20T15:51:24.330Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2-常见防御体系">
+<meta name="twitter:description" content="名词解释  IDS：  IDS是英文“Intrusion Detection Systems”的缩写，中文意思是“入侵检测系统”。 专业上讲就是依照一定的安全策略，通过软、硬件，对网络、系统的运行状况进行监视， 尽可能发现各种攻击企图、攻击行为或者攻击结果，以保证网络系统资源的机密性、完整性和可用性。 做一个形象的比喻： 假如防火墙是一幢大楼的门锁，那么IDS就是这幢大楼里的监视系统。一旦小偷爬">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2018/06/18/企业安全建设读书笔记/2-常见防御体系/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/thefifthman" target="_blank">
+          <img class="img-circle img-rotate" src="/images/1.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm"></h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> fujian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+     
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>Hello World</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Kali/">Kali</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-security/">Linux_security</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flask/">flask</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/metasploit/">metasploit</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/micro-movie/">micro_movie</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python模块/">python模块</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-security/">web_security</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/企业安全建设/">企业安全建设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试/">测试</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/自动化测试/">自动化测试</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSRF/">CSRF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/">flask</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/metasploit/">metasploit</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui自动化/">ui自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xss/">xss</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/企业安全建设/">企业安全建设</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CSRF/" style="font-size: 13px;">CSRF</a> <a href="/tags/Linux/" style="font-size: 13.67px;">Linux</a> <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/flask/" style="font-size: 13.83px;">flask</a> <a href="/tags/kali/" style="font-size: 13.17px;">kali</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/metasploit/" style="font-size: 13.17px;">metasploit</a> <a href="/tags/nginx/" style="font-size: 13px;">nginx</a> <a href="/tags/php/" style="font-size: 13.17px;">php</a> <a href="/tags/security/" style="font-size: 14px;">security</a> <a href="/tags/ui自动化/" style="font-size: 13px;">ui自动化</a> <a href="/tags/xss/" style="font-size: 13.33px;">xss</a> <a href="/tags/企业安全建设/" style="font-size: 13.5px;">企业安全建设</a> <a href="/tags/文件上传漏洞/" style="font-size: 13px;">文件上传漏洞</a> <a href="/tags/测试/" style="font-size: 13.33px;">测试</a>
+    </div>
+  </div>
+-->
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">29</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/metasploit/">metasploit</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/12/metasploit/0x002-exploitdb/" class="title">0x002-exploitdb</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-12T09:51:53.000Z" itemprop="datePublished">2018-08-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/测试/">测试</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/11/appium/移动端测试4-安装apk/" class="title">移动端测试4-安装apk</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-11T15:29:51.000Z" itemprop="datePublished">2018-08-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/flask/">flask</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/11/flask/0x007-部署centos/" class="title">0x007-部署centos</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-11T07:20:39.000Z" itemprop="datePublished">2018-08-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/python模块/">python模块</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/10/python/python模块-configparse/" class="title">python模块-configparse</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-10T13:37:49.000Z" itemprop="datePublished">2018-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/测试/">测试</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/10/appium/移动端测试3-第一个脚本/" class="title">移动端测试3-第一个脚本</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-10T13:30:36.000Z" itemprop="datePublished">2018-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+-->
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-企业安全建设读书笔记/2-常见防御体系" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2-常见防御体系
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/06/18/企业安全建设读书笔记/2-常见防御体系/" class="article-date">
+	  <time datetime="2018-06-18T12:19:01.000Z" itemprop="datePublished">2018-06-18</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/企业安全建设/">企业安全建设</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/security/">security</a>, <a class="article-tag-link" href="/tags/企业安全建设/">企业安全建设</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/18/企业安全建设读书笔记/2-常见防御体系/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h1 id="名词解释"><a class="markdownIt-Anchor" href="#名词解释"></a> 名词解释</h1>
+<h3 id="ids"><a class="markdownIt-Anchor" href="#ids"></a> IDS：</h3>
+<blockquote>
+<p>IDS是英文“Intrusion Detection Systems”的缩写，中文意思是“入侵检测系统”。<br>
+专业上讲就是依照一定的安全策略，通过软、硬件，对网络、系统的运行状况进行监视，<br>
+尽可能发现各种攻击企图、攻击行为或者攻击结果，以保证网络系统资源的机密性、完整性和可用性。<br>
+做一个形象的比喻：<br>
+假如防火墙是一幢大楼的门锁，那么IDS就是这幢大楼里的监视系统。一旦小偷爬窗进入大楼，或内部人员有越界行为，只有实时监视系统才能发现情况并发出警告。</p>
+</blockquote>
+<h3 id="ips"><a class="markdownIt-Anchor" href="#ips"></a> IPS</h3>
+<blockquote>
+<p>入侵防御系统(IPS: Intrusion Prevention System)是电脑网络安全设施，是对防病毒软件（Antivirus Programs）和防火墙(Packet Filter, Application Gateway)的补充。 入侵防御系统(Intrusion-prevention system)是一部能够监视网络或网络设备的网络资料传输行为的计算机网络安全设备，能够即时的中断、调整或隔离一些不正常或是具有伤害性的网络资料传输行为。</p>
+</blockquote>
+<h3 id="utm"><a class="markdownIt-Anchor" href="#utm"></a> UTM</h3>
+<blockquote>
+<p>UTM是对传统防护手段的整合和升华，是建立在原有安全网关设备基础之上的，拥有防火墙、入侵防御(IPS)、防病毒(AV)、VPN、内容过滤、反垃圾邮件等多种功能，这些技术处理方式仍然是UTM的基础，但这些处理方式不再各自为战，需要在统一的安全策略下相互配合，协同工作。<br>
+对于众多的功能，有必备功能和增值功能之分。一般而言，防火墙、VPN、入侵防御、防病毒是必备的功能模块，缺少任何一个不能称之为UTM。其余是增值功能，用户可以根据自身需求进行选择。</p>
+</blockquote>
+<h3 id="web威胁感知"><a class="markdownIt-Anchor" href="#web威胁感知"></a> web威胁感知</h3>
+<blockquote>
+<p>识别Web应用攻击，能够深度挖掘黑客针对Web的拖库、远程命令执行、敏感文件泄露、Webshell后门等攻击事件并发出准确的报警</p>
+</blockquote>
+<h1 id="常见的防御体系"><a class="markdownIt-Anchor" href="#常见的防御体系"></a> 常见的防御体系</h1>
+<h2 id="边界防护"><a class="markdownIt-Anchor" href="#边界防护"></a> 边界防护</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&quot;在网络边界解决问题，强调御敌于国门之外&quot;</span><br><span class="line"></span><br><span class="line">主要措施：</span><br><span class="line">a. WAF</span><br><span class="line">b. 内外网隔离</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">优点：</span><br><span class="line">部署简单</span><br><span class="line"></span><br><span class="line">缺点：</span><br><span class="line">内网突破后，黑客就控制了一切。</span><br></pre></td></tr></table></figure>
+<h2 id="纵深防御体系"><a class="markdownIt-Anchor" href="#纵深防御体系"></a> 纵深防御体系</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&quot;纵深防御本质为多层防御，增加攻击成本。&quot;</span><br><span class="line"></span><br><span class="line">纵深防御分为四部分：</span><br><span class="line">a. 网络边界：WAF，防火墙，IPS，UTM，流量清洗设备等等</span><br><span class="line">b. 网络层：IDS，web威胁感知，web审计</span><br><span class="line">c. 服务器端：主机IDS，服务器杀毒，内核假哭，主机WAF等</span><br><span class="line">d. 数据库：数据库审计，数据库防火墙等</span><br><span class="line"></span><br><span class="line">优点：</span><br><span class="line">防护的定位清晰，攻击成本提高，安全性提高</span><br><span class="line"></span><br><span class="line">缺点：</span><br><span class="line">各个部分缺乏协同性，检测手段多基于黑名单和规则，对于专业的黑客而言，也是可以突破的。</span><br></pre></td></tr></table></figure>
+<h2 id="河防体系"><a class="markdownIt-Anchor" href="#河防体系"></a> 河防体系</h2>
+<blockquote>
+<p>在隔离的基础上，严格控制办公网络对生产网络的访问，同时在生产网络的内部进行隔离的基础上，进行边界防护和检测。适用于数据中心用户</p>
+</blockquote>
+<h2 id="塔防体系"><a class="markdownIt-Anchor" href="#塔防体系"></a> 塔防体系</h2>
+<blockquote>
+<p>纵深防御的一种，加上了云的管控能力和威胁情报数据。</p>
+</blockquote>
+<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<p><a href="https://anquan.baidu.com/pages/threat.html" target="_blank" rel="noopener">https://anquan.baidu.com/pages/threat.html</a></p>
+<p><a href="https://searchsecurity.techtarget.com.cn/11-17666/" target="_blank" rel="noopener">https://searchsecurity.techtarget.com.cn/11-17666/</a></p>
+<p><a href="https://baike.baidu.com/item/IPS/2131631" target="_blank" rel="noopener">https://baike.baidu.com/item/IPS/2131631</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/入侵检测系统</a></p>
+<p><a href="https://baike.baidu.com/item/IDS/22042" target="_blank" rel="noopener">https://baike.baidu.com/item/IDS/22042</a></p>
+
+      
+    </div>
+   
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="uyan_frame"></div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/06/18/企业安全建设读书笔记/3-搭建WAF环境/" title="3-搭建WAF环境"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/06/18/企业安全建设读书笔记/1-企业安全建设入门/" title="1-企业安全建设入门"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+
+
+    
+    
+
+
+
+</body>
+</html>

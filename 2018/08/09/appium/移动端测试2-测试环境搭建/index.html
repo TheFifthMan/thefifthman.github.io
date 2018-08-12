@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>移动端测试2-测试环境搭建 | 打工</title>
+  <meta name="description" content="概述 最近接触移动端测试，csdn大神写的真的是糊里糊涂，还号称从零入门，估计自己都没搞清楚。。。 也因为这样走了不少弯路，在这里记录一下。 实际上，要启动安卓虚拟机根本不需要狗屁的studio。直接下载命令行的sdk tool即可，下载studio下了一天。。。。 挂上梯子下载很多东西就很快。  安装nodejs 1234567891. 上官网下载安装2. 升级已有的nodejssudo np">
+<meta name="keywords" content="测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端测试2-测试环境搭建">
+<meta property="og:url" content="http://yoursite.com/2018/08/09/appium/移动端测试2-测试环境搭建/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概述 最近接触移动端测试，csdn大神写的真的是糊里糊涂，还号称从零入门，估计自己都没搞清楚。。。 也因为这样走了不少弯路，在这里记录一下。 实际上，要启动安卓虚拟机根本不需要狗屁的studio。直接下载命令行的sdk tool即可，下载studio下了一天。。。。 挂上梯子下载很多东西就很快。  安装nodejs 1234567891. 上官网下载安装2. 升级已有的nodejssudo np">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-09T12:52:07.716Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端测试2-测试环境搭建">
+<meta name="twitter:description" content="概述 最近接触移动端测试，csdn大神写的真的是糊里糊涂，还号称从零入门，估计自己都没搞清楚。。。 也因为这样走了不少弯路，在这里记录一下。 实际上，要启动安卓虚拟机根本不需要狗屁的studio。直接下载命令行的sdk tool即可，下载studio下了一天。。。。 挂上梯子下载很多东西就很快。  安装nodejs 1234567891. 上官网下载安装2. 升级已有的nodejssudo np">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2018/08/09/appium/移动端测试2-测试环境搭建/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/thefifthman" target="_blank">
+          <img class="img-circle img-rotate" src="/images/1.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm"></h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> fujian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+     
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>Hello World</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Kali/">Kali</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-security/">Linux_security</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flask/">flask</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/metasploit/">metasploit</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/micro-movie/">micro_movie</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python模块/">python模块</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-security/">web_security</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/企业安全建设/">企业安全建设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试/">测试</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/自动化测试/">自动化测试</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSRF/">CSRF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/">flask</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/metasploit/">metasploit</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui自动化/">ui自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xss/">xss</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/企业安全建设/">企业安全建设</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CSRF/" style="font-size: 13px;">CSRF</a> <a href="/tags/Linux/" style="font-size: 13.67px;">Linux</a> <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/flask/" style="font-size: 13.83px;">flask</a> <a href="/tags/kali/" style="font-size: 13.17px;">kali</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/metasploit/" style="font-size: 13.17px;">metasploit</a> <a href="/tags/nginx/" style="font-size: 13px;">nginx</a> <a href="/tags/php/" style="font-size: 13.17px;">php</a> <a href="/tags/security/" style="font-size: 14px;">security</a> <a href="/tags/ui自动化/" style="font-size: 13px;">ui自动化</a> <a href="/tags/xss/" style="font-size: 13.33px;">xss</a> <a href="/tags/企业安全建设/" style="font-size: 13.5px;">企业安全建设</a> <a href="/tags/文件上传漏洞/" style="font-size: 13px;">文件上传漏洞</a> <a href="/tags/测试/" style="font-size: 13.33px;">测试</a>
+    </div>
+  </div>
+-->
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">29</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/metasploit/">metasploit</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/12/metasploit/0x002-exploitdb/" class="title">0x002-exploitdb</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-12T09:51:53.000Z" itemprop="datePublished">2018-08-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/测试/">测试</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/11/appium/移动端测试4-安装apk/" class="title">移动端测试4-安装apk</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-11T15:29:51.000Z" itemprop="datePublished">2018-08-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/flask/">flask</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/11/flask/0x007-部署centos/" class="title">0x007-部署centos</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-11T07:20:39.000Z" itemprop="datePublished">2018-08-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/python模块/">python模块</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/10/python/python模块-configparse/" class="title">python模块-configparse</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-10T13:37:49.000Z" itemprop="datePublished">2018-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/测试/">测试</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/10/appium/移动端测试3-第一个脚本/" class="title">移动端测试3-第一个脚本</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-10T13:30:36.000Z" itemprop="datePublished">2018-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+-->
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-appium/移动端测试2-测试环境搭建" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      移动端测试2-测试环境搭建
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/08/09/appium/移动端测试2-测试环境搭建/" class="article-date">
+	  <time datetime="2018-08-09T12:46:53.000Z" itemprop="datePublished">2018-08-09</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/测试/">测试</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/测试/">测试</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/08/09/appium/移动端测试2-测试环境搭建/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
+<p>最近接触移动端测试，csdn大神写的真的是糊里糊涂，还号称从零入门，估计自己都没搞清楚。。。<br>
+也因为这样走了不少弯路，在这里记录一下。<br>
+实际上，要启动安卓虚拟机根本不需要狗屁的studio。直接下载命令行的sdk tool即可，下载studio下了一天。。。。<br>
+挂上梯子下载很多东西就很快。</p>
+<h2 id="安装nodejs"><a class="markdownIt-Anchor" href="#安装nodejs"></a> 安装nodejs</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 上官网下载安装</span><br><span class="line">2. 升级已有的nodejs</span><br><span class="line">sudo npm install n -g</span><br><span class="line">// 升级到最新版本</span><br><span class="line">sudo n latest</span><br><span class="line">//升级到稳定版本</span><br><span class="line">sudo n stable</span><br><span class="line">3. 升级npm</span><br><span class="line">sudo npm install npm -g</span><br></pre></td></tr></table></figure>
+<h2 id="命令安装appium"><a class="markdownIt-Anchor" href="#命令安装appium"></a> 命令安装appium</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g cnpm</span><br><span class="line">cnpm install -g appium</span><br><span class="line">cnmp install -g appium-doctor</span><br></pre></td></tr></table></figure>
+<h2 id="软件安装appium"><a class="markdownIt-Anchor" href="#软件安装appium"></a> 软件安装appium</h2>
+<p>直接上官网下载安装</p>
+<h2 id="检查appium"><a class="markdownIt-Anchor" href="#检查appium"></a> 检查appium</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">appium-doctor</span><br></pre></td></tr></table></figure>
+<h2 id="检查配置"><a class="markdownIt-Anchor" href="#检查配置"></a> 检查配置</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 有时候你的shell设置为zsh的话，那么设置在.bash_profile 就会失效。这个时候就要设置在.zshrc里面，</span><br><span class="line"></span><br><span class="line"># JAVA</span><br><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home</span><br><span class="line">export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar</span><br><span class="line"></span><br><span class="line"># android</span><br><span class="line">export ANDROID_HOME=/Users/wenzhongwei/Library/Android/sdk</span><br><span class="line">export ANDRIOD_SDK_HOME=/Users/wenzhongwei/Library/Android/sdk</span><br><span class="line">export ANDROID_AVD_HOME=/Users/wenzhongwei/.android/avd</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$ANDRIOD_SDK_HOME/tools:$ANDRIOD_SDK_HOME/platform-tools$ANDRIOD_HOME/emulator:$PATH</span><br><span class="line"></span><br><span class="line">alias emulator=$&#123;ANDROID_HOME&#125;/emulator/emulator</span><br><span class="line"></span><br><span class="line"># 另外安装，用于测试ios</span><br><span class="line">brew install carthage</span><br></pre></td></tr></table></figure>
+<h2 id="启动安卓虚拟机"><a class="markdownIt-Anchor" href="#启动安卓虚拟机"></a> 启动安卓虚拟机</h2>
+<h4 id="下载sdk-tools"><a class="markdownIt-Anchor" href="#下载sdk-tools"></a> 下载sdk tools</h4>
+<p>不需要下载android studio。只需要命令行的sdk tools即可<br>
+点击<a href="https://developer.android.com/studio/#downloads" target="_blank" rel="noopener">下载</a></p>
+<h4 id="命令行启动"><a class="markdownIt-Anchor" href="#命令行启动"></a> 命令行启动</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">cd /Users/wenzhongwei/Library/Android/sdk</span><br><span class="line">cd tools/bin</span><br><span class="line"></span><br><span class="line"># 查看平台</span><br><span class="line">./sdkmanager --list</span><br><span class="line"></span><br><span class="line"># 安装平台</span><br><span class="line">./sdkmanager &quot;platform;andriod-27&quot;</span><br><span class="line"></span><br><span class="line"># 创建虚拟机</span><br><span class="line">./avdmanager create avd --name myavd1 -k &quot;platform;andriod-27&quot;</span><br><span class="line"></span><br><span class="line">注意： 这里要指定ANDROID_AVD_HOME否则会出错。</span><br><span class="line"></span><br><span class="line"># 查看有哪一些虚拟机</span><br><span class="line">./avdmanager list avd</span><br><span class="line"></span><br><span class="line"># 注： 这里在windows上面要安装haxm，最新版安装失败，选择7.0 版本即可，在github上搜索Intel的版本进行下载</span><br><span class="line"></span><br><span class="line"># 启动</span><br><span class="line">emulator -avd myavd</span><br></pre></td></tr></table></figure>
+<h2 id="启动ios虚拟机"><a class="markdownIt-Anchor" href="#启动ios虚拟机"></a> 启动ios虚拟机</h2>
+<p>使用simulator开启虚拟机</p>
+
+      
+    </div>
+   
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="uyan_frame"></div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/08/10/appium/移动端测试3-第一个脚本/" title="移动端测试3-第一个脚本"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/08/08/flask/0x006-使用email/" title="0x006-使用email"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+
+
+    
+    
+
+
+
+</body>
+</html>
