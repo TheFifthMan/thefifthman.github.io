@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/06/09/test/hello-world/</loc>
+    
+    <lastmod>2018-08-12T09:55:30.012Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/08/12/0x002-exploitdb/</loc>
+    
+    <lastmod>2018-08-12T09:54:47.050Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/06/24/0x001-msf%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
+    
+    <lastmod>2018-08-12T09:51:23.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/08/11/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%954-%E5%AE%89%E8%A3%85apk/</loc>
+    
+    <lastmod>2018-08-11T15:30:04.164Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/08/11/0x007-%E9%83%A8%E7%BD%B2centos/</loc>
     
     <lastmod>2018-08-11T07:22:19.810Z</lastmod>
@@ -247,13 +275,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/06/24/kali%E4%B8%8B%E9%85%8D%E7%BD%AEmetasploit/</loc>
-    
-    <lastmod>2018-06-27T15:25:46.554Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/06/26/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E-%E7%90%86%E8%AE%BA/</loc>
     
     <lastmod>2018-06-25T16:09:33.629Z</lastmod>
@@ -362,13 +383,6 @@
     <loc>http://yoursite.com/2018/06/20/%E9%85%8D%E7%BD%AEphpstorm/</loc>
     
     <lastmod>2018-06-20T15:51:10.621Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/06/09/hello-world/</loc>
-    
-    <lastmod>2018-06-09T13:15:20.126Z</lastmod>
     
   </url>
   

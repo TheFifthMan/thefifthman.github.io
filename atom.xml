@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-11T07:22:19.810Z</updated>
+  <updated>2018-08-12T09:54:47.050Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>0x002-exploitdb</title>
+    <link href="http://yoursite.com/2018/08/12/0x002-exploitdb/"/>
+    <id>http://yoursite.com/2018/08/12/0x002-exploitdb/</id>
+    <published>2018-08-12T09:51:53.000Z</published>
+    <updated>2018-08-12T09:54:47.050Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="exploitdb"><a class="markdownIt-Anchor" href="#exploitdb"></a> exploitdb</h1><p>有着很多公开漏洞的POC，我们可以直接使用metasploit进行利用</p><h1 id="searchsploit"><a class="markdownIt-Anchor" href="#searchsploit"></a> searchsploit</h1><h2 id="用法示例"><a class="markdownIt-Anchor" href="#用法示例"></a> 用法示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">searchsploit 漏洞编号</span><br><span class="line"></span><br><span class="line">例如</span><br><span class="line">searchsploit ms15-100</span><br></pre></td></tr></table></figure><h2 id="结果示例"><a class="markdownIt-Anchor" href="#结果示例"></a> 结果示例</h2><p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/metasploit/searchsploit.jpg" alt="image"></p><h1 id="更新metasploit"><a class="markdownIt-Anchor" href="#更新metasploit"></a> 更新metasploit</h1><h2 id="新建文件夹"><a class="markdownIt-Anchor" href="#新建文件夹"></a> 新建文件夹</h2><p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/metasploit/msfmodelsfolder.jpg" alt="image"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 这个文件夹是按照上图所示的文件夹建立的</span><br><span class="line">mkdir -p /root/.msf4/modules/exploits/windows/remote</span><br></pre></td></tr></table></figure><h2 id="复制到msf模块中"><a class="markdownIt-Anchor" href="#复制到msf模块中"></a> 复制到msf模块中</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/share/exploitdb/exploits/windows/remote/38195.rb .</span><br></pre></td></tr></table></figure><h2 id="更新"><a class="markdownIt-Anchor" href="#更新"></a> 更新</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">updatedb</span><br></pre></td></tr></table></figure><h2 id="最后"><a class="markdownIt-Anchor" href="#最后"></a> 最后</h2><p>打开msfconsole就会看到如下效果<br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/metasploit/models.jpg" alt="image"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;exploitdb&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#exploitdb&quot;&gt;&lt;/a&gt; exploitdb&lt;/h1&gt;
+&lt;p&gt;有着很多公开漏洞的POC，我们可以直接使用metasploit进行利用&lt;/p&gt;
+&lt;h1 id=&quot;sea
+      
+    
+    </summary>
+    
+      <category term="metasploit" scheme="http://yoursite.com/categories/metasploit/"/>
+    
+    
+      <category term="metasploit" scheme="http://yoursite.com/tags/metasploit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>移动端测试4-安装apk</title>
+    <link href="http://yoursite.com/2018/08/11/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%954-%E5%AE%89%E8%A3%85apk/"/>
+    <id>http://yoursite.com/2018/08/11/移动端测试4-安装apk/</id>
+    <published>2018-08-11T15:29:51.000Z</published>
+    <updated>2018-08-11T15:30:04.164Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><p>决定放弃安卓自带的虚拟机，一是因为x86支持现在大部分的apk，二是实在太难用。选择<a href="https://www.genymotion.com/download/" target="_blank" rel="noopener">genymotion</a>做为虚拟机运行工具</p><h1 id="adb"><a class="markdownIt-Anchor" href="#adb"></a> adb</h1><p>使用adb 安装软件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install xxxx.apk</span><br></pre></td></tr></table></figure><p>然后就遇到了 Failure [INSTALL_FAILED_NO_MATCHING_ABIS] 这样的问题，虽然可以下载相关的插件进行拖进虚拟机里面安装，但是还没找到这个软件的官方地址。。。解决方案也是大家抄来抄去，一个答案2016年抄到了2018都有… 这里就不赘述了。</p><h1 id="最后"><a class="markdownIt-Anchor" href="#最后"></a> 最后</h1><p>成功安装了一个软件</p><p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/Android/apk.jpg" alt="image"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
+&lt;p&gt;决定放弃安卓自带的虚拟机，一是因为x86支持现在大部分的apk，二是实在太难用。选择&lt;a href=&quot;https://www.genymotio
+      
+    
+    </summary>
+    
+      <category term="测试" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="测试" scheme="http://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>0x007-部署centos</title>
@@ -493,59 +546,6 @@
 &lt;li&gt;[ ] 项目分析&lt;/li&gt;
 &lt;li&gt;[ ] 项目目录&lt;/li&gt;
 &lt;li&gt;[ ] 安装基础插件及环境&lt;
-      
-    
-    </summary>
-    
-      <category term="micro_movie" scheme="http://yoursite.com/categories/micro-movie/"/>
-    
-    
-      <category term="flask" scheme="http://yoursite.com/tags/flask/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python模块-requests</title>
-    <link href="http://yoursite.com/2018/07/08/python%E6%A8%A1%E5%9D%97-requests/"/>
-    <id>http://yoursite.com/2018/07/08/python模块-requests/</id>
-    <published>2018-07-08T15:32:50.000Z</published>
-    <updated>2018-08-10T13:39:17.946Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><p>requests是python中热门的模块，它封装了python底层的库，并且更加容易使用。在python爬虫中非常常见的使用这个框架作为其请求的发送，这里记录其部分常见用法。</p><h1 id="requests"><a class="markdownIt-Anchor" href="#requests"></a> requests</h1><h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install reqeusts</span><br></pre></td></tr></table></figure><h2 id="简单使用"><a class="markdownIt-Anchor" href="#简单使用"></a> 简单使用</h2><h3 id="post请求"><a class="markdownIt-Anchor" href="#post请求"></a> POST请求</h3><h5 id="x-www-form-urlencode"><a class="markdownIt-Anchor" href="#x-www-form-urlencode"></a> x-www-form-urlencode</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data=&#123;</span><br><span class="line">&quot;xx&quot;:&quot;yy&quot;,</span><br><span class="line">&quot;aa&quot;:&quot;bb&quot;</span><br><span class="line">&#125;</span><br><span class="line">r = requests.post(&quot;http://www.posturl.com&quot;,data=data)</span><br></pre></td></tr></table></figure><h5 id="json"><a class="markdownIt-Anchor" href="#json"></a> json</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">json=&quot;&#123;&apos;type&apos;:&apos;post&apos;,&apos;age&apos;:123&#125;&quot;</span><br><span class="line">r = requests.post(url,data=json)</span><br></pre></td></tr></table></figure><h2 id="get"><a class="markdownIt-Anchor" href="#get"></a> GET</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">headers=&#123;</span><br><span class="line">&quot;user-agent&quot;:&apos;xxxx&apos;,</span><br><span class="line">&#125;</span><br><span class="line">r=requests.get(url,headers=headers)</span><br></pre></td></tr></table></figure><h1 id="高级使用"><a class="markdownIt-Anchor" href="#高级使用"></a> 高级使用</h1><h2 id="有时候某些场景会出现ssl错误我们需要禁用"><a class="markdownIt-Anchor" href="#有时候某些场景会出现ssl错误我们需要禁用"></a> 有时候某些场景会出现SSL错误，我们需要禁用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from urllib3.exceptions import InsecureRequestWarning</span><br><span class="line">requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)</span><br><span class="line"></span><br><span class="line">requests.api.request(&apos;post&apos;, url, data=&#123;&apos;bar&apos;:&apos;baz&apos;&#125;, json=None, verify=False)</span><br></pre></td></tr></table></figure><h2 id="我们需要session来保持网站的连接"><a class="markdownIt-Anchor" href="#我们需要session来保持网站的连接"></a> 我们需要session来保持网站的连接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session = requests.session()</span><br><span class="line">response = session.get(url)</span><br></pre></td></tr></table></figure><h2 id="上传文件模拟"><a class="markdownIt-Anchor" href="#上传文件模拟"></a> 上传文件模拟</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; url = &apos;http://httpbin.org/post&apos;</span><br><span class="line">&gt;&gt;&gt; files = &#123;&apos;file&apos;: (&apos;report.xls&apos;, open(&apos;report.xls&apos;, &apos;rb&apos;), &apos;application/vnd.ms-excel&apos;, &#123;&apos;Expires&apos;: &apos;0&apos;&#125;)&#125;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; r = requests.post(url, files=files)</span><br><span class="line">&gt;&gt;&gt; r.text</span><br></pre></td></tr></table></figure><h2 id="responsetext-和-responsecontent"><a class="markdownIt-Anchor" href="#responsetext-和-responsecontent"></a> response.text 和 response.content</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text是正常的字符流</span><br><span class="line">content是二进制的字节流，常用于图片的传输</span><br></pre></td></tr></table></figure><h1 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h1><p>结合unittest做API测试框架</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install html-testRunner</span><br><span class="line">pip install requests</span><br></pre></td></tr></table></figure><p>代码</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> HtmlTestRunner</span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestPyRequest</span><span class="params">(unittest.TestCase)</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></span><br><span class="line">    self.url = <span class="string">'https://api.douban.com'</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">test_douban_api</span><span class="params">(self)</span>:</span></span><br><span class="line">    r = requests.get(self.url+<span class="string">'/v2/movie/top250'</span>,verify=<span class="keyword">False</span>)</span><br><span class="line">    self.assertTrue(r.status_code,<span class="number">200</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">  unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output=<span class="string">'.'</span>))</span><br></pre></td></tr></table></figure><p>以上我们就完成了一个以requests发送请求，以html-testRunner生成report，unittest作为验证断言的api框架，（以上代码只为简略的演示。）</p><h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> reference</h1><p><a href="http://docs.python-requests.org/zh_CN/latest/" target="_blank" rel="noopener">http://docs.python-requests.org/zh_CN/latest/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
-&lt;p&gt;requests是python中热门的模块，它封装了python底层的库，并且更加容易使用。在python爬虫中非常常见的使用这个框架作为其请求
-      
-    
-    </summary>
-    
-      <category term="python模块" scheme="http://yoursite.com/categories/python%E6%A8%A1%E5%9D%97/"/>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>00-课程导学</title>
-    <link href="http://yoursite.com/2018/07/06/00-%E8%AF%BE%E7%A8%8B%E5%AF%BC%E5%AD%A6/"/>
-    <id>http://yoursite.com/2018/07/06/00-课程导学/</id>
-    <published>2018-07-05T16:04:08.000Z</published>
-    <updated>2018-07-05T16:05:00.951Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><p>这是一套来自慕课网的视频教程。记录一下学习过程。</p><h1 id="框架知识"><a class="markdownIt-Anchor" href="#框架知识"></a> 框架知识</h1><p>通过学习本课程，可学习到的知识</p><ol><li>学会使用整型，浮点型，路径型，字符型正则表达式路由转换器</li><li>学会使用post和get请求，上传文件，cookie，获取和响应，404请求</li><li>学会使用模板自动转义，定义过滤器，定义全局上下文处理器，jinja2语法，包含，继承，定义宏</li><li>学会使用flask-wtf定义表单模型，字段类型，字段验证，视图处理表单，模板使用表单</li><li>学会使用flask-sqlalchemy定义数据库模型，提那家数据，修改数据，查询数据，删除数据，数据库事件，数据迁移</li><li>学会使用蓝图优化项目结构，实现微电影网站前台和后台的逻辑</li><li>学会flask的部署方法，安装编译nginx服务，安装编译python3服务，安装mysql服务，通过nginx反向代理对视频流媒体限制下载速率，限制单个IP能发起的播放连接数</li></ol><h1 id="微内核"><a class="markdownIt-Anchor" href="#微内核"></a> 微内核</h1><ol><li>werkzug工具箱</li><li>pymysql</li><li>flask-sqlalchemy</li><li>wtforms</li><li>jinja2</li><li>flask-script</li><li>functools定义高阶函数</li></ol><h1 id="视频技术"><a class="markdownIt-Anchor" href="#视频技术"></a> 视频技术</h1><ol><li>jwplayer播放器插件</li><li>视频限速限IP访问</li><li>flv,mp4视频格式支持</li><li>nginx点播实现</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
-&lt;p&gt;这是一套来自慕课网的视频教程。记录一下学习过程。&lt;/p&gt;
-&lt;h1 id=&quot;框架知识&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; 
       
     
     </summary>
