@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/08/13/web_security/%E8%B6%8A%E6%9D%83%E6%A3%80%E6%B5%8B/</loc>
+    <lastmod>2018-08-13T15:50:18.447Z</lastmod>
+    <data>
+        <display>
+        <title>越权检测</title>
+        <pubTime>2018-08-13T15:49:49.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="web_security" url="http://yoursite.com/categories/web-security/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/08/13/web_security/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/</loc>
+    <lastmod>2018-08-13T15:49:31.104Z</lastmod>
+    <data>
+        <display>
+        <title>暴力破解</title>
+        <pubTime>2018-08-13T15:48:21.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="web_security" url="http://yoursite.com/categories/web-security/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/06/18/%E4%BC%81%E4%B8%9A%E5%AE%89%E5%85%A8%E5%BB%BA%E8%AE%BE%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/5-RASP%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2018-08-12T10:12:39.192Z</lastmod>
     <data>

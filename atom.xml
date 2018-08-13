@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-12T09:54:47.050Z</updated>
+  <updated>2018-08-13T15:50:18.447Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>越权检测</title>
+    <link href="http://yoursite.com/2018/08/13/web_security/%E8%B6%8A%E6%9D%83%E6%A3%80%E6%B5%8B/"/>
+    <id>http://yoursite.com/2018/08/13/web_security/越权检测/</id>
+    <published>2018-08-13T15:49:49.000Z</published>
+    <updated>2018-08-13T15:50:18.447Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="描述"><a class="markdownIt-Anchor" href="#描述"></a> 描述</h4><p>未授权访问漏洞，是在攻击者没有获取到登录权限或未授权的情况下，或者不需要输入密码，即可通过直接输入网站控制台主页面地址，或者不允许查看的链接便可进行访问，同时进行操作。</p><h4 id="检测"><a class="markdownIt-Anchor" href="#检测"></a> 检测</h4><ol><li>已知Web网站具有登录页面。或者具有不允许访问的目录或功能。</li><li>不用登录，可通过链接直接访问用户页面功能</li></ol><p>这里我们可以使用burp的sitemap 对比的功能，以下是操作过程</p><ol><li>首先，使用一个身份跟角色进行业务请求<br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/1.jpg" alt="image"></li><li>将之保存为state<br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/2.jpg" alt="image"></li><li>清除所有的请求，退出登录<br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/3.jpg" alt="image"></li><li>重新使用另外一个身份和角色登录<br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/4.jpg" alt="image"></li><li>对比两次请求的不同。<br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/5.jpg" alt="image"></li></ol><p>如果在关键的请求上，两者没有任何不同，那就说明，其实是存在越权或者未授权攻击的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#描述&quot;&gt;&lt;/a&gt; 描述&lt;/h4&gt;
+&lt;p&gt;未授权访问漏洞，是在攻击者没有获取到登录权限或未授权的情况下，或者不需要输入密码，即可通过直接输入网站控制台主页面地址，或者不允许查看的链接便可
+      
+    
+    </summary>
+    
+      <category term="web_security" scheme="http://yoursite.com/categories/web-security/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>暴力破解</title>
+    <link href="http://yoursite.com/2018/08/13/web_security/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/"/>
+    <id>http://yoursite.com/2018/08/13/web_security/暴力破解/</id>
+    <published>2018-08-13T15:48:21.000Z</published>
+    <updated>2018-08-13T15:49:31.104Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="漏洞描述"><a class="markdownIt-Anchor" href="#漏洞描述"></a> 漏洞描述</h4><p>暴力破解的基本思想是根据题目的部分条件确定答案的大致范围，并在此范围内对所有可能的情况逐一验证，直到全部情况验证完毕。若某个情况验证符合题目的全部条件，则为本问题的一个解；若全部情况验证后都不符合题目的全部条件，则本题无解。常常存在于网站的登录系统中，通过对已知的管理员用户名，进行对其登录口令的大量尝试。</p><h4 id="检测描述"><a class="markdownIt-Anchor" href="#检测描述"></a> 检测描述</h4><ol><li>已知Web网站具有登录页面。</li><li>登录页面无验证码，无锁定机制。。</li></ol><p>具体攻击可以使用burp的Intruder模块，此模块提供四种攻击方式：</p><ol><li>sniper</li></ol><blockquote><p>狙击手模式,一组poc依次替换，发动攻击对服务器进行暴力破解.<br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/bruteforce/sniper1.png" alt="image"></p></blockquote><ol start="2"><li>Battering ram</li></ol><blockquote><p>攻城锤模式，也是指定单一的POC，与sniper不同的是，它可以指定多个位置，使用单一的POC进行攻击。如下所示：<br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/bruteforce/battering.jpg" alt="image"></p></blockquote><ol start="3"><li>pitchfork</li></ol><blockquote><p>鱼叉攻击模式，假如有两个位置： 第一组使用的是A和B，第二组使用的就是C和D。如下所示：<br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/bruteforce/pitchfork.jpg" alt="image"></p></blockquote><ol start="4"><li>cluster</li></ol><blockquote><p>最后我们看一下炸弹攻击</p></blockquote><p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/bruteforce/boom.jpg" alt="image"></p><h4 id="修复方案"><a class="markdownIt-Anchor" href="#修复方案"></a> 修复方案</h4><ol><li>账户锁定</li><li>返回信息</li><li>页面跳转</li><li>延时登录</li><li>封锁IP</li><li>验证码</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;漏洞描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#漏洞描述&quot;&gt;&lt;/a&gt; 漏洞描述&lt;/h4&gt;
+&lt;p&gt;暴力破解的基本思想是根据题目的部分条件确定答案的大致范围，并在此范围内对所有可能的情况逐一验证，直到全部情况验证完毕。若某个情况验证
+      
+    
+    </summary>
+    
+      <category term="web_security" scheme="http://yoursite.com/categories/web-security/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>0x002-exploitdb</title>
@@ -489,57 +537,6 @@
         &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
 &lt;p&gt;学习一下python的装饰器函数。关于装饰器的定义，底层，肯定说得不如网上的文章好。这里就简单记录一下其使用。&lt;/p&gt;
 &lt;h1 id=&quot;需求&quot;&gt;
-      
-    
-    </summary>
-    
-      <category term="python模块" scheme="http://yoursite.com/categories/python%E6%A8%A1%E5%9D%97/"/>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自动化测试-ui自动化+docker</title>
-    <link href="http://yoursite.com/2018/07/19/test/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95-ui%E8%87%AA%E5%8A%A8%E5%8C%96-docker/"/>
-    <id>http://yoursite.com/2018/07/19/test/自动化测试-ui自动化-docker/</id>
-    <published>2018-07-19T15:54:54.000Z</published>
-    <updated>2018-08-12T10:09:56.149Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><p>在docker里面创建UI自动化测试平台</p><h1 id="搭建环境"><a class="markdownIt-Anchor" href="#搭建环境"></a> 搭建环境</h1><h2 id="安装docker"><a class="markdownIt-Anchor" href="#安装docker"></a> 安装docker</h2><p>详细见docker官方文档</p><h2 id="安装selenoid"><a class="markdownIt-Anchor" href="#安装selenoid"></a> 安装selenoid</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">docker pull aerokube/selenoid:latest-release</span><br><span class="line">mkdir -p /data/config</span><br><span class="line">vim /data/config/browsers.json</span><br><span class="line">---------------------------</span><br><span class="line">&#123;</span><br><span class="line">    &quot;firefox&quot;: &#123;</span><br><span class="line">        &quot;default&quot;: &quot;57.0&quot;,</span><br><span class="line">        &quot;versions&quot;: &#123;</span><br><span class="line">            &quot;57.0&quot;: &#123;</span><br><span class="line">                &quot;image&quot;: &quot;selenoid/vnc:firefox_57.0&quot;,</span><br><span class="line">                &quot;port&quot;: &quot;4444&quot;,</span><br><span class="line">                &quot;path&quot;: &quot;/wd/hub&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">---------------------------</span><br><span class="line"></span><br><span class="line">docker run -d       \</span><br><span class="line">--name selenoid   \</span><br><span class="line">-p 14444:4444     \</span><br><span class="line">-v /data/config:/etc/selenoid/:ro \</span><br><span class="line">-v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">aerokube/selenoid:latest-release</span><br></pre></td></tr></table></figure><p>注意：最好使用其他的端口转发4444端口。4444端口不是安全的，应该禁止掉。</p><h2 id="安装selenoid-ui"><a class="markdownIt-Anchor" href="#安装selenoid-ui"></a> 安装selenoid ui</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker pull aerokube/selenoid-ui</span><br><span class="line">如果selenoid是跟selenoid-ui安装在一起的话，那么需要查看selenoid的IP</span><br><span class="line">&gt;&gt;&gt; ifconfig | grep -E &quot;([0-9]&#123;1,3&#125;\.)&#123;3&#125;[0-9]&#123;1,3&#125;&quot; | grep -v 127.0.0.1 | awk &apos;&#123; print $2 &#125;&apos; | cut -f2 -d: | head -n1</span><br><span class="line">&gt;&gt;&gt; 172.17.0.1</span><br><span class="line">&gt;&gt;&gt; docker run -d --name selenoid-ui -p 8080:8080 aerokube/selenoid-ui --selenoid-uri http://172.17.0.1:14444</span><br></pre></td></tr></table></figure><h1 id="操作"><a class="markdownIt-Anchor" href="#操作"></a> 操作</h1><p>在本地写好脚本，用python撸了一个</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import selenium </span><br><span class="line">from selenium import webdriver</span><br><span class="line">        </span><br><span class="line">capabilities = &#123;</span><br><span class="line">    &quot;browserName&quot;: &quot;firefox&quot;,</span><br><span class="line">    &quot;version&quot;: &quot;57.0&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">driver = webdriver.Remote(</span><br><span class="line">    command_executor=&quot;http://192.168.31.236:4444/wd/hub&quot;,</span><br><span class="line">    desired_capabilities=capabilities)</span><br><span class="line"></span><br><span class="line">driver.get(&apos;https://www.baidu.com&apos;)</span><br><span class="line">print(driver.title)</span><br></pre></td></tr></table></figure><p>然后你就可以看到成功运行的样子<br><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/selenium/success.jpg" alt="image"></p><h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1><p>然后打开 <a href="http://yourip:8080" target="_blank" rel="noopener">http://yourip:8080</a> 就可以打开相应的webUI界面，在这里我们可以看到selenoid的使用方法，最后编写相应的脚本放上去跑就可以了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
-&lt;p&gt;在docker里面创建UI自动化测试平台&lt;/p&gt;
-&lt;h1 id=&quot;搭建环境&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href
-      
-    
-    </summary>
-    
-      <category term="测试" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>python模块-requests</title>
-    <link href="http://yoursite.com/2018/07/08/python/python%E6%A8%A1%E5%9D%97-requests/"/>
-    <id>http://yoursite.com/2018/07/08/python/python模块-requests/</id>
-    <published>2018-07-08T15:32:50.000Z</published>
-    <updated>2018-08-10T13:39:17.946Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><p>requests是python中热门的模块，它封装了python底层的库，并且更加容易使用。在python爬虫中非常常见的使用这个框架作为其请求的发送，这里记录其部分常见用法。</p><h1 id="requests"><a class="markdownIt-Anchor" href="#requests"></a> requests</h1><h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install reqeusts</span><br></pre></td></tr></table></figure><h2 id="简单使用"><a class="markdownIt-Anchor" href="#简单使用"></a> 简单使用</h2><h3 id="post请求"><a class="markdownIt-Anchor" href="#post请求"></a> POST请求</h3><h5 id="x-www-form-urlencode"><a class="markdownIt-Anchor" href="#x-www-form-urlencode"></a> x-www-form-urlencode</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data=&#123;</span><br><span class="line">&quot;xx&quot;:&quot;yy&quot;,</span><br><span class="line">&quot;aa&quot;:&quot;bb&quot;</span><br><span class="line">&#125;</span><br><span class="line">r = requests.post(&quot;http://www.posturl.com&quot;,data=data)</span><br></pre></td></tr></table></figure><h5 id="json"><a class="markdownIt-Anchor" href="#json"></a> json</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">json=&quot;&#123;&apos;type&apos;:&apos;post&apos;,&apos;age&apos;:123&#125;&quot;</span><br><span class="line">r = requests.post(url,data=json)</span><br></pre></td></tr></table></figure><h2 id="get"><a class="markdownIt-Anchor" href="#get"></a> GET</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">headers=&#123;</span><br><span class="line">&quot;user-agent&quot;:&apos;xxxx&apos;,</span><br><span class="line">&#125;</span><br><span class="line">r=requests.get(url,headers=headers)</span><br></pre></td></tr></table></figure><h1 id="高级使用"><a class="markdownIt-Anchor" href="#高级使用"></a> 高级使用</h1><h2 id="有时候某些场景会出现ssl错误我们需要禁用"><a class="markdownIt-Anchor" href="#有时候某些场景会出现ssl错误我们需要禁用"></a> 有时候某些场景会出现SSL错误，我们需要禁用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from urllib3.exceptions import InsecureRequestWarning</span><br><span class="line">requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)</span><br><span class="line"></span><br><span class="line">requests.api.request(&apos;post&apos;, url, data=&#123;&apos;bar&apos;:&apos;baz&apos;&#125;, json=None, verify=False)</span><br></pre></td></tr></table></figure><h2 id="我们需要session来保持网站的连接"><a class="markdownIt-Anchor" href="#我们需要session来保持网站的连接"></a> 我们需要session来保持网站的连接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session = requests.session()</span><br><span class="line">response = session.get(url)</span><br></pre></td></tr></table></figure><h2 id="上传文件模拟"><a class="markdownIt-Anchor" href="#上传文件模拟"></a> 上传文件模拟</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; url = &apos;http://httpbin.org/post&apos;</span><br><span class="line">&gt;&gt;&gt; files = &#123;&apos;file&apos;: (&apos;report.xls&apos;, open(&apos;report.xls&apos;, &apos;rb&apos;), &apos;application/vnd.ms-excel&apos;, &#123;&apos;Expires&apos;: &apos;0&apos;&#125;)&#125;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; r = requests.post(url, files=files)</span><br><span class="line">&gt;&gt;&gt; r.text</span><br></pre></td></tr></table></figure><h2 id="responsetext-和-responsecontent"><a class="markdownIt-Anchor" href="#responsetext-和-responsecontent"></a> response.text 和 response.content</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text是正常的字符流</span><br><span class="line">content是二进制的字节流，常用于图片的传输</span><br></pre></td></tr></table></figure><h1 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h1><p>结合unittest做API测试框架</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install html-testRunner</span><br><span class="line">pip install requests</span><br></pre></td></tr></table></figure><p>代码</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> HtmlTestRunner</span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestPyRequest</span><span class="params">(unittest.TestCase)</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></span><br><span class="line">    self.url = <span class="string">'https://api.douban.com'</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">test_douban_api</span><span class="params">(self)</span>:</span></span><br><span class="line">    r = requests.get(self.url+<span class="string">'/v2/movie/top250'</span>,verify=<span class="keyword">False</span>)</span><br><span class="line">    self.assertTrue(r.status_code,<span class="number">200</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">  unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output=<span class="string">'.'</span>))</span><br></pre></td></tr></table></figure><p>以上我们就完成了一个以requests发送请求，以html-testRunner生成report，unittest作为验证断言的api框架，（以上代码只为简略的演示。）</p><h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> reference</h1><p><a href="http://docs.python-requests.org/zh_CN/latest/" target="_blank" rel="noopener">http://docs.python-requests.org/zh_CN/latest/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
-&lt;p&gt;requests是python中热门的模块，它封装了python底层的库，并且更加容易使用。在python爬虫中非常常见的使用这个框架作为其请求
       
     
     </summary>
