@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/08/11/appium/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%954-%E5%AE%89%E8%A3%85apk/</loc>
+    <lastmod>2018-08-14T16:15:02.687Z</lastmod>
+    <data>
+        <display>
+        <title>移动端测试4-安装apk</title>
+        <pubTime>2018-08-11T15:29:51.000Z</pubTime>
+        
+        <tag>appium</tag>
+         
+         
+           
+             
+              <breadCrumb title="appium" url="http://yoursite.com/categories/appium/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/08/14/python/python%E5%AD%A6%E4%B9%A0-mixin%E7%B1%BB/</loc>
     <lastmod>2018-08-14T15:14:23.109Z</lastmod>
     <data>
@@ -457,26 +477,6 @@
            
              
               <breadCrumb title="测试" url="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/08/11/appium/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%954-%E5%AE%89%E8%A3%85apk/</loc>
-    <lastmod>2018-08-12T10:09:16.214Z</lastmod>
-    <data>
-        <display>
-        <title>移动端测试4-安装apk</title>
-        <pubTime>2018-08-11T15:29:51.000Z</pubTime>
-        
-        <tag>appium</tag>
-         
-         
-           
-             
-              <breadCrumb title="appium" url="http://yoursite.com/categories/appium/"/>
           
         </display>
     </data>
