@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>数据结构6-哈希表理论学习 | 打工</title>
+  <meta name="description" content="概述 哈希表是一种非常重要的数据结构，基于数组实现。有以下优点  可以快速的执行插入-删除-查找操作 速度比树还快，可以瞬间找到想要的元素  一些不足：  数据没有顺序，不能以固定规则遍历 key值不能重复  所以哈希表，其实就是数组的一种变形，数组以数字来标识下标，而哈希表以哈希函数得到的值做为下标。  场景  1家公司有10000个员工，如何存储信息，并且需要的时候，查找员工信息   使用数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构6-哈希表理论学习">
+<meta property="og:url" content="http://yoursite.com/2018/08/15/数据结构/数据结构6-哈希表理论学习/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概述 哈希表是一种非常重要的数据结构，基于数组实现。有以下优点  可以快速的执行插入-删除-查找操作 速度比树还快，可以瞬间找到想要的元素  一些不足：  数据没有顺序，不能以固定规则遍历 key值不能重复  所以哈希表，其实就是数组的一种变形，数组以数字来标识下标，而哈希表以哈希函数得到的值做为下标。  场景  1家公司有10000个员工，如何存储信息，并且需要的时候，查找员工信息   使用数">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/structs/%E5%93%88%E5%B8%8C%E9%93%BE%E5%9C%B0%E5%9D%80%E6%B3%95.jpg">
+<meta property="og:updated_time" content="2018-08-15T14:50:35.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构6-哈希表理论学习">
+<meta name="twitter:description" content="概述 哈希表是一种非常重要的数据结构，基于数组实现。有以下优点  可以快速的执行插入-删除-查找操作 速度比树还快，可以瞬间找到想要的元素  一些不足：  数据没有顺序，不能以固定规则遍历 key值不能重复  所以哈希表，其实就是数组的一种变形，数组以数字来标识下标，而哈希表以哈希函数得到的值做为下标。  场景  1家公司有10000个员工，如何存储信息，并且需要的时候，查找员工信息   使用数">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/structs/%E5%93%88%E5%B8%8C%E9%93%BE%E5%9C%B0%E5%9D%80%E6%B3%95.jpg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2018/08/15/数据结构/数据结构6-哈希表理论学习/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/thefifthman" target="_blank">
+          <img class="img-circle img-rotate" src="/images/1.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm"></h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> fujian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+     
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>Hello World</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Kali/">Kali</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-security/">Linux_security</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/appium/">appium</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flask/">flask</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/metasploit/">metasploit</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python模块/">python模块</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-security/">web_security</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/企业安全建设/">企业安全建设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试/">测试</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/appium/">appium</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csrf/">csrf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/">flask</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/metasploit/">metasploit</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xss/">xss</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件上传/">文件上传</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记1/">读书笔记1</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/逻辑漏洞/">逻辑漏洞</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux/" style="font-size: 13.86px;">Linux</a> <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/appium/" style="font-size: 13.57px;">appium</a> <a href="/tags/csrf/" style="font-size: 13px;">csrf</a> <a href="/tags/flask/" style="font-size: 13.71px;">flask</a> <a href="/tags/kali/" style="font-size: 13.14px;">kali</a> <a href="/tags/metasploit/" style="font-size: 13.14px;">metasploit</a> <a href="/tags/security/" style="font-size: 13.43px;">security</a> <a href="/tags/xss/" style="font-size: 13.29px;">xss</a> <a href="/tags/文件上传/" style="font-size: 13px;">文件上传</a> <a href="/tags/读书笔记1/" style="font-size: 13.57px;">读书笔记1</a> <a href="/tags/逻辑漏洞/" style="font-size: 13px;">逻辑漏洞</a>
+    </div>
+  </div>
+-->
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">29</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      <!--
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/数据结构/">数据结构</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/15/数据结构/数据结构6-哈希表理论学习/" class="title">数据结构6-哈希表理论学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-15T14:49:41.000Z" itemprop="datePublished">2018-08-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/数据结构/">数据结构</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/15/数据结构/数据结构5-集合/" class="title">数据结构5-集合</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-15T14:48:43.000Z" itemprop="datePublished">2018-08-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/appium/">appium</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/15/appium/移动端测试5-第一个自动化测试demo/" class="title">移动端测试5-第一个自动化测试demo</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-15T14:36:29.000Z" itemprop="datePublished">2018-08-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/python模块/">python模块</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/14/python/python学习-mixin类/" class="title">python学习-mixin类</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-14T15:13:37.000Z" itemprop="datePublished">2018-08-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/web-security/">web_security</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/08/14/web_security/Burp主动扫描/" class="title">Burp主动扫描</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-14T14:52:58.000Z" itemprop="datePublished">2018-08-14</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+-->
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-数据结构/数据结构6-哈希表理论学习" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据结构6-哈希表理论学习
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/08/15/数据结构/数据结构6-哈希表理论学习/" class="article-date">
+	  <time datetime="2018-08-15T14:49:41.000Z" itemprop="datePublished">2018-08-15</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/数据结构/">数据结构</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/08/15/数据结构/数据结构6-哈希表理论学习/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<p>哈希表是一种非常重要的数据结构，基于数组实现。有以下优点</p>
+<ol>
+<li>可以快速的执行插入-删除-查找操作</li>
+<li>速度比树还快，可以瞬间找到想要的元素</li>
+</ol>
+<p>一些不足：</p>
+<ol>
+<li>数据没有顺序，不能以固定规则遍历</li>
+<li>key值不能重复</li>
+</ol>
+<p>所以哈希表，其实就是数组的一种变形，数组以数字来标识下标，而哈希表以哈希函数得到的值做为下标。</p>
+<h1 id="场景"><a class="markdownIt-Anchor" href="#场景"></a> 场景</h1>
+<ol>
+<li>1家公司有10000个员工，如何存储信息，并且需要的时候，查找员工信息</li>
+</ol>
+<h4 id="使用数组"><a class="markdownIt-Anchor" href="#使用数组"></a> 使用数组</h4>
+<p>插入和删除需要比较大的消耗，查找只能通过其他标识，比如员工编号查找</p>
+<h4 id="使用链表"><a class="markdownIt-Anchor" href="#使用链表"></a> 使用链表</h4>
+<p>获取只能通过遍历查找，不现实</p>
+<h4 id="哈希表"><a class="markdownIt-Anchor" href="#哈希表"></a> 哈希表</h4>
+<p>将员工名进行哈希，做为下标，可以很容易实现查找</p>
+<h1 id="地址冲突"><a class="markdownIt-Anchor" href="#地址冲突"></a> 地址冲突</h1>
+<p>哈希表是通过将相关信息进行哈希函数，最后得到的值作为地址，存入数据。当要检索数据的时候，通过这个地址可以很快的检索出数据，存入数据的时候，也可以很快的得到地址，直接进行存入。但是会有一个问题，就是计算出来的哈希值地址是重复的。这个时候就要用到下面两个方法解决</p>
+<ol>
+<li>链地址法</li>
+<li>开放地址发</li>
+</ol>
+<h4 id="链地址法"><a class="markdownIt-Anchor" href="#链地址法"></a> 链地址法</h4>
+<p>如下图codewhy师父所说的，链地址法是一个常见解决冲突的方案，存储在地址上的不是单纯的一个元素，而是一个对象，一个链条，如果发现重复地址，就将元素接在链条后面，查询的时候，查出来的是一个链条，这个时候在通过链条间的遍历，查询数据，这个时候链条使用数组结构或者链表结构都差不多。因为都是遍历的操作。<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/structs/%E5%93%88%E5%B8%8C%E9%93%BE%E5%9C%B0%E5%9D%80%E6%B3%95.jpg" alt=""></p>
+<h4 id="开放地址法"><a class="markdownIt-Anchor" href="#开放地址法"></a> 开放地址法</h4>
+<p>因为开放地址法，效率并不如链地址法高，所以比较少用，做一下了解<br>
+主要有几种方式：</p>
+<ol>
+<li>线性探测： 如果这个地址有数据了，就index+1 查找没有元素的空白地址，进行插入。 容易造成元素聚集，影响性能</li>
+<li>二次探测： 如果这个地址有数据了，就index+1，index+2,index+3 进行探测，有空白地址就进行插入。同样还是会造成元素聚集</li>
+<li>再哈希法：采用另外的哈希函数进行地址的获取。</li>
+</ol>
+
+      
+    </div>
+   
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="uyan_frame"></div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/08/15/数据结构/数据结构5-集合/" title="数据结构5-集合"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+
+
+    
+    
+
+
+
+</body>
+</html>
