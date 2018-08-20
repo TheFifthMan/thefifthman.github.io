@@ -17,13 +17,13 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Burp主动扫描 | 打工</title>
-  <meta name="description" content="burp主动扫描  设置代理   浏览器设置代理   安装证书    运行业务流程进行流量捕捉   开始扫描">
+  <title>使用burp suite做测试 | 打工</title>
+  <meta name="description" content="写在前面 在testerhome里面貌似没有很多关于安全渗透测试的文章，在这里分享一下做安全测试的一些经历，首先说到web安全，burp suite是一个很重要的工具，可以说80%的黑客都在使用这个工具做渗透攻击。因此我们其实也可以借用这个工具做一些安全的初级扫描。不得不说，这是一款神器 。 这是神器的下载地址，来自吾爱破解 [密码:ucy8] 当然，希望大家如果有钱也可以支持一下正版。  主动">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Burp主动扫描">
-<meta property="og:url" content="http://yoursite.com/2018/08/14/web_security/Burp主动扫描/index.html">
+<meta property="og:title" content="使用burp suite做测试">
+<meta property="og:url" content="http://yoursite.com/2018/08/20/test/使用burp-suite做测试/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="burp主动扫描  设置代理   浏览器设置代理   安装证书    运行业务流程进行流量捕捉   开始扫描">
+<meta property="og:description" content="写在前面 在testerhome里面貌似没有很多关于安全渗透测试的文章，在这里分享一下做安全测试的一些经历，首先说到web安全，burp suite是一个很重要的工具，可以说80%的黑客都在使用这个工具做渗透攻击。因此我们其实也可以借用这个工具做一些安全的初级扫描。不得不说，这是一款神器 。 这是神器的下载地址，来自吾爱破解 [密码:ucy8] 当然，希望大家如果有钱也可以支持一下正版。  主动">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burp/p1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burp/p2.png">
@@ -33,13 +33,27 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burp/p6.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burp/p7.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burp/p8.png">
-<meta property="og:updated_time" content="2018-08-14T15:00:42.030Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burpandsqlmap1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burpandsqlmap2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/3.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/4.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/5.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/bruteforce/sniper1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/bruteforce/battering.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/bruteforce/pitchfork.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/bruteforce/boom.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/csrf/1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/csrf/2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/csrf/3.jpg">
+<meta property="og:updated_time" content="2018-08-20T12:50:13.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Burp主动扫描">
-<meta name="twitter:description" content="burp主动扫描  设置代理   浏览器设置代理   安装证书    运行业务流程进行流量捕捉   开始扫描">
+<meta name="twitter:title" content="使用burp suite做测试">
+<meta name="twitter:description" content="写在前面 在testerhome里面貌似没有很多关于安全渗透测试的文章，在这里分享一下做安全测试的一些经历，首先说到web安全，burp suite是一个很重要的工具，可以说80%的黑客都在使用这个工具做渗透攻击。因此我们其实也可以借用这个工具做一些安全的初级扫描。不得不说，这是一款神器 。 这是神器的下载地址，来自吾爱破解 [密码:ucy8] 当然，希望大家如果有钱也可以支持一下正版。  主动">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burp/p1.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2018/08/14/web_security/Burp主动扫描/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/08/20/test/使用burp-suite做测试/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -349,14 +363,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-web_security/Burp主动扫描" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-test/使用burp-suite做测试" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Burp主动扫描
+      使用burp suite做测试
     </h1>
   
 
@@ -364,27 +378,32 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/08/14/web_security/Burp主动扫描/" class="article-date">
-	  <time datetime="2018-08-14T14:52:58.000Z" itemprop="datePublished">2018-08-14</time>
+	<a href="/2018/08/20/test/使用burp-suite做测试/" class="article-date">
+	  <time datetime="2018-08-20T12:49:43.000Z" itemprop="datePublished">2018-08-20</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/web-security/">web_security</a>
+    <a class="article-category-link" href="/categories/测试/">测试</a>
   </span>
 
         
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/08/14/web_security/Burp主动扫描/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/08/20/test/使用burp-suite做测试/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h1 id="burp主动扫描"><a class="markdownIt-Anchor" href="#burp主动扫描"></a> burp主动扫描</h1>
+        <h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
+<p>在testerhome里面貌似没有很多关于安全渗透测试的文章，在这里分享一下做安全测试的一些经历，首先说到web安全，burp suite是一个很重要的工具，可以说80%的黑客都在使用这个工具做渗透攻击。因此我们其实也可以借用这个工具做一些安全的初级扫描。不得不说，这是一款神器<br>
+。<br>
+<a href="https://pan.baidu.com/s/1i68ztoL" target="_blank" rel="noopener">这是神器的下载地址，来自吾爱破解</a> [密码:ucy8]</p>
+<p>当然，希望大家如果有钱也可以支持一下正版。</p>
+<h1 id="主动扫描"><a class="markdownIt-Anchor" href="#主动扫描"></a> 主动扫描</h1>
 <h4 id="设置代理"><a class="markdownIt-Anchor" href="#设置代理"></a> 设置代理</h4>
 <p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burp/p1.png" alt="image"></p>
 <h4 id="浏览器设置代理"><a class="markdownIt-Anchor" href="#浏览器设置代理"></a> 浏览器设置代理</h4>
@@ -398,6 +417,89 @@
 <p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burp/p6.png" alt="image"><br>
 <img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burp/p7.png" alt="image"><br>
 <img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burp/p8.png" alt="image"></p>
+<h1 id="结合sqlmap进行sql注入测试"><a class="markdownIt-Anchor" href="#结合sqlmap进行sql注入测试"></a> 结合sqlmap进行sql注入测试</h1>
+<h4 id="将请求存为本地文件"><a class="markdownIt-Anchor" href="#将请求存为本地文件"></a> 将请求存为本地文件</h4>
+<p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burpandsqlmap1.png" alt="image"></p>
+<h4 id="sqlmap引入进行扫描"><a class="markdownIt-Anchor" href="#sqlmap引入进行扫描"></a> sqlmap引入进行扫描</h4>
+<p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/burpandsqlmap2.png" alt="image"></p>
+<h1 id="越权检测"><a class="markdownIt-Anchor" href="#越权检测"></a> 越权检测</h1>
+<h4 id="描述"><a class="markdownIt-Anchor" href="#描述"></a> 描述</h4>
+<p>未授权访问漏洞，是在攻击者没有获取到登录权限或未授权的情况下，或者不需要输入密码，即可通过直接输入网站控制台主页面地址，或者不允许查看的链接便可进行访问，同时进行操作。</p>
+<h4 id="检测点"><a class="markdownIt-Anchor" href="#检测点"></a> 检测点</h4>
+<ol>
+<li>已知Web网站具有登录页面。或者具有不允许访问的目录或功能。</li>
+<li>不用登录，可通过链接直接访问用户页面功能</li>
+</ol>
+<p>这里我们可以使用burp的sitemap 对比的功能，以下是操作过程</p>
+<ol>
+<li>首先，使用一个身份跟角色进行业务请求<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/1.jpg" alt="image"></li>
+<li>将之保存为state<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/2.jpg" alt="image"></li>
+<li>清除所有的请求，退出登录<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/3.jpg" alt="image"></li>
+<li>重新使用另外一个身份和角色登录<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/4.jpg" alt="image"></li>
+<li>对比两次请求的不同。<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/sitemap/5.jpg" alt="image"></li>
+</ol>
+<h1 id="暴力破解"><a class="markdownIt-Anchor" href="#暴力破解"></a> 暴力破解</h1>
+<h4 id="漏洞描述"><a class="markdownIt-Anchor" href="#漏洞描述"></a> 漏洞描述</h4>
+<p>暴力破解的基本思想是根据题目的部分条件确定答案的大致范围，并在此范围内对所有可能的情况逐一验证，直到全部情况验证完毕。若某个情况验证符合题目的全部条件，则为本问题的一个解；若全部情况验证后都不符合题目的全部条件，则本题无解。常常存在于网站的登录系统中，通过对已知的管理员用户名，进行对其登录口令的大量尝试。</p>
+<h4 id="检测描述"><a class="markdownIt-Anchor" href="#检测描述"></a> 检测描述</h4>
+<ol>
+<li>已知Web网站具有登录页面。</li>
+<li>登录页面无验证码，无锁定机制。。</li>
+</ol>
+<p>具体攻击可以使用burp的Intruder模块，此模块提供四种攻击方式：</p>
+<ol>
+<li>sniper</li>
+</ol>
+<blockquote>
+<p>狙击手模式,一组poc依次替换，发动攻击对服务器进行暴力破解.<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/bruteforce/sniper1.png" alt="image"></p>
+</blockquote>
+<ol start="2">
+<li>Battering ram</li>
+</ol>
+<blockquote>
+<p>攻城锤模式，也是指定单一的POC，与sniper不同的是，它可以指定多个位置，使用单一的POC进行攻击。如下所示：<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/bruteforce/battering.jpg" alt="image"></p>
+</blockquote>
+<ol start="3">
+<li>pitchfork</li>
+</ol>
+<blockquote>
+<p>鱼叉攻击模式，假如有两个位置： 第一组使用的是A和B，第二组使用的就是C和D。如下所示：<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/bruteforce/pitchfork.jpg" alt="image"></p>
+</blockquote>
+<ol start="4">
+<li>cluster</li>
+</ol>
+<blockquote>
+<p>最后我们看一下炸弹攻击</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/bruteforce/boom.jpg" alt="image"></p>
+<h1 id="csrf攻击"><a class="markdownIt-Anchor" href="#csrf攻击"></a> CSRF攻击</h1>
+<p><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)" target="_blank" rel="noopener">什么是csrf攻击</a></p>
+<h4 id="检测描述-2"><a class="markdownIt-Anchor" href="#检测描述-2"></a> 检测描述</h4>
+<ol>
+<li>
+<p>首先我们使用已经捉到链接，生成POC<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/csrf/1.jpg" alt="image"></p>
+</li>
+<li>
+<p>将POC复制写入一个html文件<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/csrf/2.jpg" alt="image"></p>
+</li>
+<li>
+<p>打开html<br>
+<img src="https://raw.githubusercontent.com/TheFifthMan/postimages/master/burpsuite/csrf/3.jpg" alt="image"></p>
+</li>
+</ol>
+<p>我们可以看到一个submit request的请求，如果点击这个请求触发了跳转或者服务器端的数据发生了变化，那就说明我们的服务存在csrf攻击。当然实际攻击情况不会是这么白痴，黑客至少会用几个iframe框住请求，让页面不会进行跳转。做到神不知鬼不觉。但我们只是测试，简单就好。</p>
+<h1 id="写在后面"><a class="markdownIt-Anchor" href="#写在后面"></a> 写在后面</h1>
+<p>不知不觉又写了长篇大论，个人认为安全应该是一件全公司的大事，希望大家都能够有所进步。</p>
 
       
     </div>
@@ -422,13 +524,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2018/08/14/python/python学习-mixin类/" title="python学习-mixin类"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2018/08/14/数据结构/数据结构4-链表/" title="数据结构4-链表"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/08/18/test/前端测试平台搭建-使用selenoid-codeceptjs搭建UI自动化测试平台/" title="前端测试平台搭建-使用selenoid+codeceptjs搭建UI自动化测试平台"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
